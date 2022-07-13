@@ -7,6 +7,7 @@ import Search from "./pages/Search";
 import SignUp from "./pages/SignUp";
 import TopMenu from "./Layout/TopMenu";
 import Record from "./pages/Record";
+import Friends from "./pages/Friends";
 import app from "./firebase.js";
 import db from "./firestore.js";
 import {
@@ -61,6 +62,11 @@ function App() {
                   <TopMenu isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
                   <Record/>
               </>)} />
+          <Route exact path="/friends" render={()=>(
+          <>
+              <TopMenu isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+              <Friends/>
+          </>)} />              
       </BrowserRouter>
     </div>
   );

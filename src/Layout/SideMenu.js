@@ -4,7 +4,8 @@ const menuList = [
     { ref: '', label: '🏠　홈'},
     { ref: 'search', label:'🔍　친구 검색하기'},
     { ref: 'search', label:'🔍　그룹 검색하기'},
-    { ref: 'record', label:'📈　분석하기'}
+    { ref: 'record', label:'📈　분석하기'},
+    { ref: 'friends', label:'🧾　친구 리스트'}
 ];
 
 const SideMenu = ({ activeMenu, setActiveMenu }) => {
