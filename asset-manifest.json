@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/2022-DCom-Front/static/css/main.bc7bf3b8.css",
+    "main.js": "/2022-DCom-Front/static/js/main.e3e27e9f.js",
+    "index.html": "/2022-DCom-Front/index.html",
+    "main.bc7bf3b8.css.map": "/2022-DCom-Front/static/css/main.bc7bf3b8.css.map",
+    "main.e3e27e9f.js.map": "/2022-DCom-Front/static/js/main.e3e27e9f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bc7bf3b8.css",
+    "static/js/main.e3e27e9f.js"
+  ]
+}
