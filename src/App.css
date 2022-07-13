@@ -398,6 +398,42 @@ a {
   padding: 0.5vw;
 }
 
+.content .groupList-header {
+  color: #ececec;
+  font-size: 3vw;
+  margin: 3vw;
+}
+.content .box-content {
+  padding: 2vw;
+  border-bottom: 3px solid gray;
+}
+.content .group-name {
+  color: rgb(244, 185, 178);
+  font-size: 2vw;
+  margin: 2vw;
+}
+.content .list-line {
+  padding-bottom: 4vw;
+  border-bottom: 4px solid #a4a29d;
+  margin: 4vw;
+}
+.content .out {
+  margin-top: 1vw;
+  display: flex;
+  justify-content: right;
+}
+.content .new-group {
+  display: flex;
+  justify-content: right;
+}
+.content .groups-btn {
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #ececec;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
   .content {
     padding-top: calc(62px + 6vw);
