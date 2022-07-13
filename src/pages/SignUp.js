@@ -1,23 +1,23 @@
-import React, { useRef } from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { useHistory } from "react-router-dom";
+import React, { useRef } from 'react'
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import { useHistory } from 'react-router-dom'
 
 const SignUp = () => {
-  const history = useHistory();
-  const idRef = useRef();
-  const pwRef = useRef();
+  const history = useHistory()
+  const idRef = useRef()
+  const pwRef = useRef()
 
   const onSignUp = () => {
-    if (idRef.current.value === "") {
-      alert("아이디를 입력하세요.");
-      return;
+    if (idRef.current.value === '') {
+      alert('아이디를 입력하세요.')
+      return
     }
 
-    if (pwRef.current.value === "") {
-      alert("비밀번호를 입력하세요.");
-      return;
+    if (pwRef.current.value === '') {
+      alert('비밀번호를 입력하세요.')
+      return
     }
-    const auth = getAuth();
+    const auth = getAuth()
     createUserWithEmailAndPassword(
       auth,
       idRef.current.value,
@@ -25,25 +25,25 @@ const SignUp = () => {
     )
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
+        const user = userCredential.user
         // ...
-        history.replace("/");
+        history.replace('/')
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        const errorCode = error.code
+        const errorMessage = error.message
         // ..
-        if (error.code === "auth/invalid-email") {
-          alert("유효하지 않은 이메일입니다.");
+        if (error.code === 'auth/invalid-email') {
+          alert('유효하지 않은 이메일입니다.')
         }
-      });
-  };
+      })
+  }
 
   const onPressEnter = (e) => {
-    if (e.key == "Enter") {
-      onSignUp();
+    if (e.key == 'Enter') {
+      onSignUp()
     }
-  };
+  }
 
   return (
     <div className="SignUpPage">
@@ -63,7 +63,7 @@ const SignUp = () => {
 
         <input
           placeholder="영문+숫자 조합"
-          type={"password"}
+          type={'password'}
           ref={pwRef}
           onKeyPress={onPressEnter}
         ></input>
@@ -72,7 +72,7 @@ const SignUp = () => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SignUp;
+export default SignUp

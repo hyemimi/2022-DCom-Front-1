@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import SideMenu from "../Layout/SideMenu.js";
-import { Link } from "react-router-dom";
+import React, { useEffect } from 'react'
+import SideMenu from '../Layout/SideMenu.js'
+import { Link } from 'react-router-dom'
 
 const Main = ({ activeMenu, setActiveMenu }) => {
   useEffect(() => {
-    setActiveMenu("home");
-  }, []);
+    setActiveMenu('home')
+  }, [])
 
   return (
     <>
@@ -14,8 +14,8 @@ const Main = ({ activeMenu, setActiveMenu }) => {
         <div className="MainPage">
           <div>
             <h1>
-              Welcome to{" "}
-              <a style={{ color: "#ffc83d", fontSize: "min(6vw, 40px)" }}>
+              Welcome to{' '}
+              <a style={{ color: '#ffc83d', fontSize: 'min(6vw, 40px)' }}>
                 DCOM STUDY!
               </a>
             </h1>
@@ -28,7 +28,7 @@ const Main = ({ activeMenu, setActiveMenu }) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Main;
+export default Main

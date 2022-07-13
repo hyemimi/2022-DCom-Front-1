@@ -1,32 +1,31 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Route } from "react-router-dom";
-import "./App.css";
-import Main from "./pages/Main.js";
-import Login from "./pages/Login.js";
-import Search from "./pages/Search";
-import SignUp from "./pages/SignUp";
-import TopMenu from "./Layout/TopMenu";
-import Record from "./pages/Record";
-import Friends from "./pages/Friends";
-import app from "./firebase.js";
-import db from "./firestore.js";
+import React, { useState, useRef, useEffect } from 'react'
+import { Route, BrowserRouter } from 'react-router-dom'
+import './App.css'
+import Main from './pages/Main.js'
+import Login from './pages/Login.js'
+import Search from './pages/Search'
+import SignUp from './pages/SignUp'
+import TopMenu from './Layout/TopMenu'
+import Record from './pages/Record'
+import Friends from './pages/Friends'
+import app from './firebase.js'
+import db from './firestore.js'
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
-} from "firebase/auth";
-import { BrowserRouter } from "react-router-dom";
+  onAuthStateChanged
+} from 'firebase/auth'
 
-function App() {
+function App () {
   useEffect(() => {
-  }, []);
+  }, [])
 
-  const [data, setData] = useState([]);
-  const [activeMenu, setActiveMenu] = useState("home");
+  const [data, setData] = useState([])
+  const [activeMenu, setActiveMenu] = useState('home')
 
   // firebase
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   return (
     <div className="App">
@@ -57,19 +56,19 @@ function App() {
             </>
           )}
         />
-          <Route exact path="/record" render={()=>(
+          <Route exact path="/record" render={() => (
               <>
                   <TopMenu isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
                   <Record/>
               </>)} />
-          <Route exact path="/friends" render={()=>(
+          <Route exact path="/friends" render={() => (
           <>
               <TopMenu isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
               <Friends/>
-          </>)} />              
+          </>)} />
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

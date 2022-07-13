@@ -1,24 +1,24 @@
-import React, { useEffect, useState, useRef } from "react";
-import SideMenu from "../Layout/SideMenu";
+import React, { useEffect, useState, useRef } from 'react'
+import SideMenu from '../Layout/SideMenu'
 
 const Search = ({ activeMenu, setActiveMenu, postList, onEdit }) => {
   useEffect(() => {
-    setActiveMenu("search");
-  }, []);
+    setActiveMenu('search')
+  }, [])
 
-  const textBox = useRef();
-  const [searchText, setSearchText] = useState(null);
+  const textBox = useRef()
+  const [searchText, setSearchText] = useState(null)
 
   const onSearch = () => {
-    setSearchText(textBox.current.value);
-    console.log(textBox.current.value);
-  };
+    setSearchText(textBox.current.value)
+    console.log(textBox.current.value)
+  }
 
   const onPressEnter = (e) => {
-    if (e.key == "Enter") {
-      onSearch();
+    if (e.key == 'Enter') {
+      onSearch()
     }
-  };
+  }
 
   return (
     <>
@@ -39,7 +39,7 @@ const Search = ({ activeMenu, setActiveMenu, postList, onEdit }) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Search;
+export default Search
