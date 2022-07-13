@@ -1,0 +1,978 @@
+/* init */
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  color: rgb(247, 247, 247);
+  background-color: rgb(39, 39, 39);
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+.App {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(39, 39, 39);
+}
+
+/* SideMenu */
+.SideMenu {
+  margin-top: 62px;
+  padding-top: 26px;
+  left: 0px;
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  background-color: #2f2f2f;
+  overflow: scroll;
+  border-right: 1px solid rgb(55, 55, 55);
+  /* -ms-overflow-style: none; */
+  /* border: solid 1px white; */
+}
+@media screen and (max-width: 768px) {
+  .SideMenu {
+    display: none;
+  }
+}
+
+.SideMenu::-webkit-scrollbar {
+  border-radius: 4px;
+  height: 88px;
+  width: 8px;
+}
+
+.SideMenu::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 10px;
+}
+
+.SideMenu:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.SideMenu button {
+  font-size: 14px;
+  width: 210px;
+  padding: 8px;
+  margin: auto;
+  text-align: left;
+  color: rgb(218, 218, 218);
+  background-color: rgb(48, 48, 48);
+  border-radius: 10px;
+  display: block;
+  border: 0px;
+  cursor: pointer;
+  transition-duration: 100ms;
+}
+.SideMenu button:hover {
+  color: rgb(254, 254, 254);
+  background-color: rgb(63, 63, 63);
+  transition-duration: 100ms;
+}
+.SideMenu .on {
+  color: rgb(254, 254, 254);
+  background-color: rgb(63, 63, 63);
+}
+
+.category {
+  font-size: 12px;
+  color: rgb(134, 134, 134);
+  text-align: left;
+  margin-left: 26px;
+  margin-top: 20px;
+  margin-bottom: 2px;
+  background-color: rgb(48, 48, 48);
+}
+
+.copyright {
+  padding-top: 60px;
+  padding-bottom: 20px;
+  font-size: 8px;
+  background-color: rgb(48, 48, 48);
+  color: rgb(134, 134, 134);
+}
+
+/* TopMenu */
+.TopMenu {
+  z-index: 1;
+  top: 0px;
+  width: 100vw;
+  height: 62px;
+  position: fixed;
+  background-color: #2f2f2f;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgb(55, 55, 55);
+}
+
+.TopMenu .logo {
+  width: 128px;
+  height: 34px;
+  margin-top: 14px;
+  margin-left: 30px;
+  margin-bottom: 13px;
+  font-size: 22px;
+  text-align: left;
+  cursor: pointer;
+  float: left;
+  font-weight: 500;
+  background-color: transparent;
+}
+
+.TopMenu .loginBtn {
+  padding: 5px 16px 5px 16px;
+  margin-top: 16px;
+  margin-right: 30px;
+  color: rgb(7, 7, 7);
+  font-size: 14px;
+  float: right;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 1.2px solid rgb(7, 7, 7);
+  font-weight: 600;
+  background-color: rgb(255, 255, 255);
+  transition-duration: 200ms;
+}
+.TopMenu .hamburgerBtn {
+  display: none;
+}
+
+.mobileCopyright {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .TopMenu .loginBtn {
+    /* visibility: hidden; */
+    display: none;
+  }
+  .TopMenu .hamburgerBtn {
+    margin-top: 5px;
+    color: white;
+    font-size: 32px;
+    float: right;
+    cursor: pointer;
+    border: none;
+    font-weight: 500;
+    background-color: transparent;
+    transition-duration: 100ms;
+    display: block;
+    margin-right: 24px;
+  }
+
+  .mobileCopyright {
+    display: block;
+    padding-top: 24vh;
+    font-size: 8px;
+    background-color: transparent;
+    color: rgb(134, 134, 134);
+  }
+}
+
+.TopMenu .loginBtn:hover {
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1.2px solid white;
+  transition-duration: 200ms;
+}
+/* .TopMenu .loginBtn: */
+
+.MainPage {
+}
+
+.MainPage h1 {
+  font-size: 1.5vw;
+  /* font-size: 48px; */
+  font-weight: 400;
+  text-align: center;
+}
+
+.MainPage h2 {
+  font-size: 3vw;
+  /* font-size: 100px; */
+  margin-top: 18vh;
+  margin-bottom: 7vh;
+}
+
+.line {
+  border-top: 1px solid rgb(66, 66, 66);
+  margin-top: 2vh;
+  margin-bottom: 20px;
+}
+
+.MainPage button {
+  padding: 0.5vw 1.4vw 0.5vw 1.4vw;
+  margin-top: 7vh;
+  color: rgb(7, 7, 7);
+  font-size: 1vw;
+  border-radius: 3vw;
+  cursor: pointer;
+  border: 1.2px solid rgb(7, 7, 7);
+  font-weight: 600;
+  background-color: rgb(255, 255, 255);
+  transition-duration: 200ms;
+}
+
+.MainPage button:hover {
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1.2px solid white;
+  transition-duration: 200ms;
+}
+
+.MainPage h3 {
+  color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+  margin-top: 0.6vw;
+  font-size: 0.6vw;
+  font-weight: normal;
+}
+
+.TopMenu .isMenuOn,
+.TopMenu .isMenuOff {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .MainPage h1 {
+    font-size: 5vw;
+  }
+
+  .MainPage button {
+    padding: 10px 20px 10px 20px;
+    margin-top: 7vh;
+    color: rgb(7, 7, 7);
+    font-size: 4vw;
+    border-radius: 8vw;
+    border: 1.2px solid rgb(7, 7, 7);
+    font-weight: 600;
+    background-color: rgb(255, 255, 255);
+    transition-duration: 100ms;
+  }
+
+  .MainPage h3 {
+    color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    margin-top: 3vw;
+    font-size: 3vw;
+    font-weight: normal;
+  }
+
+  .MainPage h2 {
+    font-size: 300%;
+    /* font-size: 100px; */
+    margin-top: 7vh;
+    margin-bottom: 7vh;
+  }
+
+  .TopMenu .isMenuOn,
+  .TopMenu .isMenuOff {
+    display: block;
+    width: 100vw;
+    background-color: transparent;
+    margin-bottom: 10px;
+    overflow-y: scroll;
+    height: 100vh;
+  }
+
+  .TopMenu .NavBar {
+    position: relative;
+    z-index: 0;
+    width: 100vw;
+    height: 62px;
+    background-color: #2f2f2f;
+    border-bottom: 1px solid rgb(55, 55, 55);
+  }
+
+  .TopMenu .isMenuOn {
+    position: relative;
+    transform: translate(0px, 0px);
+    transition-duration: 300ms;
+    z-index: -1;
+  }
+  .TopMenu .isMenuOff {
+    position: relative;
+    transform: translate(0px, -1000px);
+    transition-duration: 500ms;
+    z-index: -1;
+  }
+
+  .TopMenu .isMenuOn button,
+  .TopMenu .isMenuOff button {
+    width: 100%;
+    height: 50px;
+    margin-bottom: -1px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid rgb(55, 55, 55);
+    font-size: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all 100ms;
+  }
+}
+
+.content {
+  padding-top: calc(62px + 5vh);
+  padding-left: calc(250px + 40px);
+  padding-bottom: 100px;
+  padding-right: 40px;
+}
+
+.content .title {
+  font-size: 1.5vw;
+  font-weight: 400;
+  text-align: left;
+}
+
+.content a {
+  font-size: 0.9vw;
+  margin-left: 0.5vw;
+  color: rgb(163, 163, 163);
+}
+
+.submit {
+  float: right;
+  margin-right: 0px;
+  font-size: min(1.1vw, 14px);
+  font-weight: 400;
+  padding: min(0.5vw, 6px) min(1.4vw, 20px) min(0.5vw, 6px) min(1.4vw, 20px);
+  border-radius: 10px;
+  color: white;
+  background-color: rgb(0, 0, 0, 0);
+  border: 1px solid rgb(187, 187, 187);
+  transition-duration: 200ms;
+  cursor: pointer;
+}
+
+.submit:hover {
+  background-color: white;
+  color: rgb(7, 7, 7);
+}
+
+.content textarea {
+  width: 100%;
+  height: 13vh;
+  resize: none;
+  border-radius: 10px;
+  font-size: min(1.2vw, 14px);
+  padding: 0.7vw;
+  font-weight: 200;
+  outline-width: 1px;
+  box-sizing: border-box;
+  border: 1px solid rgb(187, 187, 187);
+  background-color: rgb(48, 48, 48);
+  letter-spacing: 0.4px;
+  line-height: 2.4vh;
+  text-decoration: none;
+  margin-bottom: 0.8vh;
+}
+
+.content textarea::-webkit-scrollbar {
+  transform-style: 2px;
+  border-radius: 4px;
+  height: 88px;
+  width: 8px;
+}
+
+.content textarea::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 10px;
+}
+
+.content textarea:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.letters {
+  float: left;
+  font-size: min(14px, 1.1vw);
+  color: rgb(187, 187, 187);
+  padding: 0.5vw;
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    padding-top: calc(62px + 6vw);
+    padding-left: 10px;
+    padding-bottom: 100px;
+    padding-right: 10px;
+  }
+
+  .content .title {
+    font-size: 5vw;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .content a {
+    font-size: 3vw;
+    margin-left: 1.5vw;
+    color: rgb(163, 163, 163);
+  }
+
+  .content textarea {
+    width: 100%;
+    height: 20vw;
+    resize: none;
+    border-radius: 10px;
+    font-size: 4vw;
+    padding: 2vw;
+    font-weight: 200;
+    outline-width: 1px;
+    box-sizing: border-box;
+    border: 1px solid rgb(187, 187, 187);
+    background-color: rgb(48, 48, 48);
+    letter-spacing: 0.4px;
+    line-height: 2.4vh;
+    text-decoration: none;
+    margin-bottom: 3vw;
+  }
+
+  .submit {
+    float: right;
+    margin-right: 0px;
+    font-size: 4vw;
+    font-weight: 400;
+    padding: 2vw 4vw 2vw 4vw;
+    border-radius: 10px;
+    color: rgb(7, 7, 7);
+    background-color: rgb(218, 218, 218);
+    border: none;
+    cursor: pointer;
+  }
+
+  .letters {
+    float: left;
+    font-size: 4vw;
+    color: rgb(187, 187, 187);
+    padding: 2vw;
+  }
+
+  html {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  html::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
+}
+
+.PostList {
+  /* margin-top: 5vw; */
+}
+
+.PostItem {
+  box-sizing: border-box;
+  margin-bottom: 3.6vh;
+  text-align: left;
+  /* height: 20vh; */
+  resize: none;
+  border-radius: 10px;
+  padding: 1.2vw;
+  font-weight: 300;
+  outline: none;
+  box-sizing: border-box;
+  border: 1px solid rgb(66, 66, 66);
+  letter-spacing: 0.4px;
+  line-height: max(2.4vh, 24px);
+  word-break: break-all;
+}
+
+.PostItem * {
+  font-size: min(1.2vw, 14px);
+  color: rgb(218, 218, 218);
+}
+
+.PostItem .info {
+  font-weight: 600;
+}
+
+.PostItem .date {
+  float: right;
+}
+
+.PostItem .emotion {
+  text-align: right;
+  margin-top: 1vw;
+}
+
+.PostItem .emotion button {
+  font-size: min(14px, 1.6vw);
+  padding: 0.2vw 0.6vw 0.2vw 0.6vw;
+  margin-left: 0.5vw;
+  border-radius: 10px;
+  border: 1px solid rgb(66, 66, 66);
+  cursor: pointer;
+  transition: 200ms;
+}
+
+.PostItem .emotion button:hover {
+  background-color: white;
+  transition: 200ms;
+  color: rgb(7, 7, 7);
+}
+
+.writeForm {
+  margin-bottom: max(5vw, 40px);
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+  .PostItem {
+    box-sizing: border-box;
+    margin-bottom: 5vw;
+    text-align: left;
+    /* height: 20vh; */
+    resize: none;
+    border-radius: 10px;
+    padding: 5vw;
+    font-weight: 300;
+    outline: none;
+    box-sizing: border-box;
+    border: 1px solid rgb(66, 66, 66);
+    letter-spacing: 0.4px;
+    line-height: max(2.4vh, 24px);
+    word-break: break-all;
+  }
+
+  .PostItem * {
+    font-size: 4vw;
+    color: rgb(218, 218, 218);
+  }
+
+  .PostItem .info {
+    font-weight: 500;
+  }
+
+  .PostItem .emotion {
+    text-align: left;
+    margin-top: 4vw;
+    overflow: visible;
+  }
+
+  .PostItem .emotion button,
+  .PostItem .emotion button {
+    font-size: 4vw;
+    padding: 0.2vw 1vw 0.7vw 1vw;
+    border-radius: 10px;
+    border: 1px solid rgb(66, 66, 66);
+    margin-bottom: 1vw;
+  }
+
+  .writeForm {
+    margin-bottom: 14.5vw;
+    box-sizing: border-box;
+  }
+}
+
+.searchBox {
+  text-align: left;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.searchBox input {
+  width: 40%;
+  margin-left: 0px;
+  border-radius: 10px;
+  font-size: min(1.2vw, 14px);
+  font-weight: 200;
+  outline-width: 1px;
+  border: 1px solid rgb(187, 187, 187);
+  background-color: #2f2f2f;
+  letter-spacing: 0.4px;
+  line-height: 2.4vh;
+  text-decoration: none;
+  margin-bottom: 2vh;
+  box-sizing: border-box;
+  padding: 1vh 2vh 1vh 2vh;
+}
+
+.searchBtn {
+  cursor: pointer;
+  position: relative;
+  left: -30px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: max(1.4vw, 14px);
+}
+
+.PostList .resultInfo {
+  font-size: 0.9vw;
+  text-align: left;
+  color: rgb(163, 163, 163);
+}
+
+.PostList .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.PostList .container button {
+  height: 10vw;
+  width: 20vw;
+  font-size: min(1.2vw, 14px);
+  border-radius: 1.5vw;
+  border: 2px solid transparent;
+  background-image: linear-gradient(#2f2f2f, #2f2f2f),
+    linear-gradient(to right, #ffc83d50, #f03a1750);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  margin-bottom: 2vw;
+  cursor: pointer;
+}
+
+.PostList .container button:hover {
+  background-image: linear-gradient(#2e2e2e, #2e2e2e),
+    linear-gradient(to right, #ffc83d99, #f03a1799);
+}
+
+.PostList .container button a {
+  display: inline-block;
+  margin-bottom: 0.4vw;
+  font-size: min(2.4vw, 28px);
+  background-color: #2e2e2e;
+}
+
+.PostList .boardInfo {
+  font-size: 1.2vw;
+  text-align: center;
+  color: rgb(247, 247, 247);
+  margin-bottom: 2vw;
+}
+
+.LoginPage {
+}
+
+.LoginPage .box {
+  background-color: rgb(48, 48, 48);
+  border: 1px solid rgb(55, 55, 55);
+  width: 26vw;
+  margin: 10vh auto;
+}
+
+.LoginPage .logo {
+  font-weight: 500;
+  cursor: pointer;
+  font-size: max(16px, 1.9vw);
+  margin: 2vw auto 3vw auto;
+  background-color: rgb(48, 48, 48);
+}
+
+.LoginPage .box input {
+  width: 20vw;
+  height: 2.5vw;
+  margin: auto;
+  border-radius: 10px;
+  font-size: min(1.2vw, 14px);
+  font-weight: 200;
+  outline-width: 1px;
+  border: 1px solid rgb(187, 187, 187);
+  background-color: rgb(48, 48, 48);
+  letter-spacing: 0.4px;
+  line-height: 2.4vh;
+  text-decoration: none;
+  margin-bottom: 2vh;
+  box-sizing: border-box;
+  padding: 0px 2vh 0px 2vh;
+  display: block;
+}
+
+.LoginPage .box .loginBtn {
+  width: 20vw;
+  height: 2.5vw;
+  margin: auto;
+  border-radius: 10px;
+  font-size: min(1.2vw, 14px);
+  font-weight: 500;
+  outline-width: 1px;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  letter-spacing: 0.4px;
+  line-height: 2.4vh;
+  margin-bottom: 1vh;
+  margin-top: 0px;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: rgb(7, 7, 7);
+  display: block;
+}
+
+.LoginPage .box .findAccount {
+  font-size: min(0.8vw, 12px);
+  font-weight: 400;
+  display: block;
+  text-align: right;
+  margin-right: 3.1vw;
+  background-color: rgb(48, 48, 48);
+  cursor: pointer;
+  color: rgb(187, 187, 187);
+}
+
+.LoginPage .box .signUp {
+  font-size: min(1.2vw, 14px);
+  padding-top: 2vw;
+  padding-bottom: 2vw;
+  background-color: rgb(48, 48, 48);
+  color: rgb(187, 187, 187);
+}
+
+.LoginPage .box .signUp a {
+  background-color: rgb(48, 48, 48);
+  font-size: min(1.2vw, 14px);
+  color: #ffc83d;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 0.3vw;
+}
+
+@media screen and (max-width: 768px) {
+  .LoginPage .box {
+    background-color: transparent;
+    border: none;
+    width: 100vw;
+    margin: 13vw 0 0 0;
+  }
+
+  .LoginPage .logo {
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 10vw;
+    margin: 0 auto 8vw auto;
+    background-color: transparent;
+  }
+
+  .LoginPage .box input {
+    width: 80vw;
+    height: 10vw;
+    margin: auto;
+    border-radius: 10px;
+    font-size: 4vw;
+    font-weight: 200;
+    outline-width: 1px;
+    border: 1px solid rgb(187, 187, 187);
+    background-color: rgb(48, 48, 48);
+    letter-spacing: 0.4px;
+    text-decoration: none;
+    margin-bottom: 3vh;
+    box-sizing: border-box;
+    padding: 0px 2vh 0px 2vh;
+    display: block;
+  }
+
+  .LoginPage .box .loginBtn {
+    width: 80vw;
+    height: 10vw;
+    margin: auto;
+    border-radius: 10px;
+    font-size: 4vw;
+    font-weight: 500;
+    outline-width: 1px;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    letter-spacing: 0.4px;
+    line-height: 2.4vh;
+    margin-bottom: 4vw;
+    margin-top: 0px;
+    box-sizing: border-box;
+    cursor: pointer;
+    color: rgb(7, 7, 7);
+    display: block;
+  }
+
+  .LoginPage .box .findAccount {
+    font-size: 4vw;
+    font-weight: 400;
+    display: block;
+    text-align: center;
+    background-color: transparent;
+    cursor: pointer;
+    color: rgb(187, 187, 187);
+    margin-top: 4vw;
+  }
+
+  .LoginPage .box .signUp {
+    font-size: 4vw;
+    padding-top: 8vw;
+    padding-bottom: 4vw;
+    background-color: transparent;
+    color: rgb(187, 187, 187);
+  }
+
+  .LoginPage .box .signUp a {
+    background-color: transparent;
+    font-size: 4vw;
+    color: #ffc83d;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: 1vw;
+  }
+}
+
+.SignUpPage .box {
+  background-color: rgb(48, 48, 48);
+  border: 1px solid rgb(55, 55, 55);
+  width: 35vw;
+  margin: 10vh auto;
+}
+
+.SignUpPage .box .title {
+  font-weight: 400;
+  cursor: pointer;
+  font-size: max(14px, 1.6vw);
+  text-align: left;
+  margin: 3vw 0px 0px 5.5vw;
+  background-color: rgb(48, 48, 48);
+}
+
+.SignUpPage .box .subTitle {
+  font-size: min(0.8vw, 12px);
+  font-weight: 400;
+  display: block;
+  text-align: left;
+  margin-left: 5.5vw;
+  background-color: rgb(48, 48, 48);
+  cursor: pointer;
+  color: rgb(187, 187, 187);
+  margin-bottom: 2vw;
+}
+
+.SignUpPage .box .info {
+  font-size: min(0.8vw, 12px);
+  font-weight: 400;
+  display: block;
+  text-align: left;
+  margin-left: 5.5vw;
+  background-color: rgb(48, 48, 48);
+  cursor: pointer;
+  color: white;
+  margin-bottom: 0.4vw;
+}
+
+.SignUpPage .box .signUpBtn {
+  width: 25vw;
+  height: 2.5vw;
+  margin: auto;
+  border-radius: 10px;
+  font-size: min(1.2vw, 14px);
+  font-weight: 500;
+  outline-width: 1px;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  letter-spacing: 0.4px;
+  line-height: 2.4vh;
+  margin-bottom: 4vw;
+  margin-top: 2.4vw;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: rgb(7, 7, 7);
+  display: block;
+}
+
+.SignUpPage .box input {
+  width: 25vw;
+  height: 2.5vw;
+  margin: auto;
+  border-radius: 10px;
+  font-size: min(1.2vw, 14px);
+  font-weight: 200;
+  outline-width: 1px;
+  border: 1px solid rgb(187, 187, 187);
+  background-color: rgb(48, 48, 48);
+  letter-spacing: 0.4px;
+  line-height: 2.4vh;
+  text-decoration: none;
+  margin-bottom: 2vh;
+  box-sizing: border-box;
+  padding: 0px 2vh 0px 2vh;
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .SignUpPage .box {
+    background-color: transparent;
+    border: none;
+    width: 100vw;
+    margin: 13vw 0 0 0;
+  }
+
+  .SignUpPage .box .title {
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 8vw;
+    margin: 0 auto 0 auto;
+    background-color: transparent;
+    text-align: center;
+  }
+
+  .SignUpPage .box .subTitle {
+    font-size: 4vw;
+    font-weight: 400;
+    display: block;
+    text-align: center;
+    margin-left: 5.5vw;
+    background-color: transparent;
+    cursor: pointer;
+    color: rgb(187, 187, 187);
+    margin-bottom: 8vw;
+  }
+
+  .SignUpPage .box .info {
+    font-size: 4vw;
+    font-weight: 400;
+    display: block;
+    text-align: left;
+    margin-left: 13vw;
+    background-color: transparent;
+    cursor: pointer;
+    color: white;
+    margin-bottom: 2vw;
+  }
+
+  .SignUpPage .box .signUpBtn {
+    width: 80vw;
+    height: 10vw;
+    margin: auto;
+    border-radius: 10px;
+    font-size: 4vw;
+    font-weight: 500;
+    outline-width: 1px;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    letter-spacing: 0.4px;
+    line-height: 2.4vh;
+    margin-top: 6vw;
+    box-sizing: border-box;
+    cursor: pointer;
+    color: rgb(7, 7, 7);
+    display: block;
+  }
+
+  .SignUpPage .box input {
+    width: 80vw;
+    height: 10vw;
+    margin: auto;
+    border-radius: 10px;
+    font-size: 4vw;
+    font-weight: 200;
+    outline-width: 1px;
+    border: 1px solid rgb(187, 187, 187);
+    background-color: rgb(48, 48, 48);
+    letter-spacing: 0.4px;
+    line-height: 2.4vh;
+    text-decoration: none;
+    margin-bottom: 2vh;
+    box-sizing: border-box;
+    padding: 0px 2vh 0px 2vh;
+    display: block;
+  }
+}
