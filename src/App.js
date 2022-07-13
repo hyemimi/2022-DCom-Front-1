@@ -110,6 +110,16 @@ function App () {
             </>
           )}
         />
+        <Route
+          exact
+          path="/friends"
+          render={() => (
+            <>
+              <TopMenu isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+              <Friends/>
+            </>
+          )}
+        />
       </BrowserRouter>
     </div>
   )
