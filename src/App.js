@@ -64,7 +64,8 @@ function App () {
           path="/"
           render={() => (
             <>
-              <Main activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+              <Main activeMenu={activeMenu} setActiveMenu={setActiveMenu} 
+              isLoggedIn={isLoggedIn} setIsLoggedIn = {setIsLoggedIn}/>
             </>
           )}
         />
