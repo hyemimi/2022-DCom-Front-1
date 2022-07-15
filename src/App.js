@@ -52,7 +52,7 @@ function App () {
   const [activeMenu, setActiveMenu] = useState('home')
 
   //Friends
-  const columns=["Name", "Email", "Phone"];
+  const columns=["Name", "Email", "Phone",""];
   const my_friend=[
     {
       name: '정혜인',

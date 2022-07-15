@@ -1035,3 +1035,69 @@ a {
   padding-left: 50px;
   padding-right: 50px;
 }
+.friendscontent .friendstable .friendsDeleteButton{
+  margin: 0;
+  padding: 0.5rem 1rem;
+
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+
+  display: inline-block;
+  width: auto;
+
+  border: 2px solid #ffffff;
+  border-radius: 10px;  
+}
+.friendscontent .friendsAdd .friendsAddBtn{
+  margin: 0;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  padding: 0.5rem 1rem;
+
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+
+  display: inline-block;
+  width: auto;
+
+  border: 3px solid #cfcfcf;
+  border-radius: 30px;  
+}
+
+.friendsSearchBox {
+  text-align: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.friendsSearchBox input {
+  width: 40%;
+  margin-left: 0px;
+  border-radius: 10px;
+  font-size: min(1.2vw, 14px);
+  font-weight: 200;
+  outline-width: 1px;
+  border: 1px solid rgb(187, 187, 187);
+  background-color: #2f2f2f;
+  letter-spacing: 0.4px;
+  line-height: 2.4vh;
+  text-decoration: none;
+  margin-bottom: 2vh;
+  box-sizing: border-box;
+  padding: 1vh 2vh 1vh 2vh;
+}
+
+.friendsSearchBtn {
+  cursor: pointer;
+  position: relative;
+  right: -10px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: max(1.4vw, 14px);
+}
