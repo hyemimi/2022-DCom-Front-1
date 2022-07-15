@@ -8,7 +8,7 @@ const Friends = ({ activeMenu, setActiveMenu, postList, onEdit, columns, my_frie
         <>
             <SideMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
             <div className="friendscontent">
-              <h1 className='friendsheader'> 친구 리스트 페이지입니다. </h1>
+              <h1 className='friendsheader'> My Friends </h1>
               <div className='friendsSearchBox'>
                 <input
                   type="text"
