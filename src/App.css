@@ -1012,3 +1012,26 @@ a {
     display: block;
   }
 }
+
+.friendscontent{
+  width: 1000px;
+  margin: 0 auto;
+}
+.friendscontent .friendsheader{
+  color: #ffffff;
+  font-size: 3vw;
+  margin: 3vw;
+}
+
+.friendscontent .friendstable{
+  border-collapse: collapse;
+  text-align: center;
+  vertical-align: middle;
+}
+.friendscontent .friendstable th,td{
+  border: 1px solid #ffffff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+}

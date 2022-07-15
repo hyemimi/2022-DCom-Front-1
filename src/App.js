@@ -51,6 +51,27 @@ function App () {
   const [studyList, setStudyList] = useState(dummyList) // 전체 스터디 리스트
   const [activeMenu, setActiveMenu] = useState('home')
 
+  //Friends
+  const columns=["Name", "Email", "Phone"];
+  const my_friend=[
+    {
+      name: '정혜인',
+      email: 'jhi2359@khu.ac.kr',
+      phone: '010-1234-5678'
+    },
+    {
+      name: '이혜미',
+      email: 'hyemi@khu.ac.kr',
+      phone: '010-0000-0000'
+    },
+    {
+      name: '혜인',
+      email: 'jhi2359@khu.ac.kr',
+      phone: '010-1234-5678'
+    },
+  ];
+
+
   // firebase
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
@@ -116,12 +137,13 @@ function App () {
           render={() => (
             <>
               <TopMenu isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-              <Friends/>
+              <Friends columns={columns} my_friend={my_friend} /> 
             </>
           )}
         />
       </BrowserRouter>
     </div>
+
   )
 }
 
