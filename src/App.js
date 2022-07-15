@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { Route, BrowserRouter } from 'react-router-dom'
+import { Route, BrowserRouter,Routes } from 'react-router-dom'
 import './App.css'
 import Main from './pages/Main.js'
 import Login from './pages/Login.js'
@@ -17,6 +17,7 @@ import {
   onAuthStateChanged
 } from 'firebase/auth'
 import Groups from './pages/Groups'
+import Navigation from './components/Navigation'
 
 function App () {
   useEffect(() => {}, [])
@@ -57,12 +58,12 @@ function App () {
   return (
     <div className="App">
       <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <Navigation isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <Route
           exact
           path="/"
           render={() => (
             <>
-              <TopMenu isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
               <Main activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
             </>
           )}
@@ -74,7 +75,6 @@ function App () {
           path="/search"
           render={() => (
             <>
-              <TopMenu isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
               <Search
                 activeMenu={activeMenu}
                 setActiveMenu={setActiveMenu}
@@ -88,7 +88,6 @@ function App () {
           path="/record"
           render={() => (
             <>
-              <TopMenu isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
               <Record />
             </>
           )}
@@ -98,7 +97,6 @@ function App () {
           path="/groups"
           render={() => (
             <>
-              <TopMenu isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
               <Groups
                 activeMenu={activeMenu}
                 setActiveMenu={setActiveMenu}
@@ -114,8 +112,7 @@ function App () {
           exact
           path="/friends"
           render={() => (
-            <>
-              <TopMenu isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+          <>
               <Friends/>
             </>
           )}
