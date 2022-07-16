@@ -15,7 +15,7 @@ import {getAuth} from 'firebase/auth'
 // 메인 페이지 - 유저 정보 수정 부분 연습하기.... 나중에 따로 컴포넌트를 만들거나 라우팅
 // 이렇게 하는게 맞나요 ㅜ
 
-const Profile = () => {
+const Profile = ({userObj}) => {
     const auth = getAuth(app)
 
     const [userName,setUserName] = useState("")
@@ -28,7 +28,6 @@ const Profile = () => {
             ...document.data(),
           }));
           setUserInfo(profileArr);
-          console.log(profileArr)
         });
       }, []);
 
@@ -38,11 +37,11 @@ const Profile = () => {
           await addDoc(collection(db, "profiles"), {
             username: userName,
             createdAt: Date.now(),
+            createdId : userObj.uid
           });
         } catch (e) {
           console.error(e);
         }
-    
         setUserName("");
       };
       const onChange = (event) => {
@@ -60,7 +59,10 @@ const Profile = () => {
             </h1>
             <p className="line"></p>
             {userInfo.map((it,idx)=>(
-                <div>{idx === 0 && `${it.username}님 환영합니다~!`}</div>
+                <div>
+                  {it.createdId===userObj.uid &&
+                  (idx === 0 && `${it.username}님 환영합니다~!`)
+                } </div>
             ))}
             <h1>친구들과 스터디 집중도를 측정해보세요 *.*</h1>
             <p className='line'>

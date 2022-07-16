@@ -20,7 +20,7 @@ import Groups from './pages/Groups'
 import Navigation from './components/Navigation'
 
 function App () {
-  useEffect(() => {}, [])
+  const auth = getAuth(app)
   const dummyInfo = [
     { studyId: [0, 2], name: '이혜미', email: 'gkj8963@khu.ac.kr' },
     { studyid: [1], name: '정혜인', email: 'hyemi@khu.ac.kr' }
@@ -54,6 +54,17 @@ function App () {
 
   // firebase
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [userObj,setUserObj] = useState(null)
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setIsLoggedIn(true);
+        setUserObj(user);
+      } else {
+        setIsLoggedIn(false);
+      }
+    });
+  }, [isLoggedIn]);
 
   return (
     <div className="App">
@@ -65,7 +76,7 @@ function App () {
           render={() => (
             <>
               <Main activeMenu={activeMenu} setActiveMenu={setActiveMenu} 
-              isLoggedIn={isLoggedIn} setIsLoggedIn = {setIsLoggedIn}/>
+              isLoggedIn={isLoggedIn} setIsLoggedIn = {setIsLoggedIn} userObj={userObj}/>
             </>
           )}
         />
