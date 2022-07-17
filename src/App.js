@@ -5,7 +5,6 @@ import Main from './pages/Main.js'
 import Login from './pages/Login.js'
 import Search from './pages/Search'
 import SignUp from './pages/SignUp'
-import TopMenu from './Layout/TopMenu'
 import Record from './pages/Record'
 import Friends from './pages/Friends'
 import app from './firebase.js'
@@ -145,15 +144,7 @@ function App () {
           exact
           path="/friends"
           render={() => (
-<<<<<<< HEAD
-            <>
-              <TopMenu isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
               <Friends columns={columns} my_friend={my_friend} /> 
-=======
-          <>
-              <Friends/>
->>>>>>> origin/feature/groups
-            </>
           )}
         />
       </BrowserRouter>
