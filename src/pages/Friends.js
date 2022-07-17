@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import SideMenu from '../Layout/SideMenu'
 
-//const [my_friend, setMyFriend] = React.useState(my_friend);
 const Friends = ({ activeMenu, setActiveMenu, postList, onEdit, columns, my_friend }) => {
   return (
         <>
