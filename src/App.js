@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { Route, BrowserRouter } from 'react-router-dom'
+import { Route, BrowserRouter,Routes } from 'react-router-dom'
 import './App.css'
 import Main from './pages/Main.js'
 import Login from './pages/Login.js'
@@ -17,9 +17,10 @@ import {
   onAuthStateChanged
 } from 'firebase/auth'
 import Groups from './pages/Groups'
+import Navigation from './components/Navigation'
 
 function App () {
-  useEffect(() => {}, [])
+  const auth = getAuth(app)
   const dummyInfo = [
     { studyId: [0, 2], name: '이혜미', email: 'gkj8963@khu.ac.kr' },
     { studyid: [1], name: '정혜인', email: 'hyemi@khu.ac.kr' }
@@ -74,17 +75,29 @@ function App () {
 
   // firebase
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [userObj,setUserObj] = useState(null)
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setIsLoggedIn(true);
+        setUserObj(user);
+      } else {
+        setIsLoggedIn(false);
+      }
+    });
+  }, [isLoggedIn]);
 
   return (
     <div className="App">
       <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <Navigation isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <Route
           exact
           path="/"
           render={() => (
             <>
-              <TopMenu isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-              <Main activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+              <Main activeMenu={activeMenu} setActiveMenu={setActiveMenu} 
+              isLoggedIn={isLoggedIn} setIsLoggedIn = {setIsLoggedIn} userObj={userObj}/>
             </>
           )}
         />
@@ -95,7 +108,6 @@ function App () {
           path="/search"
           render={() => (
             <>
-              <TopMenu isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
               <Search
                 activeMenu={activeMenu}
                 setActiveMenu={setActiveMenu}
@@ -109,7 +121,6 @@ function App () {
           path="/record"
           render={() => (
             <>
-              <TopMenu isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
               <Record />
             </>
           )}
@@ -119,7 +130,6 @@ function App () {
           path="/groups"
           render={() => (
             <>
-              <TopMenu isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
               <Groups
                 activeMenu={activeMenu}
                 setActiveMenu={setActiveMenu}
@@ -135,9 +145,14 @@ function App () {
           exact
           path="/friends"
           render={() => (
+<<<<<<< HEAD
             <>
               <TopMenu isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
               <Friends columns={columns} my_friend={my_friend} /> 
+=======
+          <>
+              <Friends/>
+>>>>>>> origin/feature/groups
             </>
           )}
         />
