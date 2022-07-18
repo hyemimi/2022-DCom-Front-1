@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import GroupList from '../components/GroupList'
 import SideMenu from '../Layout/SideMenu'
 
 const Groups = ({
@@ -32,24 +33,15 @@ const Groups = ({
         <div>
           {myList.map((it) => {
             return (
-              <div className="box-content">
-                <div className="group-name">"{it.name}"</div>
-                <div>그룹장 | {it.leader}</div>
-                {it.member.map((item, idx) => {
-                  return (
-                    <div>
-                      {item === '' ? 'Empty' : `member${idx + 1} | ${item}`}
-                    </div>
-                  )
-                })}
+             <div>
+              <GroupList name={it.name} leader={it.leader} members={it.member}/>
                 <div className="out">
                   <button className="groups-btn">탈퇴하기</button>
                 </div>
               </div>
             )
           })}
-        </div>
-      </div>
+          </div></div>
     </>
   )
 }

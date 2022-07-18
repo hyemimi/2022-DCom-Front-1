@@ -7,7 +7,7 @@ const Navigation = ({isLoggedIn,setIsLoggedIn,activeMenu,setActiveMenu}) => {
   return (
     <nav>
        <TopMenu isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-       <SideMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+       {isLoggedIn && <SideMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} />}
     </nav>
   );
 };

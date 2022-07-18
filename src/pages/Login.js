@@ -46,6 +46,7 @@ const Login = () => {
   }
 
   return (
+    <div className='content'>
     <div className="LoginPage">
       <div className="box">
         <Link to="/">
@@ -74,6 +75,7 @@ const Login = () => {
             <a>회원가입</a>
           </Link>
         </div>
+      </div>
       </div>
     </div>
   )

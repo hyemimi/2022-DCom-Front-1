@@ -6,10 +6,8 @@ import SideMenu from '../Layout/SideMenu'
 const Friends = ({  postList, onEdit, columns, my_friend }) => {
 
 
-  
   return (
         <>
-           
             <div className="content">
               <h1 className='friendsheader'> My Friends </h1>
               <div className='friendsSearchBox'>
