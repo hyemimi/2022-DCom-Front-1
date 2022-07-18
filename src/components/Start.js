@@ -14,9 +14,12 @@ const Profile = () => {
               </a>
             </h1>
             <p className="line"></p>
-            <button>시작하기</button>
             <div>
               {/* 여기에 혜인 프로필 컴포넌트  */}
+            </div>
+            <div>
+            <button>시작하기</button>
+            <button>My profile</button>
             </div>
            
                     </div>)

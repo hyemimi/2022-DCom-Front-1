@@ -12,8 +12,9 @@ function GroupList({name,leader,members}) {
                     </div>
                   )
                 })}
-
-
+<div className="out">
+<button className="groups-btn">탈퇴하기</button>
+</div>
         </div>
 
     )
