@@ -3,14 +3,11 @@ import SideMenu from '../Layout/SideMenu.js'
 import { Link } from 'react-router-dom'
 import Profile from '../components/Profile.js'
 
-const Main = ({ activeMenu, setActiveMenu, isLoggedIn, setIsLoggedIn,userObj }) => {
-  useEffect(() => {
-    setActiveMenu('home')
-  }, [])
+const Main = ({  isLoggedIn, setIsLoggedIn,userObj }) => {
 
   return (
     <>
-      <SideMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+     
       <div className="content">
         <div className="MainPage">
           <div>

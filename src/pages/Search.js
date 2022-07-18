@@ -1,10 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react'
 import SideMenu from '../Layout/SideMenu'
 
-const Search = ({ activeMenu, setActiveMenu, postList, onEdit }) => {
-  useEffect(() => {
-    setActiveMenu('search')
-  }, [])
+const Search = ({  postList, onEdit }) => {
+  
 
   const textBox = useRef()
   const [searchText, setSearchText] = useState(null)
@@ -22,7 +20,6 @@ const Search = ({ activeMenu, setActiveMenu, postList, onEdit }) => {
 
   return (
     <>
-      <SideMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
       <div className="content">
         <div className="SearchPage">
           <div className="searchBox">

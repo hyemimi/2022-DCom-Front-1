@@ -89,13 +89,14 @@ function App () {
   return (
     <div className="App">
       <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <Navigation isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        <Navigation isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
+        activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
         <Route
           exact
           path="/"
           render={() => (
             <>
-              <Main activeMenu={activeMenu} setActiveMenu={setActiveMenu} 
+              <Main 
               isLoggedIn={isLoggedIn} setIsLoggedIn = {setIsLoggedIn} userObj={userObj}/>
             </>
           )}
@@ -108,8 +109,7 @@ function App () {
           render={() => (
             <>
               <Search
-                activeMenu={activeMenu}
-                setActiveMenu={setActiveMenu}
+               
                 postList={data}
               />
             </>
@@ -130,8 +130,7 @@ function App () {
           render={() => (
             <>
               <Groups
-                activeMenu={activeMenu}
-                setActiveMenu={setActiveMenu}
+                
                 info={info}
                 setInfo={setInfo}
                 studyList={studyList}

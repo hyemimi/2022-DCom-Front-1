@@ -2,8 +2,7 @@ import { useState } from 'react'
 import SideMenu from '../Layout/SideMenu'
 
 const Groups = ({
-  activeMenu,
-  setActiveMenu,
+  
   studyList,
   setStudyList,
   info,
@@ -24,7 +23,7 @@ const Groups = ({
 
   return (
     <>
-      <SideMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+     
       <div className="content">
         <h1 className="groupList-header"> My Groups </h1>
         <div className="out">

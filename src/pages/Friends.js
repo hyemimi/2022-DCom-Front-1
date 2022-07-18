@@ -3,11 +3,14 @@ import { Link } from 'react-router-dom'
 import SideMenu from '../Layout/SideMenu'
 
 //const [my_friend, setMyFriend] = React.useState(my_friend);
-const Friends = ({ activeMenu, setActiveMenu, postList, onEdit, columns, my_friend }) => {
+const Friends = ({  postList, onEdit, columns, my_friend }) => {
+
+
+  
   return (
         <>
-            <SideMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
-            <div className="friendscontent">
+           
+            <div className="content">
               <h1 className='friendsheader'> My Friends </h1>
               <div className='friendsSearchBox'>
                 <input
