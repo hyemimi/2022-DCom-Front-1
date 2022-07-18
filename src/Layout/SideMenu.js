@@ -6,7 +6,7 @@ const menuList = [
   { ref: 'search', label: '🔍　그룹 검색하기' },
   { ref: 'record', label: '📈　분석하기' },
   { ref: 'friends', label: '🧾　친구 리스트' },
-  { ref: 'groups', label: '내 그룹리스트' }
+  { ref: 'groups', label: '🧾　내 그룹리스트' }
 ]
 
 const SideMenu = ({ activeMenu, setActiveMenu }) => {

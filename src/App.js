@@ -17,6 +17,7 @@ import {
 } from 'firebase/auth'
 import Groups from './pages/Groups'
 import Navigation from './components/Navigation'
+import FriendsProfile from './components/FriendsProfile'
 
 function App () {
   const auth = getAuth(app)
@@ -52,24 +53,35 @@ function App () {
   const [activeMenu, setActiveMenu] = useState('home')
 
   //Friends
-  const columns=["Name", "Email", "Phone",""];
-  const my_friend=[
+  //const columns = ["Name", "Email", "Phone",""];
+  const my_friend = [
     {
+      image: '프로필 이미지',
       name: '정혜인',
-      email: 'jhi2359@khu.ac.kr',
-      phone: '010-1234-5678'
+      nickname: '혠',
+      email: 'jhi2359@khu.ac.kr'
     },
     {
+      image: '프로필 이미지',
       name: '이혜미',
-      email: 'hyemi@khu.ac.kr',
-      phone: '010-0000-0000'
+      nickname: '혬',
+      email: 'hyemi@khu.ac.kr'
     },
     {
+      image: '프로필 이미지',
       name: '혜인',
-      email: 'jhi2359@khu.ac.kr',
-      phone: '010-1234-5678'
+      nickname: '원',
+      email: 'jhi2359@khu.ac.kr'
+
     },
   ];
+
+  //FriendsProfile
+  // <div>
+  //   <FriendsProfile name="정혜인" nickname="혠" email="jhi2359@khu.ac.kr" />
+  //   <FriendsProfile name="이혜미" nickname="혬" email="hyemi@khu.ac.kr"/>
+  //   <FriendsProfile name="정지원" nickname="원" email="hyemi@khu.ac.kr"/>
+  // </div>
 
 
   // firebase
@@ -144,7 +156,7 @@ function App () {
           exact
           path="/friends"
           render={() => (
-              <Friends columns={columns} my_friend={my_friend} /> 
+              <Friends my_friend={my_friend} />
           )}
         />
       </BrowserRouter>

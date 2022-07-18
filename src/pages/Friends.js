@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import FriendsProfile from '../components/FriendsProfile'
 import SideMenu from '../Layout/SideMenu'
 
 const Friends = ({ activeMenu, setActiveMenu, postList, onEdit, columns, my_friend }) => {
@@ -24,7 +25,20 @@ const Friends = ({ activeMenu, setActiveMenu, postList, onEdit, columns, my_frie
                   <button className='friendsAddBtn'>친구 추가 하러가기</button>
                 </Link>
               </div>
-              <div className='friendstable'>
+              <div className='FriendsProfileBoxes'>
+                {my_friend.map((it)=> {
+                  return(
+                    <div>
+                    <FriendsProfile image={it.image} name={it.name} nickname={it.nickname} email={it.email} />
+                    </div>
+                  )
+                })}
+                </div>
+                {/* <FriendsProfile image="프로필 사진" name="정혜인" nickname="혠" email="jhi2359@khu.ac.kr" />
+                <FriendsProfile image="프로필 사진" name="이혜미" nickname="혬" email="hyemi@khu.ac.kr"/>
+                <FriendsProfile image="프로필 사진" name="정지원" nickname="원" email="hyemi@khu.ac.kr"/>
+              </div> */}
+              {/* <div className='friendstable'>
                   <table>
                     <thead>
                     <tr>
@@ -40,14 +54,13 @@ const Friends = ({ activeMenu, setActiveMenu, postList, onEdit, columns, my_frie
                               <td>{email}</td>
                               <td>{phone}</td>
                               <td><button className='friendsDeleteButton'>친구 삭제</button></td>
-                            </tr>                    
+                            </tr>
                           ))}
                     </tbody>
                   </table>
-                </div>
+                </div> */}
             </div>
-
-        </>
+          </>
   )
 }
 

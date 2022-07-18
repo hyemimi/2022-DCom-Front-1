@@ -17,7 +17,7 @@ const Main = ({ activeMenu, setActiveMenu, isLoggedIn, setIsLoggedIn,userObj }) 
             {!isLoggedIn ? (<><h1>
               Welcome to{' '}
               <a style={{ color: '#ffc83d', fontSize: 'min(6vw, 40px)' }}>
-                DCOM STUDY!
+                FOCUZ cam study
               </a>
             </h1>
             <p className="line"></p>
