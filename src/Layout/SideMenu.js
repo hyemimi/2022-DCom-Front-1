@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 
 const menuList = [
   { ref: '', label: '🏠　홈' },
-  { ref: 'search', label: '🔍　친구 검색하기' },
-  { ref: 'search', label: '🔍　그룹 검색하기' },
+  { ref: 'friendsearch', label: '🔍　친구 검색하기' },
+  { ref: 'groupsearch', label: '🔍　그룹 검색하기' },
   { ref: 'record', label: '📈　분석하기' },
   { ref: 'friends', label: '🧾　친구 리스트' },
-  { ref: 'groups', label: '내 그룹리스트' }
+  { ref: 'groups', label: '🧾　내 그룹리스트' }
 ]
 
 const SideMenu = ({ activeMenu, setActiveMenu }) => {

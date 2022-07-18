@@ -1097,3 +1097,18 @@ a {
   background-color: rgba(0, 0, 0, 0);
   font-size: max(1.4vw, 14px);
 }
+
+.FriendsProfileBoxes{
+  width: 1500px;
+  flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
+}
+.FriendsProfileBox {
+  width:500px;
+  height: 700px;
+  border: 2px solid #ffffff;
+  border-radius: 100px;
+  margin: 30px;
+  padding-top: 350px;
+}

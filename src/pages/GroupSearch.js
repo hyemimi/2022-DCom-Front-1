@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react'
 import SideMenu from '../Layout/SideMenu'
 
-const Search = ({  postList, onEdit }) => {
-  
+
+const GroupSearch = ({ postList, onEdit }) => {
+
 
   const textBox = useRef()
   const [searchText, setSearchText] = useState(null)
@@ -39,4 +40,4 @@ const Search = ({  postList, onEdit }) => {
   )
 }
 
-export default Search
+export default GroupSearch

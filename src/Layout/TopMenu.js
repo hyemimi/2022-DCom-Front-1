@@ -58,7 +58,7 @@ const TopMenu = ({ isLoggedIn, setIsLoggedIn }) => {
       <div className="NavBar">
         <Link to="/">
           <div className="logo" style={{ color: '#ffc83d' }}>
-            DCOM
+            FOCUZ
           </div>
         </Link>
         {!isLoggedIn
