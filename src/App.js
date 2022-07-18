@@ -3,7 +3,8 @@ import { Route, BrowserRouter,Routes } from 'react-router-dom'
 import './App.css'
 import Main from './pages/Main.js'
 import Login from './pages/Login.js'
-import Search from './pages/Search'
+import FriendSearch from './pages/FriendSearch'
+import GroupSearch from './pages/GroupSearch'
 import SignUp from './pages/SignUp'
 import Record from './pages/Record'
 import Friends from './pages/Friends'
@@ -116,10 +117,23 @@ function App () {
         <Route exact path="/register" render={() => <SignUp />} />
         <Route
           exact
-          path="/search"
+          path="/friendsearch"
           render={() => (
             <>
-              <Search
+              <FriendSearch
+                activeMenu={activeMenu}
+                setActiveMenu={setActiveMenu}
+                postList={data}
+              />
+            </>
+          )}
+        />
+        <Route
+          exact
+          path="/groupsearch"
+          render={() => (
+            <>
+              <GroupSearch
                 activeMenu={activeMenu}
                 setActiveMenu={setActiveMenu}
                 postList={data}

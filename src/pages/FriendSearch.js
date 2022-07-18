@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react'
 import SideMenu from '../Layout/SideMenu'
 
-const Search = ({ activeMenu, setActiveMenu, postList, onEdit }) => {
+const FriendSearch = ({ activeMenu, setActiveMenu, postList, onEdit }) => {
   useEffect(() => {
-    setActiveMenu('search')
+    setActiveMenu('friendsearch')
   }, [])
 
   const textBox = useRef()
@@ -42,4 +42,4 @@ const Search = ({ activeMenu, setActiveMenu, postList, onEdit }) => {
   )
 }
 
-export default Search
+export default FriendSearch
