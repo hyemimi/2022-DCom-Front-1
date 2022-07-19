@@ -30,21 +30,21 @@
   "rules": {
     "no-var": "warn",
 
-    "accessor-pairs": ["error", { "setWithoutGet": true, "enforceForClassMembers": true }],
-    "array-bracket-spacing": ["error", "never"],
-    "array-callback-return": ["error", {
+    "accessor-pairs": ["warn", { "setWithoutGet": true, "enforceForClassMembers": true }],
+    "array-bracket-spacing": ["warn", "never"],
+    "array-callback-return": ["warn", {
       "allowImplicit": false,
       "checkForEach": false
     }],
-    "arrow-spacing": ["error", { "before": true, "after": true }],
-    "block-spacing": ["error", "always"],
-    "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
-    "camelcase": ["error", {
+    "arrow-spacing": ["warn", { "before": true, "after": true }],
+    "block-spacing": ["warn", "always"],
+    "brace-style": ["warn", "1tbs", { "allowSingleLine": true }],
+    "camelcase": ["warn", {
       "allow": ["^UNSAFE_"],
       "properties": "never",
       "ignoreGlobals": true
     }],
-    "comma-dangle": ["error", {
+    "comma-dangle": ["warn", {
       "arrays": "never",
       "objects": "never",
       "imports": "never",
@@ -60,7 +60,7 @@
     "dot-location": ["error", "property"],
     "dot-notation": ["error", { "allowKeywords": true }],
     "eol-last": "error",
-    "eqeqeq": ["error", "always", { "null": "ignore" }],
+    "eqeqeq": ["warn", "always", { "null": "ignore" }],
     "func-call-spacing": ["error", "never"],
     "generator-star-spacing": ["error", { "before": true, "after": true }],
     "indent": ["warn", 2, {
@@ -174,7 +174,7 @@
       "allowTernary": true,
       "allowTaggedTemplates": true
     }],
-    "no-unused-vars": ["error", {
+    "no-unused-vars": ["warn", {
       "args": "none",
       "caughtErrors": "none",
       "ignoreRestSiblings": true,
@@ -241,6 +241,6 @@
 //    "node/no-path-concat": "error",
 //    "node/process-exit-as-throw": "error",
 
-    "promise/param-names": "error"
+    "promise/param-names": "warn"
   }
 }
