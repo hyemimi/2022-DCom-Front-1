@@ -19,9 +19,11 @@ import {
 import Groups from './pages/Groups'
 import Navigation from './components/Navigation'
 import FriendsProfile from './components/FriendsProfile'
+import EditProfile from './components/EditProfile'
+
 
 function App () {
-  const auth = getAuth(app)
+  const auth = getAuth(app);
   /* const dummyInfo = [
     { studyId: [0, 2], name: '이혜미', email: 'gkj8963@khu.ac.kr' },
     { studyid: [1], name: '정혜인', email: 'hyemi@khu.ac.kr' }
@@ -192,6 +194,13 @@ function App () {
         />
         <Route
           exact
+          path="/edit"
+          render={() => (
+              <EditProfile />
+          )}
+        />
+        <Route
+          exact
           path="/friends"
           render={() => (
               <Friends my_friend={my_friend} />
@@ -202,5 +211,6 @@ function App () {
 
   )
 }
+
 
 export default App
