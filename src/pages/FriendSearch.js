@@ -1,16 +1,28 @@
-import React, { useEffect, useState, useRef } from 'react'
-import SideMenu from '../Layout/SideMenu'
+import React, { useEffect, useState, useRef, Component } from 'react'
+import FriendsProfile from '../components/FriendsProfile'
+import users from '../App'
 
-const FriendSearch = ({postList}) => {
-  
-
-  const textBox = useRef()
-  const [searchText, setSearchText] = useState(null)
+const FriendSearch = () => {
+  const [searchText, setSearchText] = useState()
 
   const onSearch = () => {
-    setSearchText(textBox.current.value)
-    console.log(textBox.current.value)
-  }
+    console.log(searchText)
+    users.filter((val) => {
+      if(val.nickname.includes(searchText)){
+        return val
+    }
+  }).map((val) =>{
+    return(
+    <div>
+      <ul>
+        <li>
+          <span>{val.nickname}</span>
+        </li>
+      </ul>
+    </div>
+    )
+  })}
+
 
   const onPressEnter = (e) => {
     if (e.key == 'Enter') {
@@ -26,7 +38,7 @@ const FriendSearch = ({postList}) => {
             <input
               type="text"
               placeholder="검색할 내용을 입력하세요."
-              ref={textBox}
+              onChange={(e) => { setSearchText(e.target.value) }}
               onKeyPress={onPressEnter}
             />
             <button className="searchBtn" onClick={onSearch}>

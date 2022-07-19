@@ -1,4 +1,3 @@
-
 import app from '../firebase'
 import db from '../firestore'
 import {getAuth} from 'firebase/auth'
@@ -29,7 +28,7 @@ const Profile = ({users}) => {
                     <div style={{alignItems:'center'}}>
                     <button>시작하기</button>
                      <button>내 프로필 수정하기</button>
-                    <FriendsProfile image={userProfile[0].image} name={userProfile[0].name} nickname={userProfile[0].nickname} email={userProfile[0].email} />
+                     <FriendsProfile image={userProfile[0].image} name={userProfile[0].name} nickname={userProfile[0].nickname} email={userProfile[0].email} />
                         {/* 프로필을 보여주는 컴포넌트, 헷갈리니까 FriendsProfile 대신 Profile로 바꾸는 게 어떨까?*/}
                     </div>
               

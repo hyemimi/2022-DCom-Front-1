@@ -66,6 +66,12 @@ function App () {
       image: '프로필 이미지',
       name: '정혜인',
       nickname: '혠',
+      email: 'jhi2359@naver.com'
+    },
+    {
+      image: '프로필 이미지',
+      name: '정혜인',
+      nickname: '혠',
       email: 'jhi2359@khu.ac.kr'
     },
     {
@@ -82,8 +88,9 @@ function App () {
 
     },
   ];
+  const [searchResult, setSearchResult] = useState(users)
+  
   //Friends
-  //const columns = ["Name", "Email", "Phone",""];
   const my_friend = [
     {
       image: '프로필 이미지',
@@ -152,9 +159,7 @@ function App () {
           render={() => (
             <>
 
-              <FriendSearch
-                postList={data}
-              />
+              <FriendSearch />
             </>
           )}
         />
