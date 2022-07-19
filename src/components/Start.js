@@ -36,4 +36,4 @@ const Profile = ({users}) => {
             </div>)
 }
 
-export default Profile;
+export default Profile

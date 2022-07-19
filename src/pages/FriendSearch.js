@@ -1,9 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import SideMenu from '../Layout/SideMenu'
 
-const FriendSearch = ({postList}) => {
-  
-
+const FriendSearch = ({ postList }) => {
   const textBox = useRef()
   const [searchText, setSearchText] = useState(null)
 

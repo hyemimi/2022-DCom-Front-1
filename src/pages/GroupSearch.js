@@ -1,10 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import SideMenu from '../Layout/SideMenu'
 
-
 const GroupSearch = ({ postList, onEdit }) => {
-
-
   const textBox = useRef()
   const [searchText, setSearchText] = useState(null)
 

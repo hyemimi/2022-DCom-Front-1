@@ -10,7 +10,8 @@ const Main = ({  isLoggedIn, setIsLoggedIn,userObj ,users}) => {
       <div className="content">
         <div className="MainPage">
           <div>
-            {!isLoggedIn ? (<><h1>
+            {!isLoggedIn
+              ? (<><h1>
               Welcome to{' '}
               <a style={{ color: '#ffc83d', fontSize: 'min(6vw, 40px)' }}>
                 FOCUZ cam study
