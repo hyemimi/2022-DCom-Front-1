@@ -89,7 +89,7 @@ function App () {
     },
   ];
   const [searchResult, setSearchResult] = useState(users)
-  
+
   //Friends
   const my_friend = [
     {
@@ -137,9 +137,9 @@ function App () {
 
   return (
     <div className="App">
-      <Navigation isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
-                  activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
       <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <Navigation isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
+                    activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
         <div className={isLoggedIn?'content':''}>
           <Route
             exact
