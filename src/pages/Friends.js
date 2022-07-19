@@ -3,10 +3,7 @@ import { Link } from 'react-router-dom'
 import FriendsProfile from '../components/FriendsProfile'
 import SideMenu from '../Layout/SideMenu'
 
-
-
 const Friends = ({ postList, onEdit, columns, my_friend }) => {
-
   return (
         <>
             <div className="content">
@@ -28,8 +25,8 @@ const Friends = ({ postList, onEdit, columns, my_friend }) => {
                 </Link>
               </div>
               <div className='FriendsProfileBoxes'>
-                {my_friend.map((it)=> {
-                  return(
+                {my_friend.map((it) => {
+                  return (
                     <div>
                     <FriendsProfile image={it.image} name={it.name} nickname={it.nickname} email={it.email} />
                     </div>

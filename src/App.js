@@ -3,8 +3,8 @@ import { Route, BrowserRouter,Routes } from 'react-router-dom'
 import './App.css'
 import Main from './pages/Main.js'
 import Login from './pages/Login.js'
-import FriendSearch from './pages/FriendSearch'
-import GroupSearch from './pages/GroupSearch'
+import SearchFriend from './pages/SearchFriend'
+import SearchGroup from './pages/SearchGroup'
 import SignUp from './pages/SignUp'
 import Record from './pages/Record'
 import Friends from './pages/Friends'
@@ -19,11 +19,9 @@ import {
 import Groups from './pages/Groups'
 import Navigation from './components/Navigation'
 import FriendsProfile from './components/FriendsProfile'
-import EditProfile from './components/EditProfile'
-
 
 function App () {
-  const auth = getAuth(app);
+  const auth = getAuth(app)
   /* const dummyInfo = [
     { studyId: [0, 2], name: '이혜미', email: 'gkj8963@khu.ac.kr' },
     { studyid: [1], name: '정혜인', email: 'hyemi@khu.ac.kr' }
@@ -68,6 +66,12 @@ function App () {
       image: '프로필 이미지',
       name: '정혜인',
       nickname: '혠',
+      email: 'jhi2359@naver.com'
+    },
+    {
+      image: '프로필 이미지',
+      name: '정혜인',
+      nickname: '혠',
       email: 'jhi2359@khu.ac.kr'
     },
     {
@@ -84,8 +88,9 @@ function App () {
 
     },
   ];
+  const [searchResult, setSearchResult] = useState(users)
+  
   //Friends
-  //const columns = ["Name", "Email", "Phone",""];
   const my_friend = [
     {
       image: '프로필 이미지',
@@ -132,85 +137,79 @@ function App () {
 
   return (
     <div className="App">
+      <Navigation isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
+                  activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
       <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <Navigation isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
-        activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <>
-              <Main 
-              isLoggedIn={isLoggedIn} setIsLoggedIn = {setIsLoggedIn} userObj={userObj}
-              users= {users}/>
-            </>
-          )}
-        />
-        <Route exact path="/login" render={() => <Login />} />
-        <Route exact path="/register" render={() => <SignUp />} />
-        <Route
-          exact
-          path="/friendsearch"
-          render={() => (
-            <>
+        <div className={isLoggedIn?'content':''}>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <>
+                <Main
+                  isLoggedIn={isLoggedIn} setIsLoggedIn = {setIsLoggedIn} userObj={userObj}/>
+              </>
+            )}
+          />
+          <Route exact path="/login" render={() => <Login />} />
+          <Route exact path="/register" render={() => <SignUp />} />
+          <Route
+            exact
+            path="/searchFriend"
+            render={() => (
+              <>
+                <SearchFriend
+                  postList={data}
+                />
+              </>
+            )}
+          />
+          <Route
+            exact
+            path="/searchGroup"
+            render={() => (
+              <>
+                <SearchGroup
+                  postList={data}
+                />
+              </>
+            )}
+          />
+          <Route
+            exact
+            path="/record"
+            render={() => (
+              <>
+                <Record />
+              </>
+            )}
+          />
+          <Route
+            exact
+            path="/groups"
+            render={() => (
+              <>
+                <Groups
 
-              <FriendSearch
-                postList={data}
-              />
-            </>
-          )}
-        />
-        <Route
-          exact
-          path="/groupsearch"
-          render={() => (
-            <>
-              <GroupSearch
-                postList={data}
-              />
-            </>
-          )}
-        />
-        <Route
-          exact
-          path="/record"
-          render={() => (
-            <>
-              <Record />
-            </>
-          )}
-        />
-        <Route
-          exact
-          path="/groups"
-          render={() => (
-            <>
-              <Groups
-                studyList={studyList}
-                setStudyList={setStudyList}
-              />
-            </>
-          )}
-        />
-        <Route
-          exact
-          path="/edit"
-          render={() => (
-              <EditProfile />
-          )}
-        />
-        <Route
-          exact
-          path="/friends"
-          render={() => (
+                  info={info}
+                  setInfo={setInfo}
+                  studyList={studyList}
+                  setStudyList={setStudyList}
+                />
+              </>
+            )}
+          />
+          <Route
+            exact
+            path="/friends"
+            render={() => (
               <Friends my_friend={my_friend} />
-          )}
-        />
+            )}
+          />
+        </div>
       </BrowserRouter>
     </div>
-
   )
 }
-
 
 export default App
