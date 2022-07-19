@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import PropTypes from 'prop-types';
 import SideMenu from '../Layout/SideMenu.js'
 import { Link } from 'react-router-dom'
 import MainPage from '../components/Main/MainPage.js'
@@ -8,7 +9,7 @@ const Main = ({  isLoggedIn, setIsLoggedIn,userObj ,users}) => {
 
   return (
     <>
-      <div className="content">
+      <div className={isLoggedIn?'content':''}>
         <div className="MainPage">
           <div>
             {!isLoggedIn
@@ -19,6 +20,12 @@ const Main = ({  isLoggedIn, setIsLoggedIn,userObj ,users}) => {
       </div>
     </>
   )
+}
+
+Main.propsTypes = {
+  isLoggedIn: PropTypes.bool,
+  setIsLoggedIn: PropTypes.func,
+  userObj: PropTypes.bool,
 }
 
 export default Main

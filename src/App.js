@@ -130,9 +130,9 @@ function App () {
 
   return (
     <div className="App">
+      <Navigation isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
+                  activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
       <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <Navigation isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
-        activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
         <Route
           exact
           path="/"
