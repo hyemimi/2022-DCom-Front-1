@@ -161,7 +161,7 @@ function App () {
             <>
 
               <SearchFriend
-                postList={data}
+                users={users}
               />
             </>
           )}

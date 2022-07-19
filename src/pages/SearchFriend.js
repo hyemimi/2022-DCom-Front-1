@@ -1,22 +1,18 @@
 import React, { useEffect, useState, useRef, Component } from 'react'
 import FriendsProfile from '../components/FriendsProfile'
-import users from '../App'
+import App from '../App'
+import FriendsProfileList from '../components/FriendsProfileList'
 
-const SearchFriend = ({ postList }) => {
-  const textBox = useRef()
-  const [searchText, setSearchText] = useState(null)
+const SearchFriend = ({users}) => {
+  const [searchText, setSearchText] = useState()
 
+  
   const onSearch = () => {
     console.log(searchText)
-  //   users.filter((val) => {
-  //     if(val.nickname.includes(searchText)){
-  //       return val
-  //   }
-  // }).map((val) =>{
-  //   return(0
-  //   )
-  // })
-}
+    //const searchednickname = users.filter((val) => (searchText === val.nickname))
+    // const result = users.filter((it) =>it.nickname === searchText)
+    // return(result)
+  }
 
 
   const onPressEnter = (e) => {
@@ -24,6 +20,13 @@ const SearchFriend = ({ postList }) => {
       onSearch()
     }
   }
+
+  const filteredFriend = users.filter((users) => {
+    if(searchText === "" || searchText === null)
+      return ("검색 결과 없음")
+    else
+      return users.nickname.includes(searchText);
+  })
 
   return (
     <>
@@ -41,6 +44,8 @@ const SearchFriend = ({ postList }) => {
             </button>
           </div>
         </div>
+        <FriendsProfileList key={users.id} data={filteredFriend}/>
+        
       </div>
     </>
   )
