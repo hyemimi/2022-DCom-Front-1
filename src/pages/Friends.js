@@ -19,8 +19,8 @@ const Friends = ({ postList, onEdit, columns, my_friend }) => {
               </div>
               <div className='friendsAdd'>
                 <Link
-                  key='search'
-                  to='search'>
+                  key='SearchFriend'
+                  to='searchFriend'>
                   <button className='friendsAddBtn'>친구 추가 하러가기</button>
                 </Link>
               </div>

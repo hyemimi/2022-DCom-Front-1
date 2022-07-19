@@ -190,9 +190,6 @@ function App () {
             render={() => (
               <>
                 <Groups
-
-                  info={info}
-                  setInfo={setInfo}
                   studyList={studyList}
                   setStudyList={setStudyList}
                 />
