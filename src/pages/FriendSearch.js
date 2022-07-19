@@ -2,8 +2,9 @@ import React, { useEffect, useState, useRef, Component } from 'react'
 import FriendsProfile from '../components/FriendsProfile'
 import users from '../App'
 
-const FriendSearch = () => {
-  const [searchText, setSearchText] = useState()
+const SearchFriend = ({ postList }) => {
+  const textBox = useRef()
+  const [searchText, setSearchText] = useState(null)
 
   const onSearch = () => {
     console.log(searchText)
@@ -51,4 +52,4 @@ const FriendSearch = () => {
   )
 }
 
-export default FriendSearch
+export default SearchFriend

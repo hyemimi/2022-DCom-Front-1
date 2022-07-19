@@ -3,7 +3,7 @@ import GroupItem from '../components/GroupItem'
 import SideMenu from '../Layout/SideMenu'
 
 const Groups = ({
-  
+
   studyList,
   setStudyList,
 }) => {
@@ -21,7 +21,7 @@ const Groups = ({
 
   return (
     <>
-     
+
       <div className="content">
         <h1 className="groupList-header"> My Groups </h1>
         <div className="out">
