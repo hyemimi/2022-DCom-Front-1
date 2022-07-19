@@ -14,7 +14,7 @@ const Main = ({  isLoggedIn, setIsLoggedIn,userObj ,users}) => {
           <div>
             {!isLoggedIn
               ? <InitialPage/>
-              : <MainPage userObj={userObj}/> }
+              : <MainPage userObj={userObj} users = {users}/> }
           </div>
         </div>
       </div>
