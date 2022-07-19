@@ -8,21 +8,16 @@ const SearchFriend = ({ postList }) => {
 
   const onSearch = () => {
     console.log(searchText)
-    users.filter((val) => {
-      if(val.nickname.includes(searchText)){
-        return val
-    }
-  }).map((val) =>{
-    return(
-    <div>
-      <ul>
-        <li>
-          <span>{val.nickname}</span>
-        </li>
-      </ul>
-    </div>
-    )
-  })}
+//     users.filter((val) => {
+//       if(val.nickname.includes(searchText)){
+//         return val
+//     }
+//   }).map((val) =>{
+//     return(
+// 0
+//     )
+//   })
+}
 
 
   const onPressEnter = (e) => {

@@ -27,6 +27,7 @@ const Friends = ({ postList, onEdit, columns, my_friend }) => {
               <div className='FriendsProfileBoxes'>
                 {my_friend.map((it) => {
                   return (
+                    // eslint-disable-next-line react/jsx-key
                     <div>
                     <FriendsProfile image={it.image} name={it.name} nickname={it.nickname} email={it.email} />
                     </div>

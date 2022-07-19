@@ -34,7 +34,7 @@ const MainPage = ({users}) => {
                             email={userProfile?.[0].email} />
                         {/* 프로필을 보여주는 컴포넌트, 헷갈리니까 FriendsProfile 대신 Profile로 바꾸는 게 어떨까?*/}
 
-                        }
+                        
                      </div>
 
             </div>)

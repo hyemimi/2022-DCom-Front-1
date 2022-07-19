@@ -6,10 +6,11 @@ function GroupList({name,leader,members}) {
 
     return(
              <div >
-                <div className="group-name">"{name}"</div>
+                <div className="group-name">{name}</div>
                 <div>그룹장 | {leader}</div>
                 {members.map((item, idx) => {
                   return (
+                    // eslint-disable-next-line react/jsx-key
                     <div>
                       {item === '' ? 'Empty' : `member${idx + 1} | ${item}`}
                     </div>
