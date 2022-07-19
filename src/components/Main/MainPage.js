@@ -5,7 +5,7 @@ import FriendsProfile from '../FriendsProfile'
 
 
 
-const Profile = ({users}) => {
+const MainPage = ({users}) => {
   const auth = getAuth(app); // firebase, (테스트용)
   const userProfile = users.filter((it)=>it.email === auth.currentUser.email);
   console.log(userProfile)
