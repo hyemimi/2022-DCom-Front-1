@@ -1,8 +1,11 @@
 
+
+// GroupItem은 그룹별 프로필과 같다고 보면 된다. 그룹 리스트를 나열할 때 컴포넌트로 사용될 예정
+
 function GroupList({name,leader,members}) {
 
     return(
-             <div className="box-content">
+             <div >
                 <div className="group-name">"{name}"</div>
                 <div>그룹장 | {leader}</div>
                 {members.map((item, idx) => {
@@ -19,5 +22,6 @@ function GroupList({name,leader,members}) {
 
     )
 }
+
 
 export default GroupList

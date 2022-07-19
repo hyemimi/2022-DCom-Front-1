@@ -26,3 +26,4 @@ const SideMenu = ({ activeMenu, setActiveMenu }) => {
 }
 
 export default SideMenu
+

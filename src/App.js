@@ -22,11 +22,12 @@ import FriendsProfile from './components/FriendsProfile'
 
 function App () {
   const auth = getAuth(app)
-  const dummyInfo = [
+  /* const dummyInfo = [
     { studyId: [0, 2], name: '이혜미', email: 'gkj8963@khu.ac.kr' },
     { studyid: [1], name: '정혜인', email: 'hyemi@khu.ac.kr' }
-  ]
+  ] */
 
+  //그룹 dummylist
   const dummyList = [
     {
       studyId: 0,
@@ -49,10 +50,38 @@ function App () {
     { studyId: 3, name: '스피킹스터디', leader: 'a', member: [''] }
   ]
   const [data, setData] = useState([])
-  const [info, setInfo] = useState(dummyInfo) // 전체 개인 data
+ // const [info, setInfo] = useState(dummyInfo) // 전체 개인 data
   const [studyList, setStudyList] = useState(dummyList) // 전체 스터디 리스트
   const [activeMenu, setActiveMenu] = useState('home')
 
+  //전체 유저 dummylist
+  const users = [
+    {
+      image: '프로필 이미지',
+      name: '이혜미',
+      nickname: '미미',
+      email: 'hyemi7375@gmail.com'
+    },
+    {
+      image: '프로필 이미지',
+      name: '정혜인',
+      nickname: '혠',
+      email: 'jhi2359@khu.ac.kr'
+    },
+    {
+      image: '프로필 이미지',
+      name: '이혜미',
+      nickname: '혬',
+      email: 'gkj8963@khu.ac.kr'
+    },
+    {
+      image: '프로필 이미지',
+      name: '혜인',
+      nickname: '원',
+      email: 'jhi2359@khu.ac.kr'
+
+    },
+  ];
   //Friends
   //const columns = ["Name", "Email", "Phone",""];
   const my_friend = [
@@ -66,7 +95,7 @@ function App () {
       image: '프로필 이미지',
       name: '이혜미',
       nickname: '혬',
-      email: 'hyemi@khu.ac.kr'
+      email: 'gkj8963@khu.ac.kr'
     },
     {
       image: '프로필 이미지',
@@ -110,7 +139,8 @@ function App () {
           render={() => (
             <>
               <Main 
-              isLoggedIn={isLoggedIn} setIsLoggedIn = {setIsLoggedIn} userObj={userObj}/>
+              isLoggedIn={isLoggedIn} setIsLoggedIn = {setIsLoggedIn} userObj={userObj}
+              users= {users}/>
             </>
           )}
         />
@@ -154,9 +184,6 @@ function App () {
           render={() => (
             <>
               <Groups
-                
-                info={info}
-                setInfo={setInfo}
                 studyList={studyList}
                 setStudyList={setStudyList}
               />

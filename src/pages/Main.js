@@ -3,7 +3,7 @@ import SideMenu from '../Layout/SideMenu.js'
 import { Link } from 'react-router-dom'
 import Start from '../components/Start.js'
 
-const Main = ({  isLoggedIn, setIsLoggedIn,userObj }) => {
+const Main = ({  isLoggedIn, setIsLoggedIn,userObj ,users}) => {
 
   return (
     <>
@@ -21,7 +21,7 @@ const Main = ({  isLoggedIn, setIsLoggedIn,userObj }) => {
             <Link to="login">
               <button>로그인하고 시작하기</button>
             </Link> </>): 
-             <Start userObj={userObj}/> }
+             <Start userObj={userObj} users = {users}/> }
 
           </div>
         </div>

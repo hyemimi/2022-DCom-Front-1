@@ -6,11 +6,8 @@ const Groups = ({
   
   studyList,
   setStudyList,
-  info,
-  setInfo
 }) => {
   const [myList, setMyList] = useState(studyList)
-  const [myInfo, setMyInfo] = useState(info)
 
   // <리스트 보여주기>
   // info에서 user에 해당하는 정보를 가져온 다음(filter?), setMyInfo로 myInfo에 넣기
