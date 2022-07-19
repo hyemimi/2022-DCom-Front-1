@@ -25,8 +25,8 @@ const onChange = (e) => {
 const onSubmit = (event) => {
     event.preventDefault();
     setmy_email(myemail)
-    setmy_email(mynickname)
-    setmy_email(myimage)
+    setmy_nickname(mynickname)
+    setmy_image(myimage)
     
     setMyEmail("")
     setMyImage("")
