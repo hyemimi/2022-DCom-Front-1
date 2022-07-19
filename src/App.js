@@ -3,8 +3,8 @@ import { Route, BrowserRouter,Routes } from 'react-router-dom'
 import './App.css'
 import Main from './pages/Main.js'
 import Login from './pages/Login.js'
-import FriendSearch from './pages/FriendSearch'
-import GroupSearch from './pages/GroupSearch'
+import SearchFriend from './pages/SearchFriend'
+import SearchGroup from './pages/SearchGroup'
 import SignUp from './pages/SignUp'
 import Record from './pages/Record'
 import Friends from './pages/Friends'
@@ -133,73 +133,75 @@ function App () {
       <Navigation isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
                   activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
       <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <>
-              <Main 
-              isLoggedIn={isLoggedIn} setIsLoggedIn = {setIsLoggedIn} userObj={userObj}
-              users= {users}/>
-            </>
-          )}
-        />
-        <Route exact path="/login" render={() => <Login />} />
-        <Route exact path="/register" render={() => <SignUp />} />
-        <Route
-          exact
-          path="/friendsearch"
-          render={() => (
-            <>
+        <div className={isLoggedIn?'content':''}>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <>
+                <Main
+                  isLoggedIn={isLoggedIn} setIsLoggedIn = {setIsLoggedIn} userObj={userObj}/>
+              </>
+            )}
+          />
+          <Route exact path="/login" render={() => <Login />} />
+          <Route exact path="/register" render={() => <SignUp />} />
+          <Route
+            exact
+            path="/searchFriend"
+            render={() => (
+              <>
+                <SearchFriend
+                  postList={data}
+                />
+              </>
+            )}
+          />
+          <Route
+            exact
+            path="/searchGroup"
+            render={() => (
+              <>
+                <SearchGroup
+                  postList={data}
+                />
+              </>
+            )}
+          />
+          <Route
+            exact
+            path="/record"
+            render={() => (
+              <>
+                <Record />
+              </>
+            )}
+          />
+          <Route
+            exact
+            path="/groups"
+            render={() => (
+              <>
+                <Groups
 
-              <FriendSearch
-                postList={data}
-              />
-            </>
-          )}
-        />
-        <Route
-          exact
-          path="/groupsearch"
-          render={() => (
-            <>
-              <GroupSearch
-                postList={data}
-              />
-            </>
-          )}
-        />
-        <Route
-          exact
-          path="/record"
-          render={() => (
-            <>
-              <Record />
-            </>
-          )}
-        />
-        <Route
-          exact
-          path="/groups"
-          render={() => (
-            <>
-              <Groups
-                studyList={studyList}
-                setStudyList={setStudyList}
-              />
-            </>
-          )}
-        />
-        <Route
-          exact
-          path="/friends"
-          render={() => (
+                  info={info}
+                  setInfo={setInfo}
+                  studyList={studyList}
+                  setStudyList={setStudyList}
+                />
+              </>
+            )}
+          />
+          <Route
+            exact
+            path="/friends"
+            render={() => (
               <Friends my_friend={my_friend} />
-          )}
-        />
+            )}
+          />
+        </div>
       </BrowserRouter>
     </div>
-
   )
 }
 
