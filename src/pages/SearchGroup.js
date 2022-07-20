@@ -1,13 +1,18 @@
-import React, { useEffect, useState, useRef } from 'react'
-import SideMenu from '../Layout/SideMenu'
+import React, { useEffect, useState, useRef, Component } from 'react'
+import GroupItem from '../components/GroupItem'
+import App from '../App'
+import FriendsProfileList from '../components/FriendsProfileList'
+import GroupItemList from '../components/GroupItemList'
+import GroupButton from '../components/GroupButton'
 
-const SearchGroup = ({ postList, onEdit }) => {
-  const textBox = useRef()
-  const [searchText, setSearchText] = useState(null)
+const SearchGroup = ({studyList, setStudyList}) => {
+  const [searchText, setSearchText] = useState()
 
   const onSearch = () => {
-    setSearchText(textBox.current.value)
-    console.log(textBox.current.value)
+    console.log(searchText)
+    //const searchednickname = users.filter((val) => (searchText === val.nickname))
+    // const result = users.filter((it) =>it.nickname === searchText)
+    // return(result)
   }
 
   const onPressEnter = (e) => {
@@ -16,6 +21,13 @@ const SearchGroup = ({ postList, onEdit }) => {
     }
   }
 
+  const filteredGroup = studyList.filter((studyList) => {
+    if(searchText === "" || searchText === null)
+      return ("검색 결과 없음")
+    else
+      return studyList.name.includes(searchText);
+  })
+
   return (
     <>
       <div className="content">
@@ -23,8 +35,8 @@ const SearchGroup = ({ postList, onEdit }) => {
           <div className="searchBox">
             <input
               type="text"
-              placeholder="검색할 내용을 입력하세요."
-              ref={textBox}
+              placeholder="그룹명을 입력하세요."
+              onChange={(e) => { setSearchText(e.target.value) }}
               onKeyPress={onPressEnter}
             />
             <button className="searchBtn" onClick={onSearch}>
@@ -32,6 +44,7 @@ const SearchGroup = ({ postList, onEdit }) => {
             </button>
           </div>
         </div>
+        <GroupItemList key={studyList.studyId} data={filteredGroup}/>
       </div>
     </>
   )

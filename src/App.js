@@ -91,7 +91,6 @@ function App () {
     },
   ];
   //Friends
-  //const columns = ["Name", "Email", "Phone",""];
   const my_friend = [
     {
       image: '프로필 이미지',
