@@ -35,7 +35,7 @@ const SearchFriend = ({users}) => {
           <div className="searchBox">
             <input
               type="text"
-              placeholder="검색할 내용을 입력하세요."
+              placeholder="친구의 닉네임을 입력하세요."
               onChange={(e) => { setSearchText(e.target.value) }}
               onKeyPress={onPressEnter}
             />

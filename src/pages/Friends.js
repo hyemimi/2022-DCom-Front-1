@@ -8,6 +8,14 @@ const Friends = ({ postList, onEdit, columns, my_friend }) => {
         <>
             <div className="content">
               <h1 className='friendsheader'> My Friends </h1>
+
+              <div className='friendsAdd'>
+                <Link
+                  key='SearchFriend'
+                  to='searchFriend'>
+                  <button className='friendsAddBtn'>🔍　친구 추가 하러가기</button>
+                </Link>
+              </div>
               <div className='friendsSearchBox'>
                 <input
                   type="text"
@@ -17,19 +25,13 @@ const Friends = ({ postList, onEdit, columns, my_friend }) => {
                   🔍
                 </button>
               </div>
-              <div className='friendsAdd'>
-                <Link
-                  key='SearchFriend'
-                  to='searchFriend'>
-                  <button className='friendsAddBtn'>친구 추가 하러가기</button>
-                </Link>
-              </div>
               <div className='FriendsProfileBoxes'>
                 {my_friend.map((it) => {
                   return (
                     // eslint-disable-next-line react/jsx-key
                     <div>
                     <FriendsProfile image={it.image} name={it.name} nickname={it.nickname} email={it.email} />
+                    <button className='friendsDeleteButton'>친구 삭제</button>
                     </div>
                   )
                 })}

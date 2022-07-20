@@ -159,7 +159,6 @@ function App () {
           path="/searchFriend"
           render={() => (
             <>
-
               <SearchFriend
                 users={users}
               />
@@ -172,7 +171,8 @@ function App () {
           render={() => (
             <>
               <SearchGroup
-                postList={data}
+                studyList={studyList}
+                setStudyList={setStudyList}
               />
             </>
           )}

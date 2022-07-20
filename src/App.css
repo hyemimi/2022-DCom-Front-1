@@ -612,7 +612,6 @@ a {
 .searchBox {
   text-align: left;
   box-sizing: border-box;
-  position: relative;
 }
 
 .searchBox input {
@@ -1013,7 +1012,7 @@ a {
   }
 }
 
-.friendscontent .friendsheader{
+.friendsheader{
   color: #ffffff;
   font-size: 3vw;
   margin: 3vw;
@@ -1031,7 +1030,7 @@ a {
   padding-left: 50px;
   padding-right: 50px;
 }
-.friendscontent .friendstable .friendsDeleteButton{
+.friendsDeleteButton{
   margin: 0;
   padding: 0.5rem 1rem;
 
@@ -1047,7 +1046,7 @@ a {
   border: 2px solid #ffffff;
   border-radius: 10px;  
 }
-.friendscontent .friendsAdd .friendsAddBtn{
+.friendsAddBtn{
   margin: 0;
   margin-top: 20px;
   margin-bottom: 50px;
@@ -1103,6 +1102,8 @@ a {
   flex-direction: row;
   display: flex;
   flex-wrap: wrap;
+  padding-top: calc(62px + 5vh);
+  padding-left: calc(250px + 40px);
 }
 .FriendsProfileBox {
   width:500px;
@@ -1111,4 +1112,23 @@ a {
   border-radius: 100px;
   margin: 30px;
   padding-top: 350px;
+}
+
+.groupsAddBtn{
+  margin: 0;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  padding: 0.5rem 1rem;
+
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+
+  display: inline-block;
+  width: auto;
+
+  border: 3px solid #cfcfcf;
+  border-radius: 30px;  
 }
