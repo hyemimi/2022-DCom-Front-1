@@ -1,14 +1,14 @@
-import app from '../firebase'
-import db from '../firestore'
+import app from '../../firebase';
+import db from '../../firestore';
 import {getAuth} from 'firebase/auth'
 import React, { useEffect, useState } from "react";
-import FriendsProfile from './FriendsProfile';
-import EditProfile from './EditProfile';
+import FriendsProfile from '../FriendsProfile';
+import EditProfile from '../EditProfile';
 import { Link } from 'react-router-dom';
 
 
 
-const Profile = ({users}) => {
+const MainPage = ({users}) => {
   const auth = getAuth(app); // firebase, (테스트용)
   const [isEdit,setIsEdit] = useState(false)
   const userProfile = users.filter((it)=>it.email === auth.currentUser.email);
@@ -50,4 +50,4 @@ const [my_email,setMy_Email] = useState(userProfile[0].email)
         
 }
 
-export default Profile;
+export default MainPage

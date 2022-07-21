@@ -3,8 +3,8 @@ import { Route, BrowserRouter,Routes } from 'react-router-dom'
 import './App.css'
 import Main from './pages/Main.js'
 import Login from './pages/Login.js'
-import FriendSearch from './pages/FriendSearch'
-import GroupSearch from './pages/GroupSearch'
+import SearchFriend from './pages/SearchFriend'
+import SearchGroup from './pages/SearchGroup'
 import SignUp from './pages/SignUp'
 import Record from './pages/Record'
 import Friends from './pages/Friends'
@@ -72,6 +72,12 @@ function App () {
     },
     {
       image: '프로필 이미지',
+      name: '정혜인',
+      nickname: '혠',
+      email: 'jhi2359@naver.com'
+    },
+    {
+      image: '프로필 이미지',
       name: '이혜미',
       nickname: '혬',
       email: 'gkj8963@khu.ac.kr'
@@ -85,7 +91,6 @@ function App () {
     },
   ];
   //Friends
-  //const columns = ["Name", "Email", "Phone",""];
   const my_friend = [
     {
       image: '프로필 이미지',
@@ -150,23 +155,23 @@ function App () {
         <Route exact path="/register" render={() => <SignUp />} />
         <Route
           exact
-          path="/friendsearch"
+          path="/searchFriend"
           render={() => (
             <>
-
-              <FriendSearch
-                postList={data}
+              <SearchFriend
+                users={users}
               />
             </>
           )}
         />
         <Route
           exact
-          path="/groupsearch"
+          path="/searchGroup"
           render={() => (
             <>
-              <GroupSearch
-                postList={data}
+              <SearchGroup
+                studyList={studyList}
+                setStudyList={setStudyList}
               />
             </>
           )}

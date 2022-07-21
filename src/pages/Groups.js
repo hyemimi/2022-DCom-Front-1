@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import GroupItem from '../components/GroupItem'
 import SideMenu from '../Layout/SideMenu'
+import { Link } from 'react-router-dom'
+import GroupButton from '../components/GroupButton'
 
 const Groups = ({
-  
+
   studyList,
   setStudyList,
 }) => {
@@ -21,17 +23,25 @@ const Groups = ({
 
   return (
     <>
-     
+
       <div className="content">
         <h1 className="groupList-header"> My Groups </h1>
+        <div className='groupsAdd'>
+                <Link
+                  key='searchGroup'
+                  to='searchGroup'>
+                  <button className='groupsAddBtn'>🔍　스터디 그룹 검색하러가기</button>
+                </Link>
+              </div>
         <div className="out">
           <button className="groups-btn">스터디그룹 생성하기</button>
         </div>
         <div>
           {myList.map((it) => {
             return (
-             <div>
-              <GroupItem name={it.name} leader={it.leader} members={it.member}/>
+              // eslint-disable-next-line react/jsx-key
+              <div>
+              <GroupItem name={it.name} leader={it.leader} members={it.member} buttontext="탈퇴하기"/>
               </div>
             )
           })}

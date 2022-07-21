@@ -1,27 +1,24 @@
-
-
 // GroupItem은 그룹별 프로필과 같다고 보면 된다. 그룹 리스트를 나열할 때 컴포넌트로 사용될 예정
-
-function GroupList({name,leader,members}) {
+import React, { useEffect, useState, useRef } from 'react'
+import GroupButton from './GroupButton'
+function GroupItem({name,leader,members, buttontext}) {
 
     return(
              <div >
-                <div className="group-name">"{name}"</div>
+                <div className="group-name">{name}</div>
                 <div>그룹장 | {leader}</div>
-                {members.map((item, idx) => {
+                {members && members.map((item, idx) => {
                   return (
+                    // eslint-disable-next-line react/jsx-key
                     <div>
                       {item === '' ? 'Empty' : `member${idx + 1} | ${item}`}
                     </div>
                   )
                 })}
-<div className="out">
-<button className="groups-btn">탈퇴하기</button>
-</div>
+                <GroupButton text={buttontext}></GroupButton>
         </div>
 
-    )
+  )
 }
 
-
-export default GroupList
+export default GroupItem
