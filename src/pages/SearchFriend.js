@@ -7,11 +7,9 @@ const SearchFriend = ({users}) => {
   const [searchText, setSearchText] = useState()
 
   
-  const onSearch = () => {
+  const onSearch = (e) => {
+    setSearchText(document.getElementById("inputvalue").value)
     console.log(searchText)
-    //const searchednickname = users.filter((val) => (searchText === val.nickname))
-    // const result = users.filter((it) =>it.nickname === searchText)
-    // return(result)
   }
 
 
@@ -23,7 +21,7 @@ const SearchFriend = ({users}) => {
 
   const filteredFriend = users.filter((users) => {
     if(searchText === "" || searchText === null)
-      return ("검색 결과 없음")
+      return (null)
     else
       return users.nickname.includes(searchText);
   })
@@ -33,15 +31,17 @@ const SearchFriend = ({users}) => {
       <div className="content">
         <div className="SearchPage">
           <div className="searchBox">
-            <input
-              type="text"
-              placeholder="친구의 닉네임을 입력하세요."
-              onChange={(e) => { setSearchText(e.target.value) }}
-              onKeyPress={onPressEnter}
-            />
-            <button className="searchBtn" onClick={onSearch}>
-              🔍
-            </button>
+            {/* <form onSubmit={(e)=> {setSearchText(e.target.value)}}> */}
+              <input
+                id="inputvalue"
+                type="text"
+                placeholder="친구의 닉네임을 입력하세요."
+                onKeyPress={onPressEnter}
+              />
+              <button className="searchBtn" onClick={onSearch}>
+                🔍
+              </button>
+            {/* </form> */}
           </div>
         </div>
         <FriendsProfileList key={users.id} data={filteredFriend}/>
