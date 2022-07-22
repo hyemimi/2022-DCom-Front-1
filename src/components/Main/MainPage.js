@@ -23,7 +23,7 @@ const [my_email,setMy_Email] = useState(userProfile[0].email)
 
 
     return(
-        <div><h1>
+        <div className="centered"><h1>
               <a style={{ color: '#ffc83d', fontSize: 'min(6vw, 40px)' }}>
                 DCOM STUDY
               </a>
@@ -39,7 +39,7 @@ const [my_email,setMy_Email] = useState(userProfile[0].email)
  
                     <button onClick = {()=>{setIsEdit(true)}}>내 프로필 수정하기</button>
         
-                    <FriendsProfile image={my_image} name={my_name} nickname={my_nickname} email={my_email} />
+                    <div> <FriendsProfile image={my_image} name={my_name} nickname={my_nickname} email={my_email} /> </div>
                 {/*<FriendsProfile image={userProfile[0].image} name={userProfile[0].name} nickname={userProfile[0].nickname} email={userProfile[0].email} />*/}
                     </div>: <EditProfile userProfile={userProfile} setIsEdit={setIsEdit}
                     setmy_email={setMy_Email} setmy_image={setMy_Image} setmy_name={setMy_Name} setmy_nickname={setMy_Nickname}/>}

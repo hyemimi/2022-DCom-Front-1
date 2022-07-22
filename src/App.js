@@ -5,6 +5,7 @@ import Main from './pages/Main.js'
 import Login from './pages/Login.js'
 import SearchFriend from './pages/SearchFriend'
 import SearchGroup from './pages/SearchGroup'
+import NewGroup from './pages/NewGroup'
 import SignUp from './pages/SignUp'
 import Record from './pages/Record'
 import Friends from './pages/Friends'
@@ -172,6 +173,16 @@ function App () {
               <SearchGroup
                 studyList={studyList}
                 setStudyList={setStudyList}
+              />
+            </>
+          )}
+        />
+        <Route
+          exact
+          path="/newGroup"
+          render={() => (
+            <>
+              <NewGroup users={users}
               />
             </>
           )}

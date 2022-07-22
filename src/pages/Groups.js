@@ -34,7 +34,7 @@ const Groups = ({
                 </Link>
               </div>
         <div className="out">
-          <button className="groups-btn">스터디그룹 생성하기</button>
+          <Link key='newGroup' to='newGroup'><button className="groups-btn">스터디그룹 생성하기</button></Link>
         </div>
         <div>
           {myList.map((it) => {

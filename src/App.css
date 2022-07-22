@@ -185,6 +185,7 @@ a {
 /* .TopMenu .loginBtn: */
 
 .MainPage {
+  margin-left: 10cm;
 }
 
 .MainPage h1 {
@@ -1131,4 +1132,20 @@ a {
 
   border: 3px solid #cfcfcf;
   border-radius: 30px;  
+}
+
+.NewGroup {
+  padding-top: 10%;
+  align-items: center;
+
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.centered {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
 }
