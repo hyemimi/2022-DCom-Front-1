@@ -21,6 +21,8 @@ import Groups from './pages/Groups'
 import Navigation from './components/Navigation'
 import FriendsProfile from './components/FriendsProfile'
 import EditProfile from './components/EditProfile'
+import Cam from './pages/Cam'
+import WebcamComponent from './pages/Cam'
 
 
 function App () {
@@ -220,6 +222,13 @@ function App () {
           path="/friends"
           render={() => (
               <Friends my_friend={my_friend} />
+          )}
+        />
+        <Route
+          exact
+          path="/cam"
+          render={() => (
+              <WebcamComponent />
           )}
         />
       </BrowserRouter>
