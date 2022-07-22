@@ -1,14 +1,14 @@
-import app from '../../firebase';
-import db from '../../firestore';
+import app from '../firebase'
+import db from '../firestore'
 import {getAuth} from 'firebase/auth'
 import React, { useEffect, useState } from "react";
-import FriendsProfile from '../FriendsProfile';
-import EditProfile from '../EditProfile';
+import FriendsProfile from './FriendsProfile';
+import EditProfile from './EditProfile';
 import { Link } from 'react-router-dom';
 
 
 
-const MainPage = ({users}) => {
+const Profile = ({users}) => {
   const auth = getAuth(app); // firebase, (테스트용)
   const [isEdit,setIsEdit] = useState(false)
   const userProfile = users.filter((it)=>it.email === auth.currentUser.email);
@@ -23,7 +23,7 @@ const [my_email,setMy_Email] = useState(userProfile[0].email)
 
 
     return(
-        <div className="centered"><h1>
+        <div><h1>
               <a style={{ color: '#ffc83d', fontSize: 'min(6vw, 40px)' }}>
                 DCOM STUDY
               </a>
@@ -39,7 +39,7 @@ const [my_email,setMy_Email] = useState(userProfile[0].email)
  
                     <button onClick = {()=>{setIsEdit(true)}}>내 프로필 수정하기</button>
         
-                    <div> <FriendsProfile image={my_image} name={my_name} nickname={my_nickname} email={my_email} /> </div>
+                    <FriendsProfile image={my_image} name={my_name} nickname={my_nickname} email={my_email} />
                 {/*<FriendsProfile image={userProfile[0].image} name={userProfile[0].name} nickname={userProfile[0].nickname} email={userProfile[0].email} />*/}
                     </div>: <EditProfile userProfile={userProfile} setIsEdit={setIsEdit}
                     setmy_email={setMy_Email} setmy_image={setMy_Image} setmy_name={setMy_Name} setmy_nickname={setMy_Nickname}/>}
@@ -50,4 +50,4 @@ const [my_email,setMy_Email] = useState(userProfile[0].email)
         
 }
 
-export default MainPage
+export default Profile;

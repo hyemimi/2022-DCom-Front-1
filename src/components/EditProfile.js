@@ -1,4 +1,3 @@
-
 import { isValidTimestamp } from '@firebase/util'
 import {useState} from 'react'
 import FriendsProfile from './FriendsProfile'
@@ -40,7 +39,7 @@ const onClick = () => {
 }
     return(
         <div>
-            <h1>"My Profile"</h1>
+            <h1>My Profile</h1>
        
             <form onSubmit={onSubmit}>
                 <div>

@@ -5,6 +5,7 @@ import Main from './pages/Main.js'
 import Login from './pages/Login.js'
 import SearchFriend from './pages/SearchFriend'
 import SearchGroup from './pages/SearchGroup'
+import NewGroup from './pages/NewGroup'
 import SignUp from './pages/SignUp'
 import Record from './pages/Record'
 import Friends from './pages/Friends'
@@ -68,13 +69,13 @@ function App () {
       image: '프로필 이미지',
       name: '정혜인',
       nickname: '혠',
-      email: 'jhi2359@naver.com'
+      email: 'jhi2359@khu.ac.kr'
     },
     {
       image: '프로필 이미지',
       name: '정혜인',
       nickname: '혠',
-      email: 'jhi2359@khu.ac.kr'
+      email: 'jhi2359@naver.com'
     },
     {
       image: '프로필 이미지',
@@ -90,8 +91,6 @@ function App () {
 
     },
   ];
-  const [searchResult, setSearchResult] = useState(users)
-  
   //Friends
   const my_friend = [
     {
@@ -139,73 +138,51 @@ function App () {
 
   return (
     <div className="App">
-      <Navigation isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
-                  activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
       <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <div className={isLoggedIn?'content':''}>
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <>
-                <Main
-                  isLoggedIn={isLoggedIn} setIsLoggedIn = {setIsLoggedIn} userObj={userObj}/>
-              </>
-            )}
-          />
-          <Route exact path="/login" render={() => <Login />} />
-          <Route exact path="/register" render={() => <SignUp />} />
-          <Route
-            exact
-            path="/searchFriend"
-            render={() => (
-              <>
-                <SearchFriend
-                  postList={data}
-                />
-              </>
-            )}
-          />
-          <Route
-            exact
-            path="/searchGroup"
-            render={() => (
-              <>
-                <SearchGroup
-                  postList={data}
-                />
-              </>
-            )}
-          />
-          <Route
-            exact
-            path="/record"
-            render={() => (
-              <>
-                <Record />
-              </>
-            )}
-          />
-          {/* <Route
-            exact
-            path="/groups"
-            render={() => (
-              <>
-                <Groups
-
-              <FriendSearch
-                postList={data}
+        <Navigation isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
+        activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <>
+              <Main 
+              isLoggedIn={isLoggedIn} setIsLoggedIn = {setIsLoggedIn} userObj={userObj}
+              users= {users}/>
+            </>
+          )}
+        />
+        <Route exact path="/login" render={() => <Login />} />
+        <Route exact path="/register" render={() => <SignUp />} />
+        <Route
+          exact
+          path="/searchFriend"
+          render={() => (
+            <>
+              <SearchFriend
+                users={users}
               />
             </>
           )}
-        /> */}
+        /> 
         <Route
           exact
-          path="/groupsearch"
+          path="/searchGroup"
           render={() => (
             <>
-              <GroupSearch
-                postList={data}
+              <SearchGroup
+                studyList={studyList}
+                setStudyList={setStudyList}
+              />
+            </>
+          )}
+        />
+        <Route
+          exact
+          path="/newGroup"
+          render={() => (
+            <>
+              <NewGroup users={users}
               />
             </>
           )}
@@ -243,11 +220,11 @@ function App () {
           path="/friends"
           render={() => (
               <Friends my_friend={my_friend} />
-            )}
-          />
-        </div>
+          )}
+        />
       </BrowserRouter>
     </div>
+
   )
 }
 

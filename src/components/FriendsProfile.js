@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import SideMenu from '../Layout/SideMenu'
 
-function FriendsProfile ({ image, name, nickname, email }) {
+function FriendsProfile (props) {
+  const { image, name, nickname, email } = props
   return (
         <div className='FriendsProfileBox'>
             <p>{image}</p>
