@@ -8,6 +8,7 @@ const menuList = [
     { ref: 'record', label: '📈　분석하기' },
     { ref: 'friends', label: '🧾　친구 리스트' },
     { ref: 'groups', label: '🧾　내 그룹리스트' },
+    { ref: 'cam', label: '❤　공부하러가기'}
 ];
 
 const SideMenu = () => {
