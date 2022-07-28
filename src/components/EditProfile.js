@@ -22,27 +22,40 @@ function EditProfile({ setIsEdit }) {
     };
     const onSubmit = (event) => {
         event.preventDefault();
-        dispatch(
-            edit({
-                motto: mymotto,
-                nickname: mynickname,
-                profileImage: myimage,
-            })
-        );
-        setIsEdit(false);
+        if (window.confirm('수정하시겠습니까?')) {
+            dispatch(
+                edit({
+                    motto: mymotto,
+                    nickname: mynickname,
+                    profileImage: myimage,
+                })
+            );
+            setIsEdit(false);
+        } else {
+            return;
+        }
     };
     const onClick = () => {
         setIsEdit(false);
     };
+    const onFileChange = (event) => {
+        const theFile = event.target.files[0];
+        const reader = new FileReader();
+        reader.onloadend = (finishedEvent) => {
+            const result = finishedEvent.currentTarget.result;
+            setMyImage(result);
+        };
+        reader.readAsDataURL(theFile);
+    };
     return (
         <div>
             <h1>My Profile</h1>
-
-            <form onSubmit={onSubmit}>
-                <div>
-                    <h1> 이름 : {user.name}</h1>
-                </div>
-                <div>
+            <div>
+                <form onSubmit={onSubmit}>
+                    <h1>
+                        {' '}
+                        이름 : <input type="text" value={user.name} />
+                    </h1>
                     <h1>
                         별명 :
                         <input
@@ -52,22 +65,25 @@ function EditProfile({ setIsEdit }) {
                             onChange={onChange}
                         />
                     </h1>
-                </div>
-                <div>
                     <h1>
-                        프로필이미지 :
+                        {myimage && (
+                            <p>
+                                <img
+                                    src={myimage}
+                                    width="100px"
+                                    height="100px"
+                                />
+                            </p>
+                        )}
                         <input
-                            name="myimage"
-                            value={myimage}
-                            type="text"
-                            onChange={onChange}
+                            accept="image/*"
+                            type="file"
+                            onChange={onFileChange}
                         />
                     </h1>
-                </div>
-                <div>
-                    <h1>email : {user.email}</h1>
-                </div>
-                <div>
+                    <h1>
+                        email : <input type="text" value={user.email} />
+                    </h1>
                     <h1>
                         나의 좌우명 :
                         <input
@@ -77,13 +93,13 @@ function EditProfile({ setIsEdit }) {
                             onChange={onChange}
                         />
                     </h1>
-                </div>
-                <div>
-                    <input type="submit" value="수정하기" />
-                </div>
-            </form>
-            <div>
-                <button onClick={onClick}>cancel</button>
+                    <h1>
+                        <input type="submit" value="수정하기" />{' '}
+                    </h1>
+                    <div>
+                        <button onClick={onClick}>cancel</button>
+                    </div>
+                </form>
             </div>
         </div>
     );

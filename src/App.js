@@ -61,31 +61,31 @@ function App() {
     //전체 유저 dummylist
     const users = [
         {
-            image: '프로필 이미지',
+            image: '',
             name: '이혜미',
             nickname: '미미',
             email: 'hyemi7375@gmail.com',
         },
         {
-            image: '프로필 이미지',
+            image: '',
             name: '정혜인',
             nickname: '혠',
             email: 'jhi2359@khu.ac.kr',
         },
         {
-            image: '프로필 이미지',
+            image: '',
             name: '정혜인',
             nickname: '혠',
             email: 'jhi2359@naver.com',
         },
         {
-            image: '프로필 이미지',
+            image: '',
             name: '이혜미',
             nickname: '혬',
             email: 'gkj8963@khu.ac.kr',
         },
         {
-            image: '프로필 이미지',
+            image: '',
             name: '혜인',
             nickname: '원',
             email: 'jhi2359@khu.ac.kr',
@@ -94,22 +94,25 @@ function App() {
     //Friends
     const my_friend = [
         {
-            image: '프로필 이미지',
+            image: '',
             name: '정혜인',
             nickname: '혠',
             email: 'jhi2359@khu.ac.kr',
+            motto: '.',
         },
         {
-            image: '프로필 이미지',
+            image: '',
             name: '이혜미',
             nickname: '혬',
             email: 'gkj8963@khu.ac.kr',
+            motto: '...',
         },
         {
-            image: '프로필 이미지',
+            image: '',
             name: '혜인',
             nickname: '원',
             email: 'jhi2359@khu.ac.kr',
+            motto: '.',
         },
     ];
 
