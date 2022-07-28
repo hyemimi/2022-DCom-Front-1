@@ -18,7 +18,8 @@ const userSlice = createSlice({
                         motto: '꾸준히',
                         name: '이혜미',
                         nickname: '혬',
-                        profileImage: '없음',
+                        profileImage:
+                            'https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_1280.jpg',
                     },
                 ],
             },
@@ -27,7 +28,8 @@ const userSlice = createSlice({
         motto: '꾸준히',
         name: '이혜미',
         nickname: '혬',
-        profileImage: '없음',
+        profileImage:
+            'https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_1280.jpg',
         role: '멤버',
     },
     reducers: {

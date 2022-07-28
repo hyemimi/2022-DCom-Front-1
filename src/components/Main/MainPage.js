@@ -6,6 +6,7 @@ import FriendsProfile from '../FriendsProfile';
 import EditProfile from '../EditProfile';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import MyProfile from '../MyProfile';
 
 const MainPage = ({ users }) => {
     // const auth = getAuth(app); // firebase, (테스트용)
@@ -45,13 +46,13 @@ const MainPage = ({ users }) => {
 
                     <div>
                         {' '}
-                        <FriendsProfile
+                        <MyProfile
                             image={user.profileImage}
                             name={user.name}
                             nickname={user.nickname}
                             email={user.email}
+                            motto={user.motto}
                         />{' '}
-                        좌우명 : {user.motto}
                     </div>
                     {/*<FriendsProfile image={userProfile[0].image} name={userProfile[0].name} nickname={userProfile[0].nickname} email={userProfile[0].email} />*/}
                 </div>
