@@ -1,5 +1,5 @@
 import { isValidTimestamp } from '@firebase/util';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import FriendsProfile from './FriendsProfile';
 import { useDispatch, useSelector } from 'react-redux';
 import { edit, register } from './../Reducer';
@@ -22,17 +22,23 @@ function EditProfile({ setIsEdit }) {
     };
     const onSubmit = (event) => {
         event.preventDefault();
-        if (window.confirm('수정하시겠습니까?')) {
-            dispatch(
-                edit({
-                    motto: mymotto,
-                    nickname: mynickname,
-                    profileImage: myimage,
-                })
-            );
-            setIsEdit(false);
-        } else {
+        if (mynickname.length === 0) {
+            window.alert('별명은 한 글자 이상 작성해주세요');
+            nicknameRef.current.focus();
             return;
+        } else {
+            if (window.confirm('수정하시겠습니까?')) {
+                dispatch(
+                    edit({
+                        motto: mymotto,
+                        nickname: mynickname,
+                        profileImage: myimage,
+                    })
+                );
+                setIsEdit(false);
+            } else {
+                return;
+            }
         }
     };
     const onClick = () => {
@@ -47,61 +53,79 @@ function EditProfile({ setIsEdit }) {
         };
         reader.readAsDataURL(theFile);
     };
+    const inputRef = useRef(null);
+    const nicknameRef = useRef();
+    const handleButtonClick = () => {
+        inputRef.current.click();
+    };
+
     return (
-        <div>
+        <>
             <h1>My Profile</h1>
             <div>
-                <form onSubmit={onSubmit}>
-                    <h1>
-                        {' '}
-                        이름 : <input type="text" value={user.name} />
-                    </h1>
-                    <h1>
-                        별명 :
-                        <input
-                            name="mynickname"
-                            value={mynickname}
-                            type="text"
-                            onChange={onChange}
-                        />
-                    </h1>
-                    <h1>
-                        {myimage && (
-                            <p>
-                                <img
-                                    src={myimage}
-                                    width="100px"
-                                    height="100px"
-                                />
-                            </p>
-                        )}
-                        <input
-                            accept="image/*"
-                            type="file"
-                            onChange={onFileChange}
-                        />
-                    </h1>
-                    <h1>
-                        email : <input type="text" value={user.email} />
-                    </h1>
-                    <h1>
-                        나의 좌우명 :
-                        <input
-                            name="mymotto"
-                            value={mymotto}
-                            type="text"
-                            onChange={onChange}
-                        />
-                    </h1>
-                    <h1>
-                        <input type="submit" value="수정하기" />{' '}
-                    </h1>
+                <div className="EditProfile">
                     <div>
-                        <button onClick={onClick}>cancel</button>
+                        <h1>
+                            {myimage && (
+                                <p>
+                                    <img
+                                        src={myimage}
+                                        width="500px"
+                                        height="300px"
+                                    />
+                                </p>
+                            )}
+
+                            <button
+                                style={{ margin: '30px' }}
+                                onClick={handleButtonClick}
+                            >
+                                이미지 찾기
+                            </button>
+                            <input
+                                accept="image/*"
+                                type="file"
+                                onChange={onFileChange}
+                                style={{ display: 'none' }}
+                                ref={inputRef}
+                            />
+                        </h1>
                     </div>
-                </form>
+                    <div>
+                        <h1>
+                            {' '}
+                            이름 : <input type="text" value={user.name} />
+                        </h1>
+                        <h1>
+                            별명 :
+                            <input
+                                name="mynickname"
+                                value={mynickname}
+                                type="text"
+                                onChange={onChange}
+                                ref={nicknameRef}
+                            />
+                        </h1>
+                        <h1>
+                            email : <input type="text" value={user.email} />
+                        </h1>
+                        <h1>
+                            나의 좌우명 :
+                            <input
+                                name="mymotto"
+                                value={mymotto}
+                                type="text"
+                                onChange={onChange}
+                            />
+                        </h1>
+                    </div>
+                </div>
+                <div>
+                    <button onClick={onClick}>취소하기</button>
+                    <button onClick={onSubmit}>수정하기</button>
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 

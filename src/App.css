@@ -1180,3 +1180,13 @@ td {
     margin-top: auto;
     margin-bottom: auto;
 }
+
+.EditProfile {
+    margin: 3em;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    gap: 2%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
