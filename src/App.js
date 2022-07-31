@@ -21,15 +21,19 @@ import {users, friends, studyList} from './store/tempData'
 function App() {
     const [data, setData] = useState([]);
     // const [info, setInfo] = useState(dummyInfo) // 전체 개인 data
-    const [studyList, setStudyList] = useState(studyList); // 전체 스터디 리스트
+    const [studyList, setStudyList] = useState(null); // 전체 스터디 리스트
     const [activeMenu, setActiveMenu] = useState('home');
 
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [userObj, setUserObj] = useState(null)
 
+    useEffect(() => {
+        setIsLoggedIn(true);
+        setStudyList(studyList);
+    }, []);
+    
 
-    setIsLoggedIn(true);
 
     return (
         <div className="App">
