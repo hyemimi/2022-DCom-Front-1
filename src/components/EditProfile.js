@@ -2,7 +2,7 @@ import { isValidTimestamp } from '@firebase/util';
 import { useState, useRef } from 'react';
 import FriendsProfile from './FriendsProfile';
 import { useDispatch, useSelector } from 'react-redux';
-import { edit, register } from './../Reducer';
+import { edit, register } from '../store/Reducer';
 function EditProfile({ setIsEdit }) {
     const user = useSelector((state) => state.user);
     const dispatch = useDispatch();
