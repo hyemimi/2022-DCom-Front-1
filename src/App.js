@@ -10,113 +10,108 @@ import SignUp from './pages/SignUp';
 import Record from './pages/Record';
 import Friends from './pages/Friends';
 import Groups from './pages/Groups';
-import Navigation from './components/Navigation';
-import FriendsProfile from './components/FriendsProfile';
+import BaseLayout from './components/BaseLayout';
 import EditProfile from './components/EditProfile';
-import Cam from './pages/Cam';
 import WebcamComponent from './pages/Cam';
-
-import {users, friends, studyList} from './store/tempData'
+import { AuthContext } from './Context/auth';
 
 function App() {
-    const [data, setData] = useState([]);
-    // const [info, setInfo] = useState(dummyInfo) // 전체 개인 data
-    const [studyList, setStudyList] = useState(null); // 전체 스터디 리스트
-    const [activeMenu, setActiveMenu] = useState('home');
-
-
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [userObj, setUserObj] = useState(null)
 
     useEffect(() => {
         setIsLoggedIn(true);
-        setStudyList(studyList);
     }, []);
-    
-
 
     return (
-        <div className="App">
-            <BrowserRouter basename={process.env.PUBLIC_URL}>
-                <Navigation
-                    isLoggedIn={isLoggedIn}
-                    setIsLoggedIn={setIsLoggedIn}
-                    activeMenu={activeMenu}
-                    setActiveMenu={setActiveMenu}
-                />
-                <Route
-                    exact
-                    path="/"
-                    render={() => (
-                        <>
-                            <Main
-                                isLoggedIn={isLoggedIn}
-                                setIsLoggedIn={setIsLoggedIn}
-                                userObj={userObj}
-                                users={users}
-                            />
-                        </>
-                    )}
-                />
-                <Route exact path="/login" render={() => <Login />} />
-                <Route exact path="/register" render={() => <SignUp />} />
-                <Route
-                    exact
-                    path="/searchFriend"
-                    render={() => (
-                        <>
-                            <SearchFriend users={users} />
-                        </>
-                    )}
-                />
-                <Route
-                    exact
-                    path="/searchGroup"
-                    render={() => (
-                        <>
-                            <SearchGroup
-                                studyList={studyList}
-                                setStudyList={setStudyList}
-                            />
-                        </>
-                    )}
-                />
-                <Route
-                    exact
-                    path="/newGroup"
-                    render={() => (
-                        <>
-                            <NewGroup users={users} />
-                        </>
-                    )}
-                />
-                <Route
-                    exact
-                    path="/record"
-                    render={() => (
-                        <>
-                            <Record />
-                        </>
-                    )}
-                />
-                <Route
-                    exact
-                    path="/groups"
-                    render={() => (
-                        <>
-                            <Groups />
-                        </>
-                    )}
-                />
-                <Route exact path="/edit" render={() => <EditProfile />} />
-                <Route
-                    exact
-                    path="/friends"
-                    render={() => <Friends my_friend={friends} />}
-                />
-                <Route exact path="/cam" render={() => <WebcamComponent />} />
-            </BrowserRouter>
-        </div>
+        <AuthContext.Provider value={{
+            isLoggedIn,
+            profileImage: null,
+            nickname: 'chichi',
+            motto: 'I AM CUTE'
+        }}>
+            <BaseLayout>
+                <Main/>
+            </BaseLayout>
+        </AuthContext.Provider>
+        // <div className="App">
+        //     <BrowserRouter>
+        //         <BaseLayout
+        //             activeMenu={activeMenu}
+        //             setActiveMenu={setActiveMenu}
+        //         />
+        //         <Route
+        //             exact
+        //             path="/"
+        //             render={() => (
+        //                 <>
+        //                     <Main
+        //                         isLoggedIn={isLoggedIn}
+        //                         setIsLoggedIn={setIsLoggedIn}
+        //                         userObj={userObj}
+        //                         users={users}
+        //                     />
+        //                 </>
+        //             )}
+        //         />
+        //         <Route exact path="/login" render={() => <Login />} />
+        //         <Route exact path="/register" render={() => <SignUp />} />
+        //         <Route
+        //             exact
+        //             path="/searchFriend"
+        //             render={() => (
+        //                 <>
+        //                     <SearchFriend users={users} />
+        //                 </>
+        //             )}
+        //         />
+        //         <Route
+        //             exact
+        //             path="/searchGroup"
+        //             render={() => (
+        //                 <>
+        //                     <SearchGroup
+        //                         studyList={studyList}
+        //                         setStudyList={setStudyList}
+        //                     />
+        //                 </>
+        //             )}
+        //         />
+        //         <Route
+        //             exact
+        //             path="/newGroup"
+        //             render={() => (
+        //                 <>
+        //                     <NewGroup users={users} />
+        //                 </>
+        //             )}
+        //         />
+        //         <Route
+        //             exact
+        //             path="/record"
+        //             render={() => (
+        //                 <>
+        //                     <Record />
+        //                 </>
+        //             )}
+        //         />
+        //         <Route
+        //             exact
+        //             path="/groups"
+        //             render={() => (
+        //                 <>
+        //                     <Groups />
+        //                 </>
+        //             )}
+        //         />
+        //         <Route exact path="/edit" render={() => <EditProfile />} />
+        //         <Route
+        //             exact
+        //             path="/friends"
+        //             render={() => <Friends my_friend={friends} />}
+        //         />
+        //         <Route exact path="/cam" render={() => <WebcamComponent />} />
+        //     </BrowserRouter>
+        // </div>
     );
 }
 

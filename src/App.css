@@ -15,6 +15,9 @@ li {
 a {
     text-decoration: none;
 }
+#root{
+    width: 100vw; height: 100vh;
+}
 
 .App {
     text-align: center;
@@ -25,12 +28,10 @@ a {
 
 /* SideMenu */
 .SideMenu {
-    margin-top: 62px;
     padding-top: 26px;
     left: 0px;
     width: 250px;
     height: 100%;
-    position: fixed;
     background-color: #2f2f2f;
     overflow: scroll;
     border-right: 1px solid rgb(55, 55, 55);
@@ -183,11 +184,6 @@ a {
     transition-duration: 200ms;
 }
 /* .TopMenu .loginBtn: */
-
-.MainPage {
-    margin-left: 10cm;
-}
-
 .MainPage h1 {
     font-size: 1.5vw;
     /* font-size: 48px; */
