@@ -38,11 +38,6 @@ a {
     /* -ms-overflow-style: none; */
     /* border: solid 1px white; */
 }
-@media screen and (max-width: 768px) {
-    .SideMenu {
-        display: none;
-    }
-}
 
 .SideMenu::-webkit-scrollbar {
     border-radius: 4px;
@@ -149,34 +144,6 @@ a {
     display: none;
 }
 
-@media screen and (max-width: 768px) {
-    .TopMenu .loginBtn {
-        /* visibility: hidden; */
-        display: none;
-    }
-    .TopMenu .hamburgerBtn {
-        margin-top: 5px;
-        color: white;
-        font-size: 32px;
-        float: right;
-        cursor: pointer;
-        border: none;
-        font-weight: 500;
-        background-color: transparent;
-        transition-duration: 100ms;
-        display: block;
-        margin-right: 24px;
-    }
-
-    .mobileCopyright {
-        display: block;
-        padding-top: 24vh;
-        font-size: 8px;
-        background-color: transparent;
-        color: rgb(134, 134, 134);
-    }
-}
-
 .TopMenu .loginBtn:hover {
     color: white;
     background-color: rgba(0, 0, 0, 0);
@@ -235,85 +202,6 @@ a {
 .TopMenu .isMenuOn,
 .TopMenu .isMenuOff {
     display: none;
-}
-
-@media screen and (max-width: 768px) {
-    .MainPage h1 {
-        font-size: 5vw;
-    }
-
-    .MainPage button {
-        padding: 10px 20px 10px 20px;
-        margin-top: 7vh;
-        color: rgb(7, 7, 7);
-        font-size: 4vw;
-        border-radius: 8vw;
-        border: 1.2px solid rgb(7, 7, 7);
-        font-weight: 600;
-        background-color: rgb(255, 255, 255);
-        transition-duration: 100ms;
-    }
-
-    .MainPage h3 {
-        color: rgba(255, 255, 255, 0.4);
-        text-align: center;
-        margin-top: 3vw;
-        font-size: 3vw;
-        font-weight: normal;
-    }
-
-    .MainPage h2 {
-        font-size: 300%;
-        /* font-size: 100px; */
-        margin-top: 7vh;
-        margin-bottom: 7vh;
-    }
-
-    .TopMenu .isMenuOn,
-    .TopMenu .isMenuOff {
-        display: block;
-        width: 100vw;
-        background-color: transparent;
-        margin-bottom: 10px;
-        overflow-y: scroll;
-        height: 100vh;
-    }
-
-    .TopMenu .NavBar {
-        position: relative;
-        z-index: 0;
-        width: 100vw;
-        height: 62px;
-        background-color: #2f2f2f;
-        border-bottom: 1px solid rgb(55, 55, 55);
-    }
-
-    .TopMenu .isMenuOn {
-        position: relative;
-        transform: translate(0px, 0px);
-        transition-duration: 300ms;
-        z-index: -1;
-    }
-    .TopMenu .isMenuOff {
-        position: relative;
-        transform: translate(0px, -1000px);
-        transition-duration: 500ms;
-        z-index: -1;
-    }
-
-    .TopMenu .isMenuOn button,
-    .TopMenu .isMenuOff button {
-        width: 100%;
-        height: 50px;
-        margin-bottom: -1px;
-        border-radius: 8px;
-        text-align: center;
-        border: 1px solid rgb(55, 55, 55);
-        font-size: 100%;
-        box-sizing: border-box;
-        cursor: pointer;
-        transition: all 100ms;
-    }
 }
 
 .content {
@@ -431,73 +319,6 @@ a {
     cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
-    .content {
-        padding-top: calc(62px + 6vw);
-        padding-left: 10px;
-        padding-bottom: 100px;
-        padding-right: 10px;
-    }
-
-    .content .title {
-        font-size: 5vw;
-        font-weight: 400;
-        text-align: center;
-    }
-
-    .content a {
-        font-size: 3vw;
-        margin-left: 1.5vw;
-        color: rgb(163, 163, 163);
-    }
-
-    .content textarea {
-        width: 100%;
-        height: 20vw;
-        resize: none;
-        border-radius: 10px;
-        font-size: 4vw;
-        padding: 2vw;
-        font-weight: 200;
-        outline-width: 1px;
-        box-sizing: border-box;
-        border: 1px solid rgb(187, 187, 187);
-        background-color: rgb(48, 48, 48);
-        letter-spacing: 0.4px;
-        line-height: 2.4vh;
-        text-decoration: none;
-        margin-bottom: 3vw;
-    }
-
-    .submit {
-        float: right;
-        margin-right: 0px;
-        font-size: 4vw;
-        font-weight: 400;
-        padding: 2vw 4vw 2vw 4vw;
-        border-radius: 10px;
-        color: rgb(7, 7, 7);
-        background-color: rgb(218, 218, 218);
-        border: none;
-        cursor: pointer;
-    }
-
-    .letters {
-        float: left;
-        font-size: 4vw;
-        color: rgb(187, 187, 187);
-        padding: 2vw;
-    }
-
-    html {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-    }
-    html::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera*/
-    }
-}
-
 .PostList {
     /* margin-top: 5vw; */
 }
@@ -556,54 +377,6 @@ a {
 .writeForm {
     margin-bottom: max(5vw, 40px);
     box-sizing: border-box;
-}
-
-@media screen and (max-width: 768px) {
-    .PostItem {
-        box-sizing: border-box;
-        margin-bottom: 5vw;
-        text-align: left;
-        /* height: 20vh; */
-        resize: none;
-        border-radius: 10px;
-        padding: 5vw;
-        font-weight: 300;
-        outline: none;
-        box-sizing: border-box;
-        border: 1px solid rgb(66, 66, 66);
-        letter-spacing: 0.4px;
-        line-height: max(2.4vh, 24px);
-        word-break: break-all;
-    }
-
-    .PostItem * {
-        font-size: 4vw;
-        color: rgb(218, 218, 218);
-    }
-
-    .PostItem .info {
-        font-weight: 500;
-    }
-
-    .PostItem .emotion {
-        text-align: left;
-        margin-top: 4vw;
-        overflow: visible;
-    }
-
-    .PostItem .emotion button,
-    .PostItem .emotion button {
-        font-size: 4vw;
-        padding: 0.2vw 1vw 0.7vw 1vw;
-        border-radius: 10px;
-        border: 1px solid rgb(66, 66, 66);
-        margin-bottom: 1vw;
-    }
-
-    .writeForm {
-        margin-bottom: 14.5vw;
-        box-sizing: border-box;
-    }
 }
 
 .searchBox {
@@ -767,89 +540,6 @@ a {
     margin-left: 0.3vw;
 }
 
-@media screen and (max-width: 768px) {
-    .LoginPage .box {
-        background-color: transparent;
-        border: none;
-        width: 100vw;
-        margin: 13vw 0 0 0;
-    }
-
-    .LoginPage .logo {
-        font-weight: 500;
-        cursor: pointer;
-        font-size: 10vw;
-        margin: 0 auto 8vw auto;
-        background-color: transparent;
-    }
-
-    .LoginPage .box input {
-        width: 80vw;
-        height: 10vw;
-        margin: auto;
-        border-radius: 10px;
-        font-size: 4vw;
-        font-weight: 200;
-        outline-width: 1px;
-        border: 1px solid rgb(187, 187, 187);
-        background-color: rgb(48, 48, 48);
-        letter-spacing: 0.4px;
-        text-decoration: none;
-        margin-bottom: 3vh;
-        box-sizing: border-box;
-        padding: 0px 2vh 0px 2vh;
-        display: block;
-    }
-
-    .LoginPage .box .loginBtn {
-        width: 80vw;
-        height: 10vw;
-        margin: auto;
-        border-radius: 10px;
-        font-size: 4vw;
-        font-weight: 500;
-        outline-width: 1px;
-        border: none;
-        background-color: rgb(255, 255, 255);
-        letter-spacing: 0.4px;
-        line-height: 2.4vh;
-        margin-bottom: 4vw;
-        margin-top: 0px;
-        box-sizing: border-box;
-        cursor: pointer;
-        color: rgb(7, 7, 7);
-        display: block;
-    }
-
-    .LoginPage .box .findAccount {
-        font-size: 4vw;
-        font-weight: 400;
-        display: block;
-        text-align: center;
-        background-color: transparent;
-        cursor: pointer;
-        color: rgb(187, 187, 187);
-        margin-top: 4vw;
-    }
-
-    .LoginPage .box .signUp {
-        font-size: 4vw;
-        padding-top: 8vw;
-        padding-bottom: 4vw;
-        background-color: transparent;
-        color: rgb(187, 187, 187);
-    }
-
-    .LoginPage .box .signUp a {
-        background-color: transparent;
-        font-size: 4vw;
-        color: #ffc83d;
-        font-weight: 500;
-        cursor: pointer;
-        margin-left: 1vw;
-    }
-}
-
 .SignUpPage .box {
     background-color: rgb(48, 48, 48);
     border: 1px solid rgb(55, 55, 55);
@@ -929,85 +619,6 @@ a {
     display: block;
 }
 
-@media screen and (max-width: 768px) {
-    .SignUpPage .box {
-        background-color: transparent;
-        border: none;
-        width: 100vw;
-        margin: 13vw 0 0 0;
-    }
-
-    .SignUpPage .box .title {
-        font-weight: 500;
-        cursor: pointer;
-        font-size: 8vw;
-        margin: 0 auto 0 auto;
-        background-color: transparent;
-        text-align: center;
-    }
-
-    .SignUpPage .box .subTitle {
-        font-size: 4vw;
-        font-weight: 400;
-        display: block;
-        text-align: center;
-        margin-left: 5.5vw;
-        background-color: transparent;
-        cursor: pointer;
-        color: rgb(187, 187, 187);
-        margin-bottom: 8vw;
-    }
-
-    .SignUpPage .box .info {
-        font-size: 4vw;
-        font-weight: 400;
-        display: block;
-        text-align: left;
-        margin-left: 13vw;
-        background-color: transparent;
-        cursor: pointer;
-        color: white;
-        margin-bottom: 2vw;
-    }
-
-    .SignUpPage .box .signUpBtn {
-        width: 80vw;
-        height: 10vw;
-        margin: auto;
-        border-radius: 10px;
-        font-size: 4vw;
-        font-weight: 500;
-        outline-width: 1px;
-        border: none;
-        background-color: rgb(255, 255, 255);
-        letter-spacing: 0.4px;
-        line-height: 2.4vh;
-        margin-top: 6vw;
-        box-sizing: border-box;
-        cursor: pointer;
-        color: rgb(7, 7, 7);
-        display: block;
-    }
-
-    .SignUpPage .box input {
-        width: 80vw;
-        height: 10vw;
-        margin: auto;
-        border-radius: 10px;
-        font-size: 4vw;
-        font-weight: 200;
-        outline-width: 1px;
-        border: 1px solid rgb(187, 187, 187);
-        background-color: rgb(48, 48, 48);
-        letter-spacing: 0.4px;
-        line-height: 2.4vh;
-        text-decoration: none;
-        margin-bottom: 2vh;
-        box-sizing: border-box;
-        padding: 0px 2vh 0px 2vh;
-        display: block;
-    }
-}
 
 .friendsheader {
     color: #ffffff;
