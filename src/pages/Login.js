@@ -1,16 +1,9 @@
 import React, { useRef } from 'react'
-import { Link, useHistory } from 'react-router-dom'
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  onAuthStateChanged
-} from 'firebase/auth'
+import { Link} from 'react-router-dom'
 
 const Login = () => {
   const idRef = useRef()
   const pwRef = useRef()
-
-  const history = useHistory()
 
   const onSignIn = async () => {
     if (idRef.current.value === '') {

@@ -1,7 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import FriendsProfile from '../components/FriendsProfile';
-import SideMenu from '../Layout/SideMenu';
 import MyProfile from '../components/MyProfile';
 
 const Friends = ({ postList, onEdit, columns, my_friend }) => {

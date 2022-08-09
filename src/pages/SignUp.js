@@ -1,9 +1,6 @@
 import React, { useRef } from 'react'
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
-import { useHistory } from 'react-router-dom'
 
 const SignUp = () => {
-  const history = useHistory()
   const idRef = useRef()
   const pwRef = useRef()
 
@@ -27,7 +24,6 @@ const SignUp = () => {
         // Signed in
         const user = userCredential.user
         // ...
-        history.replace('/')
       })
       .catch((error) => {
         const errorCode = error.code
