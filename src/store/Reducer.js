@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 // import axios from 'axios';
 import { useState } from 'react';
+import axios from 'axios';
 
 const userSlice = createSlice({
     name: 'user',
@@ -33,8 +34,13 @@ const userSlice = createSlice({
         role: '멤버',
     },
     reducers: {
+        // 현재 유저 정보를 가져와 state에 저장합니다
         init: (state, action) => {
-            state = action.payload; // 로그인 기능 구현 후 다시
+            state = axios({
+                url: 'http://focuz.justkode.kr:8080/user/1',
+                method: 'get',
+                data: {},
+            }).then((r) => console.log(r.data));
         },
         edit: (state, action) => {
             state.motto = action.payload.motto;
