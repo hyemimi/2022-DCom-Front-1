@@ -3,7 +3,8 @@ import './App.css';
 import BaseLayout from './components/BaseLayout';
 import { AuthContext } from './Context/auth';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import routes from './components/Common/Routes'
+import routes from './components/Common/routes'
+import axios from 'axios';
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -15,9 +16,13 @@ function App() {
     return (
         <AuthContext.Provider value={{
             isLoggedIn,
-            profileImage: null,
-            nickname: 'chichi',
-            motto: 'I AM CUTE'
+            user: {
+                id: 1,
+                profileImage: "http://k.kakaocdn.net/dn/usXTf/btrISNCWCxI/TNCEwVk0kxp7WFkdY1cXo1/img_640x640.jpg",
+                name: '정지원',
+                nickname: '손님',
+                motto: null,
+            }
         }}>
             <BaseLayout>
                 <Routes>
