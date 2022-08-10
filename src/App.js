@@ -5,12 +5,18 @@ import { AuthContext } from './Context/auth';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import routes from './components/Common/routes'
 import axios from 'axios';
+import routes from './components/Common/Routes';
+import { useDispatch, useSelector } from 'react-redux';
+import { init } from './store/Reducer';
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.user);
 
     useEffect(() => {
         setIsLoggedIn(true);
+        dispatch(init());
     }, []);
 
     return (
@@ -26,12 +32,13 @@ function App() {
         }}>
             <BaseLayout>
                 <Routes>
-                    {routes.map((r)=>
-                        (<Route
+                    {routes.map((r) => (
+                        <Route
                             key={r.id}
                             path={r.path}
-                            element={<r.component/>}/>))
-                    }
+                            element={<r.component />}
+                        />
+                    ))}
                 </Routes>
             </BaseLayout>
         </AuthContext.Provider>
