@@ -6,31 +6,31 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import routes from './components/Common/Routes';
 import { Provider, useDispatch, useSelector } from 'react-redux';
-import { init, register } from './store/Reducer';
+import { asyncUpFetch, init, register } from './store/Reducer';
 import store from './store/Store';
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const dispatch = useDispatch();
-    const userInfo = useSelector((state) => state.user);
+    const userI = useSelector((state) => state.user.userInfo);
 
-    useEffect(() => {
+    useEffect(async () => {
+        await dispatch(asyncUpFetch());
         setIsLoggedIn(true);
-        dispatch(init());
     }, []);
 
     return (
         <AuthContext.Provider
             value={{
                 isLoggedIn,
-                user: {
+                user: userI /* {
                     id: 1,
                     profileImage:
                         'http://k.kakaocdn.net/dn/usXTf/btrISNCWCxI/TNCEwVk0kxp7WFkdY1cXo1/img_640x640.jpg',
                     name: '정지원',
                     nickname: '손님',
                     motto: null,
-                },
+                }, */,
             }}
         >
             <BaseLayout>
