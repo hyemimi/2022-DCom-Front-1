@@ -1,72 +1,77 @@
-import Main from '../../pages/Main';
-import Login from '../../pages/Login';
-import SignUp from '../../pages/SignUp';
-import SearchFriend from '../../pages/SearchFriend';
-import SearchGroup from '../../pages/SearchGroup';
-import NewGroup from '../../pages/NewGroup';
-import Record from '../../pages/Record';
-import EditProfile from '../EditProfile';
-import Groups from '../../pages/Groups';
-import Friends from '../../pages/Friends';
-import WebcamComponent from '../../pages/Cam';
+import Main from '../../pages/Main'
+import Login from '../../pages/Login'
+import SignUp from '../../pages/SignUp'
+import SearchFriend from '../../pages/SearchFriend'
+import SearchGroup from '../../pages/SearchGroup'
+import NewGroup from '../../pages/NewGroup'
+import Record from '../../pages/Record'
+import EditProfile from '../EditProfile'
+import Groups from '../../pages/Groups'
+import Friends from '../../pages/Friends'
+import WebcamComponent from '../../pages/Cam'
+import Test from '../../pages/Test'
 
 const routes = [
     {
         id: 'main',
         path: '/',
-        component: Main,
+        component: Main
     },
     {
         id: 'login',
         path: '/login',
-        component: Login,
+        component: Login
     },
     {
         id: 'signup',
         path: '/signup',
-        component: SignUp,
+        component: SignUp
     },
     {
         id: 'searchFriend',
         path: '/search-friend',
-        component: SearchFriend,
+        component: SearchFriend
     },
     {
         id: 'searchGroup',
         path: '/search-group',
-        component: SearchGroup,
+        component: SearchGroup
     },
     {
         id: 'newGroup',
         path: '/new-group',
-        component: NewGroup,
+        component: NewGroup
     },
     {
         id: 'record',
         path: '/record',
-        component: Record,
+        component: Record
     },
     {
         id: 'editProfile',
         path: '/edit-profile',
-        component: EditProfile,
+        component: EditProfile
     },
     {
         id: 'groups',
         path: '/groups',
-        component: Groups,
+        component: Groups
     },
     {
         id: 'friends',
         path: '/friends',
-        component: Friends,
+        component: Friends
     },
     {
         id: 'webcam',
         path: '/webcam',
-        component: WebcamComponent,
+        component: WebcamComponent
     },
+    {
+        id: 'test',
+        path: '/test',
+        component: Test
+    }
 ]
 
-
-export default routes;
+export default routes
