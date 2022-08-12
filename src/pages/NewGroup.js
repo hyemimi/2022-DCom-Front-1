@@ -1,8 +1,9 @@
 import GroupItem from '../components/GroupItem';
 import FriendsProfile from '../components/FriendsProfile';
-import { createGroup } from './../store/group';
-import React, { useState, useContext } from 'react';
+import { createGroup, registerMember } from './../store/group';
+import React, { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../Context/auth';
+import { fetchUserInfo } from '../store/user';
 
 function NewGroup() {
     const auth = useContext(AuthContext);
@@ -66,7 +67,7 @@ function NewGroup() {
                             textAlign: 'center',
                         }}
                     >
-                        그룹 리더: {auth.user.name}
+                        <input value={`그룹장 | ${auth.user.name}`} />
                     </h1>
                 </div>
 
