@@ -15,8 +15,9 @@ li {
 a {
     text-decoration: none;
 }
-#root{
-    width: 100vw; height: 100vh;
+#root {
+    width: 100vw;
+    height: 100vh;
 }
 
 .App {
@@ -619,7 +620,6 @@ a {
     display: block;
 }
 
-
 .friendsheader {
     color: #ffffff;
     font-size: 3vw;
@@ -642,7 +642,6 @@ td {
 .friendsDeleteButton {
     margin: 0;
     padding: 0.5rem 1rem;
-
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 1rem;
     font-weight: 400;
@@ -712,7 +711,7 @@ td {
     display: flex;
     flex-wrap: wrap;
     padding-top: calc(62px + 5vh);
-    padding-left: calc(250px + 40px);
+    /* padding-left: calc(250px + 40px); */
 }
 .FriendsProfileBox {
     width: 500px;

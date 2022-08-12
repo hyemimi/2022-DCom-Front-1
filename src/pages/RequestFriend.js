@@ -5,6 +5,7 @@ const RequestFriend = () => {
     const [allRequest, setAllRequest] = useState();
     const onClick = (targetUserId) => {
         acceptFriend(targetUserId);
+        alert('친구 추가 완료!');
     };
 
     useEffect(() => {
@@ -21,7 +22,13 @@ const RequestFriend = () => {
                       return (
                           <div>
                               {`${it.name}님이 친구 요청을 보내셨습니다`}
-                              <button onClick={onClick(it.id)}>수락하기</button>
+                              <button
+                                  onClick={() => {
+                                      onClick(it.id);
+                                  }}
+                              >
+                                  수락하기
+                              </button>
                           </div>
                       );
                   })``
