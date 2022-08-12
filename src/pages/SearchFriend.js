@@ -1,17 +1,29 @@
-import React, { useEffect, useState, useRef, Component } from 'react'
-import FriendsProfile from '../components/FriendsProfile'
-import App from '../App'
+import React, { useState, useContext, useEffect } from 'react'
+import { AuthContext } from '../Context/auth'
 import FriendsProfileList from '../components/FriendsProfileList'
+import { fetchAllUserList } from '../store/user'
 
-const SearchFriend = ({users}) => {
+const SearchFriend = () => {
+  // App.js에서 주입(Provide)한 context정보 받아오기
+  const auth = useContext(AuthContext)
+  console.log('context auth',auth)
+
+  const [allUserList, setAllUserList] = useState([])
   const [searchText, setSearchText] = useState()
 
-  
+  useEffect(() => {
+  // 모든 유저 정보 API Call
+    fetchAllUserList()
+      .then((res) => {
+        console.log('all user list', res.data)
+        setAllUserList(res.data)
+      })
+  }, [])
+
   const onSearch = (e) => {
-    setSearchText(document.getElementById("inputvalue").value)
+    setSearchText(document.getElementById('inputvalue')?.value)
     console.log(searchText)
   }
-
 
   const onPressEnter = (e) => {
     if (e.key == 'Enter') {
@@ -19,11 +31,9 @@ const SearchFriend = ({users}) => {
     }
   }
 
-  const filteredFriend = users.filter((users) => {
-    if(searchText === "" || searchText === null)
-      return (null)
-    else
-      return users.nickname.includes(searchText);
+  // 초기값 allUserList로 설정
+  const filteredFriend = allUserList.filter((users) => {
+    if (!searchText) { return true } else { return allUserList.filter((user) => user.nickname.include(searchText)) }
   })
 
   return (
@@ -44,8 +54,8 @@ const SearchFriend = ({users}) => {
             {/* </form> */}
           </div>
         </div>
-        <FriendsProfileList key={users.id} data={filteredFriend}/>
-        
+        <FriendsProfileList data={filteredFriend}/>
+
       </div>
     </>
   )
