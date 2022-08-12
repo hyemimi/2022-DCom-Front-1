@@ -8,6 +8,7 @@ import Record from '../../pages/Record';
 import EditProfile from '../EditProfile';
 import Groups from '../../pages/Groups';
 import Friends from '../../pages/Friends';
+import RequestFriend from '../../pages/RequestFriend';
 import WebcamComponent from '../../pages/Cam';
 
 const routes = [
@@ -62,11 +63,15 @@ const routes = [
         component: Friends,
     },
     {
+        id: 'requestFriends',
+        path: '/request-friends',
+        component: RequestFriend,
+    },
+    {
         id: 'webcam',
         path: '/webcam',
         component: WebcamComponent,
     },
-]
-
+];
 
 export default routes;
