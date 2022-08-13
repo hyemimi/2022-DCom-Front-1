@@ -1,22 +1,28 @@
 import { Link } from 'react-router-dom';
 import React, { useContext } from 'react';
 import { AuthContext } from '../Context/auth';
+import styled from 'styled-components';
 
 const TopMenu = () => {
     const auth = useContext(AuthContext);
 
-    console.log(auth);
+    const NavBarDiv = styled.div`
+      display: flex;
+      background-color: inherit;
+      margin-right: 1em;
+      align-items: center;
+      justify-content: space-between;
+    `
     return (
     <div className="TopMenu">
-      <div className="nav-bar">
-        <Link to="/">
-            <div className="logo" style={{ color: '#ffc83d' }}>
-            FOCUZ
-            </div>
-        </Link>
-
-        <button className="loginBtn">{auth.isLoggedIn ? auth.nickname : '로그인'}</button>
-      </div>
+      <NavBarDiv>
+          <Link to="/">
+              <div className="logo" style={{ color: '#ffc83d' }}>
+                FOCUZ
+              </div>
+          </Link>  
+        <button className="light">{auth.isLoggedIn ? auth.user.nickname : '로그인'}</button>
+      </NavBarDiv>
     </div>
     );
 };

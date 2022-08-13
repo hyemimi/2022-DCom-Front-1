@@ -192,7 +192,7 @@
         "operator-linebreak": ["warn", "after", { "overrides": { "?": "before", ":": "before", "|>": "before" } }],
         "padded-blocks": ["warn", { "blocks": "never", "switches": "never", "classes": "never" }],
         "prefer-const": ["warn", {"destructuring": "all"}],
-        "prefer-promise-reject-warns": "warn",
+        // "prefer-promise-reject-warns": "warn",
         "prefer-regex-literals": ["warn", { "disallowRedundantWrapping": true }],
         "quote-props": ["warn", "as-needed"],
         "quotes": ["warn", "single", { "avoidEscape": true, "allowTemplateLiterals": false }],

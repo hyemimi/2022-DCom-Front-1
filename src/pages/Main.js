@@ -1,18 +1,19 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import MainPage from '../components/Main/MainPage.js';
-import InitialPage from '../components/Main/InitialPage';
+import MainAfterLogin from '../components/Main/MainAfterLogin.js';
+import MainBeforeLogin from '../components/Main/MainBeforeLogin';
+import { useAuth } from '../Context/auth.js';
 
-const Main = ({ isLoggedIn, setIsLoggedIn, userObj, users }) => {
+const Main = ({ userObj, users }) => {
+    const auth = useAuth();
+
     return (
     <>
-      <div className={isLoggedIn ? 'content' : ''}>
-        <div className="MainPage">
-          <div>
-            {!isLoggedIn
-              ? <InitialPage/>
-              : <MainPage userObj={userObj} users = {users}/> }
-          </div>
+      <div className={auth.isLoggedIn ? '' : 'content'}>
+        <div className="MainAfterLogin">
+          {auth.isLoggedIn
+              ? <MainAfterLogin userObj={userObj} users = {users}/> 
+              :<MainBeforeLogin/> }
         </div>
       </div>
     </>

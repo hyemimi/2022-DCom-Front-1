@@ -6,7 +6,8 @@ export const ThemeContext = createContext({
         dark: {
             background: 'rgb(39, 39, 39)',
             lightBackground: '#2f2f2f',
-            point: 'rgb(255, 200, 61)'
+            point: 'rgb(255, 200, 61)',
+            white: 'rgb(5,5,5)',
         },
         light: {
             background: 'rgb(255, 252, 245)',
