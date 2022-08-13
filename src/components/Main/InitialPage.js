@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { useThemeColor } from '../../Context/theme';
+
 const InitialPage = () => {
+    const themeColor = useThemeColor();
+
     return (
         <>
             <h1>
                 Welcome to{' '}
-                <a style={{ color: '#ffc83d', fontSize: 'min(6vw, 40px)' }}>
+                <a style={{ color: themeColor.point, fontSize: 'min(6vw, 40px)' }}>
                     FOCUZ cam study
                 </a>
             </h1>
