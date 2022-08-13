@@ -1,21 +1,18 @@
-import GroupItem from '../components/GroupItem';
-import FriendsProfile from '../components/FriendsProfile';
-import { createGroup, registerMember } from './../store/group';
-import React, { useState, useContext, useEffect } from 'react';
+import { createGroup } from './../store/group';
+import React, { useState, useContext } from 'react';
 import { AuthContext } from '../Context/auth';
-import { fetchUserInfo } from '../store/user';
 
-function NewGroup() {
+function NewGroup () {
     const auth = useContext(AuthContext);
     const [groupname, setGroupName] = useState('');
     const [des, setDes] = useState('');
 
     const onChange = (e) => {
         if (e.target.name === 'groupname') {
-            setGroupName(e.target.value);
+          setGroupName(e.target.value);
         }
         if (e.target.name === 'des') {
-            setDes(e.target.value);
+          setDes(e.target.value);
         }
     };
 
@@ -23,12 +20,12 @@ function NewGroup() {
         event.preventDefault();
         await createGroup({
             description: des,
-            name: groupname,
+            name: groupname
         });
     };
 
     const onClick = () => {
-        //setIsEdit(false);
+        // setIsEdit(false);
     };
 
     return (
@@ -38,7 +35,7 @@ function NewGroup() {
                     style={{
                         color: '#ffc83d',
                         fontSize: 'min(6vw, 100px)',
-                        textAlign: 'center',
+                        textAlign: 'center'
                     }}
                 >
                     New Group
@@ -50,7 +47,7 @@ function NewGroup() {
                     <h1
                         style={{
                             fontSize: 'min(6vw, 40px)',
-                            textAlign: 'center',
+                            textAlign: 'center'
                         }}
                     >
                         <input
@@ -64,7 +61,7 @@ function NewGroup() {
                     <h1
                         style={{
                             fontSize: 'min(6vw, 40px)',
-                            textAlign: 'center',
+                            textAlign: 'center'
                         }}
                     >
                         <input value={`그룹장 | ${auth.user.name}`} />
@@ -75,7 +72,7 @@ function NewGroup() {
                     <h1
                         style={{
                             fontSize: 'min(6vw, 40px)',
-                            textAlign: 'center',
+                            textAlign: 'center'
                         }}
                     >
                         <input

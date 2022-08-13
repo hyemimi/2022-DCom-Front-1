@@ -1,16 +1,16 @@
-import Main from '../../pages/Main'
-import Login from '../../pages/Login'
-import SignUp from '../../pages/SignUp'
-import SearchFriend from '../../pages/SearchFriend'
-import SearchGroup from '../../pages/SearchGroup'
-import NewGroup from '../../pages/NewGroup'
-import Record from '../../pages/Record'
-import EditProfile from '../EditProfile'
-import Groups from '../../pages/Groups'
-import Friends from '../../pages/Friends'
-import RequestFriend from '../../pages/RequestFriend'
-import WebcamComponent from '../../pages/Cam'
-import Test from '../Test'
+import Main from '../../pages/Main';
+import Login from '../../pages/Login';
+import SignUp from '../../pages/SignUp';
+import SearchFriend from '../../pages/SearchFriend';
+import SearchGroup from '../../pages/SearchGroup';
+import NewGroup from '../../pages/NewGroup';
+import Record from '../../pages/Record';
+import EditProfile from '../EditProfile';
+import Groups from '../../pages/Groups';
+import Friends from '../../pages/Friends';
+import RequestFriend from '../../pages/RequestFriend';
+import WebcamComponent from '../../pages/Cam';
+import Test from '../Test';
 
 const routes = [
     {
@@ -78,6 +78,6 @@ const routes = [
         path: '/test',
         component: Test
     }
-]
+];
 
-export default routes
+export default routes;

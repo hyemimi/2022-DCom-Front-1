@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import SideMenu from '../Layout/SideMenu.js';
-import { Link } from 'react-router-dom';
 import MainPage from '../components/Main/MainPage.js';
 import InitialPage from '../components/Main/InitialPage';
 
