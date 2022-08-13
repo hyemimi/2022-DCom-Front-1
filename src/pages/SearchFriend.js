@@ -16,9 +16,9 @@ const SearchFriend = () => {
     /* const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(5); */
 
-    useEffect(() => {
+    useEffect(async () => {
         // 모든 유저 정보 API Call
-        fetchAllUserList().then((res) => {
+        await fetchAllUserList().then((res) => {
             console.log('all user list', res.data);
             setAllUserList(res.data);
         });
@@ -37,12 +37,10 @@ const SearchFriend = () => {
 
     // 초기값 allUserList로 설정
     const filteredFriend = allUserList.filter((users) => {
-        if (!searchText) {
-            return true;
+        if (searchText === '' || searchText === null) {
+            return false;
         } else {
-            return allUserList.filter((user) =>
-                user.nickname.include(searchText)
-            );
+            return users.nickname.includes(searchText);
         }
     });
     // const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -64,7 +62,7 @@ const SearchFriend = () => {
                         {/* </form> */}
                     </div>
                 </div>
-                <FriendsProfileList data={filteredFriend} />
+                {filteredFriend && <FriendsProfileList data={filteredFriend} />}
                 {/* <Pagination
                     postsPerPage={postsPerPage}
                     totalPosts={filteredFriend.length}
