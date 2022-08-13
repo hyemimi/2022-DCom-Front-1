@@ -1,41 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import BaseLayout from './components/BaseLayout';
 import { AuthContext } from './Context/auth';
 import { Routes, Route } from 'react-router-dom';
 import routes from './components/Common/Routes';
+import { fetchAllUserList } from './store/user';
 
-function App() {
+function App () {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        fetchAllUserList()
+            .then((res) => {
+                setUser(res.data[1]);
+                setIsLoggedIn(true);
+                console.log('user', res.data);
+            });
+    }, []);
 
     return (
         <AuthContext.Provider
             value={{
                 isLoggedIn,
-                user: {
-                    id: 1,
-                    profileImage:
-                        'http://k.kakaocdn.net/dn/usXTf/btrISNCWCxI/TNCEwVk0kxp7WFkdY1cXo1/img_640x640.jpg',
-                    name: '정지원',
-                    nickname: '손님',
-                    motto: null,
-                    groups: [
-                        {
-                            description: '....',
-                            id: 0,
-                            name: '파이썬스터디',
-                            users: [
-                                {
-                                    id: 0,
-                                    motto: 'string',
-                                    name: '이혜미',
-                                    nickname: 'ㅁㅁㅁ',
-                                    profileImage: 'string',
-                                },
-                            ],
-                        },
-                    ],
-                },
+                user,
             }}
         >
             <BaseLayout>
