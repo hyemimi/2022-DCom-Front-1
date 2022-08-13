@@ -1,15 +1,15 @@
-import Main from '../../pages/Main'
-import Login from '../../pages/Login'
-import SignUp from '../../pages/SignUp'
-import SearchFriend from '../../pages/SearchFriend'
-import SearchGroup from '../../pages/SearchGroup'
-import NewGroup from '../../pages/NewGroup'
-import Record from '../../pages/Record'
-import EditProfile from '../EditProfile'
-import Groups from '../../pages/Groups'
-import Friends from '../../pages/Friends'
-import WebcamComponent from '../../pages/Cam'
-import Test from '../../pages/Test'
+import Main from '../../pages/Main';
+import Login from '../../pages/Login';
+import SignUp from '../../pages/SignUp';
+import SearchFriend from '../../pages/SearchFriend';
+import SearchGroup from '../../pages/SearchGroup';
+import NewGroup from '../../pages/NewGroup';
+import Record from '../../pages/Record';
+import EditProfile from '../EditProfile';
+import Groups from '../../pages/Groups';
+import Friends from '../../pages/Friends';
+import RequestFriend from '../../pages/RequestFriend';
+import WebcamComponent from '../../pages/Cam';
 
 const routes = [
     {
@@ -63,15 +63,15 @@ const routes = [
         component: Friends
     },
     {
-        id: 'webcam',
-        path: '/webcam',
-        component: WebcamComponent
+        id: 'requestFriends',
+        path: '/request-friends',
+        component: RequestFriend,
     },
     {
-        id: 'test',
-        path: '/test',
-        component: Test
-    }
-]
+        id: 'cam',
+        path: '/cam',
+        component: WebcamComponent,
+    },
+];
 
-export default routes
+export default routes;

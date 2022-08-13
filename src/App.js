@@ -1,36 +1,41 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import BaseLayout from './components/BaseLayout';
 import { AuthContext } from './Context/auth';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import axios from 'axios';
+import { Routes, Route } from 'react-router-dom';
 import routes from './components/Common/Routes';
-import { Provider, useDispatch, useSelector } from 'react-redux';
-import { asyncUpFetch, init, register } from './store/Reducer';
-import store from './store/Store';
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const dispatch = useDispatch();
-    const userI = useSelector((state) => state.user.userInfo);
-
-    useEffect(async () => {
-        await dispatch(asyncUpFetch());
-        setIsLoggedIn(true);
-    }, []);
 
     return (
         <AuthContext.Provider
             value={{
                 isLoggedIn,
-                user: userI /* {
+                user: {
                     id: 1,
                     profileImage:
                         'http://k.kakaocdn.net/dn/usXTf/btrISNCWCxI/TNCEwVk0kxp7WFkdY1cXo1/img_640x640.jpg',
                     name: '정지원',
                     nickname: '손님',
                     motto: null,
-                }, */,
+                    groups: [
+                        {
+                            description: '....',
+                            id: 0,
+                            name: '파이썬스터디',
+                            users: [
+                                {
+                                    id: 0,
+                                    motto: 'string',
+                                    name: '이혜미',
+                                    nickname: 'ㅁㅁㅁ',
+                                    profileImage: 'string',
+                                },
+                            ],
+                        },
+                    ],
+                },
             }}
         >
             <BaseLayout>

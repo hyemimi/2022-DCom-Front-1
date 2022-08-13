@@ -1,54 +1,90 @@
-import { isValidTimestamp } from '@firebase/util'
-import {useState} from 'react'
-import GroupItem from '../components/GroupItem'
+import GroupItem from '../components/GroupItem';
 import FriendsProfile from '../components/FriendsProfile';
-import app from '../firebase';
-import {getAuth} from 'firebase/auth'
+import { createGroup, registerMember } from './../store/group';
+import React, { useState, useContext, useEffect } from 'react';
+import { AuthContext } from '../Context/auth';
+import { fetchUserInfo } from '../store/user';
 
-function NewGroup({ users }) {
-    const [groupname,setGroupName] = useState()
-
-    const auth = getAuth(app); // firebase, (테스트용)
-    const userProfile = users.filter((it)=>it.email === auth.currentUser.email);
-    const [groupleadername,setGroupLeaderName] = useState(userProfile[0].name)
-
-    const [group_leader_nickname,setGroupLeader_Nickname] = useState(userProfile[0].nickname)
-    const [group_leader_email,setGroupLeader_Email] = useState(userProfile[0].email)
+function NewGroup() {
+    const auth = useContext(AuthContext);
+    const [groupname, setGroupName] = useState('');
+    const [des, setDes] = useState('');
 
     const onChange = (e) => {
-    
-        if(e.target.name==="groupname"){
-            setGroupName(e.target.value)
+        if (e.target.name === 'groupname') {
+            setGroupName(e.target.value);
         }
-    }
+        if (e.target.name === 'des') {
+            setDes(e.target.value);
+        }
+    };
 
-    const onSubmit = (event) => {
+    const onSubmit = async (event) => {
         event.preventDefault();
-       
-        setGroupName("")
-
-        setIsEdit(false)
-    }
+        await createGroup({
+            description: des,
+            name: groupname,
+        });
+    };
 
     const onClick = () => {
-        setIsEdit(false)
-    }
+        //setIsEdit(false);
+    };
 
-    return(
-        <div className='NewGroup'> 
+    return (
+        <div className="NewGroup">
             <h1>
-                <a style={{ color: '#ffc83d', fontSize: 'min(6vw, 100px)', textAlign: 'center' }}>New Group</a>
+                <a
+                    style={{
+                        color: '#ffc83d',
+                        fontSize: 'min(6vw, 100px)',
+                        textAlign: 'center',
+                    }}
+                >
+                    New Group
+                </a>
                 <p className="line"></p>
             </h1>
             <form onSubmit={onSubmit}>
                 <div>
-                    <h1 style={{ fontSize: 'min(6vw, 40px)', textAlign: 'center' }}> 그룹명 :  
-                        <input name = "groupname" value={groupname} type="text" onChange={onChange} />
+                    <h1
+                        style={{
+                            fontSize: 'min(6vw, 40px)',
+                            textAlign: 'center',
+                        }}
+                    >
+                        <input
+                            placeholder="그룹명"
+                            name="groupname"
+                            value={groupname}
+                            type="text"
+                            onChange={onChange}
+                        />
+                    </h1>
+                    <h1
+                        style={{
+                            fontSize: 'min(6vw, 40px)',
+                            textAlign: 'center',
+                        }}
+                    >
+                        <input value={`그룹장 | ${auth.user.name}`} />
                     </h1>
                 </div>
+
                 <div>
-                    <h1 style={{ fontSize: 'min(6vw, 40px)', textAlign: 'center' }}>
-                    그룹 리더: {groupleadername}
+                    <h1
+                        style={{
+                            fontSize: 'min(6vw, 40px)',
+                            textAlign: 'center',
+                        }}
+                    >
+                        <input
+                            placeholder="description"
+                            name="des"
+                            value={des}
+                            type="text"
+                            onChange={onChange}
+                        />
                     </h1>
                 </div>
                 <div>
@@ -59,8 +95,7 @@ function NewGroup({ users }) {
                 <button onClick={onClick}>cancel</button>
             </div>
         </div>
-    )
-
+    );
 }
 
-export default NewGroup
+export default NewGroup;

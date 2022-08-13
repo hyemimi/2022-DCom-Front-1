@@ -1,7 +1,7 @@
 // GroupItem은 그룹별 프로필과 같다고 보면 된다. 그룹 리스트를 나열할 때 컴포넌트로 사용될 예정
 import React, { useEffect, useState, useRef } from 'react';
 import GroupButton from './GroupButton';
-function GroupItem({ name, leader, members, buttontext }) {
+function GroupItem({ id, name, leader, members, buttontext }) {
     return (
         <div>
             <div className="group-name">{name}</div>
@@ -17,7 +17,7 @@ function GroupItem({ name, leader, members, buttontext }) {
                         </div>
                     );
                 })}
-            <GroupButton text={buttontext}></GroupButton>
+            <GroupButton id={id} text={buttontext}></GroupButton>
         </div>
     );
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 function MyProfile(props) {
-    const { image, name, nickname, email, motto } = props;
+    const { image, name, nickname, motto } = props;
     return (
         <div className="Profile">
             <div>
@@ -19,8 +19,7 @@ function MyProfile(props) {
             <div>
                 <p>Name : {name}</p>
                 <p>Nickname : {nickname}</p>
-                <p>Email : {email}</p>
-                <p>{motto && motto}</p>
+                <p>{motto && `motto : ${motto}`}</p>
             </div>
         </div>
     );
