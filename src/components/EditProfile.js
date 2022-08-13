@@ -2,7 +2,7 @@ import React, { useState, useRef, useContext } from 'react';
 import { useAuth } from '../Context/auth';
 import { edit } from '../store/temp/Reducer';
 
-function EditProfile ({ show }) {
+function EditProfile ({ show, setEditMode }) {
     const auth = useAuth();
     const {user} = auth;
 
@@ -20,6 +20,7 @@ function EditProfile ({ show }) {
           setMyMotto(e.target.value);
         }
     };
+
     const onSubmit = (event) => {
         event.preventDefault();
         if (mynickname.length === 0) {
@@ -34,15 +35,16 @@ function EditProfile ({ show }) {
                     profileImage: myimage
                 })
             );
-            setIsEdit(false);
+            setEditMode(false);
           } else {
 
           }
         }
     };
-    const onClick = () => {
-        setIsEdit(false);
+    const onCancel = () => {
+        setEditMode(false);
     };
+    
     const onFileChange = (event) => {
         const theFile = event.target.files[0];
         const reader = new FileReader();
@@ -118,7 +120,7 @@ function EditProfile ({ show }) {
                     </div>
                 </div>
                 <div>
-                    <button onClick={onClick}>취소하기</button>
+                    <button onClick={onCancel}>취소하기</button>
                     <button className={"light"} onClick={onSubmit}>수정하기</button>
                 </div>
             </div>

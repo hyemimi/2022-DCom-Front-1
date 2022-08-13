@@ -4,7 +4,7 @@ import MyProfile from '../MyProfile';
 import { useAuth } from '../../Context/auth';
 
 const MainPage = () => {
-    const [editMode, seteditMode] = useState(false);
+    const [editMode, setEditMode] = useState(false);
     const auth = useAuth();
     const {user} = auth;
     // 전체 유저 리스트를 돌면서 현재 로그인한 유저의 email과 같은 요소만 필터함
@@ -17,24 +17,20 @@ const MainPage = () => {
                     DCOM STUDY
                 </a>
             </h1>
-            <p className="line"></p>
             {!editMode ? (
                 <div>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5em', alignItems: 'center' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5em', alignItems: 'center', marginTop: '20px' }}>
                         <button className='light'>시작하기</button>
-                        <button onClick={() => { seteditMode(true); }}>
+                        {/* <button onClick={() => { setEditMode(true); }}>
                             내 프로필 수정하기
-                        </button>
+                        </button> */}
                     </div>
                     <MyProfile/>
                 </div>
             ) : (
                 <EditProfile
-                    show={seteditMode}
-                    // setmy_email={user.email}
-                    /* setmy_image={user.profileImage}
-                    setmy_name={user.name}
-                    setmy_nickname={user.nickname} */
+                    show={editMode}
+                    setEditMode={setEditMode}
                 />
             )}
 

@@ -176,6 +176,7 @@ main{
 }
 
 .line {
+    width: 100%;
     border-top: 1px solid rgb(66, 66, 66);
     margin-top: 2vh;
     margin-bottom: 20px;
@@ -735,13 +736,12 @@ td {
 .Profile {
     max-width: 800px;
     border-radius: 100px;
-    margin: 50px;
-    display: grid;
-    grid-template-columns: repeat(5, auto);
-    gap: 2%;
+    margin: 20px;
+    display: flex;
+    gap: 1em;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 /* .ProfileLists {
     display: grid;
