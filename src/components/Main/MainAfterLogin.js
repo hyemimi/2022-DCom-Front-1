@@ -4,7 +4,7 @@ import MyProfile from '../MyProfile';
 import { useAuth } from '../../Context/auth';
 
 const MainPage = () => {
-    const [isEdit, setIsEdit] = useState(false);
+    const [editMode, seteditMode] = useState(false);
     const auth = useAuth();
     const {user} = auth;
     // 전체 유저 리스트를 돌면서 현재 로그인한 유저의 email과 같은 요소만 필터함
@@ -18,34 +18,19 @@ const MainPage = () => {
                 </a>
             </h1>
             <p className="line"></p>
-            <div></div>
-            {!isEdit ? (
-                <div style={{ alignItems: 'center' }}>
-                    <button className='light'>시작하기</button>
-
-                    <button
-                        onClick={() => {
-                            setIsEdit(true);
-                        }}
-                    >
-                        내 프로필 수정하기
-                    </button>
-
-                    <div>
-                        {' '}
-                        <MyProfile
-                            image={user?.profileImage}
-                            name={user?.name}
-                            nickname={user?.nickname}
-                            email={user?.email}
-                            motto={user?.motto}
-                        />{' '}
+            {!editMode ? (
+                <div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5em', alignItems: 'center' }}>
+                        <button className='light'>시작하기</button>
+                        <button onClick={() => { seteditMode(true); }}>
+                            내 프로필 수정하기
+                        </button>
                     </div>
-                    {/*<FriendsProfile image={userProfile[0].image} name={userProfile[0].name} nickname={userProfile[0].nickname} email={userProfile[0].email} />*/}
+                    <MyProfile/>
                 </div>
             ) : (
                 <EditProfile
-                    setIsEdit={setIsEdit}
+                    show={seteditMode}
                     // setmy_email={user.email}
                     /* setmy_image={user.profileImage}
                     setmy_name={user.name}

@@ -1,12 +1,29 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import styled from 'styled-components';
+import { useAuth } from '../Context/auth';
 
-function MyProfile(props) {
-    const { image, name, nickname, motto } = props;
+const MyInfoDiv = styled.div`
+    text-align: left;
+    font-weight: bold;
+    >*:nth-child(1){
+        font-size: 24px;
+    }
+    >*:nth-child(1){
+        font-size: 18px;
+    }
+    >*:nth-child(1){
+        font-size: 24px;
+    }
+`
+
+function MyProfile() {
+    const auth = useAuth();
+    const {user} = auth;
+    const { image, name, nickname, motto } = user;
+    
     return (
         <div className="Profile">
-            <div>
-                {image ? (
+            {image ? (
                     <img src={image} width="300px" height="300px" />
                 ) : (
                     <img
@@ -15,12 +32,10 @@ function MyProfile(props) {
                         height="300px"
                     />
                 )}
-            </div>
-            <div>
-                <p>Name : {name}</p>
-                <p>Nickname : {nickname}</p>
+            <MyInfoDiv>
+                <div>{name} ({nickname})</div>
                 <p>{motto && `motto : ${motto}`}</p>
-            </div>
+            </MyInfoDiv>
         </div>
     );
 }

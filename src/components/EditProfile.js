@@ -1,10 +1,11 @@
-import React, { useState, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useRef, useContext } from 'react';
+import { useAuth } from '../Context/auth';
 import { edit } from '../store/temp/Reducer';
 
-function EditProfile ({ setIsEdit }) {
-    const user = useSelector((state) => state.user);
-    const dispatch = useDispatch();
+function EditProfile ({ show }) {
+    const auth = useAuth();
+    const {user} = auth;
+
     const [myimage, setMyImage] = useState(user.profileImage);
     const [mynickname, setMyNickname] = useState(user.nickname);
     const [mymotto, setMyMotto] = useState(user.motto);
@@ -58,9 +59,7 @@ function EditProfile ({ setIsEdit }) {
     };
 
     return (
-        <>
-            <h1>My Profile</h1>
-            <div>
+        <div>
                 <div className="EditProfile">
                     <div>
                         <h1>
@@ -120,10 +119,9 @@ function EditProfile ({ setIsEdit }) {
                 </div>
                 <div>
                     <button onClick={onClick}>취소하기</button>
-                    <button onClick={onSubmit}>수정하기</button>
+                    <button className={"light"} onClick={onSubmit}>수정하기</button>
                 </div>
             </div>
-        </>
     );
 }
 
