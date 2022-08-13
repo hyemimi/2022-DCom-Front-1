@@ -17,6 +17,11 @@ a {
     background-color: inherit;
 }
 
+input:focus,
+input:active{
+    outline: none;
+}
+
 button {
     height: fit-content;
     font-size: 14px;
@@ -54,7 +59,10 @@ button.light:hover {
     transition-duration: 200ms;
 }
 
-
+button.disabled{
+    color: rgb(80,80,80) !important;
+    pointer-events: none;
+}
 #root {
     width: 100vw;
     height: 100vh;
@@ -704,15 +712,6 @@ td {
     margin-bottom: 2vh;
     box-sizing: border-box;
     padding: 1vh 2vh 1vh 2vh;
-}
-
-.friendsSearchBtn {
-    cursor: pointer;
-    position: relative;
-    right: -10px;
-    border: none;
-    background-color: rgba(0, 0, 0, 0);
-    font-size: max(1.4vw, 14px);
 }
 
 .FriendsProfileBoxes {

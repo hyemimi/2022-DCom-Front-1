@@ -6,13 +6,6 @@ import styled from 'styled-components';
 const TopMenu = () => {
     const auth = useContext(AuthContext);
 
-    const NavBarDiv = styled.div`
-      display: flex;
-      background-color: inherit;
-      margin-right: 1em;
-      align-items: center;
-      justify-content: space-between;
-    `
     return (
     <div className="TopMenu">
       <NavBarDiv>
@@ -28,3 +21,11 @@ const TopMenu = () => {
 };
 
 export default TopMenu;
+
+const NavBarDiv = styled.div`
+display: flex;
+background-color: inherit;
+margin-right: 1em;
+align-items: center;
+justify-content: space-between;
+`
