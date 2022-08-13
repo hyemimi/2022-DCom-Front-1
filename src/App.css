@@ -5,7 +5,7 @@
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 16px;
     color: rgb(247, 247, 247);
-    background-color: rgb(39, 39, 39);
+    background-color: inherit;
 }
 ul,
 ol,
@@ -60,16 +60,20 @@ button.light:hover {
     height: 100vh;
 }
 
+main{
+    background-color: rgb(39, 39, 39);
+}
+
 .App {
     text-align: center;
     width: 100%;
     height: 100%;
-    background-color: rgb(39, 39, 39);
 }
 
 /* SideMenu */
 .SideMenu {
-    padding-top: 26px;
+    padding-top: 30px;
+    padding-left:10px;
     left: 0px;
     width: 250px;
     height: 100%;
@@ -78,6 +82,9 @@ button.light:hover {
     border-right: 1px solid rgb(55, 55, 55);
     /* -ms-overflow-style: none; */
     /* border: solid 1px white; */
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
 }
 
 .SideMenu::-webkit-scrollbar {
@@ -116,6 +123,7 @@ button.light:hover {
     font-size: 8px;
     background-color: rgb(48, 48, 48);
     color: rgb(134, 134, 134);
+    text-align: center;
 }
 
 /* TopMenu */
@@ -725,16 +733,15 @@ td {
     flex-direction: column;
 }
 .Profile {
-    border: 2px solid #ffffff;
+    max-width: 800px;
     border-radius: 100px;
     margin: 50px;
-    padding: 150px;
     display: grid;
     grid-template-columns: repeat(5, auto);
     gap: 2%;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 /* .ProfileLists {
     display: grid;

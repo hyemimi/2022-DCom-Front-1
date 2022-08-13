@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const menuList = [
@@ -16,7 +17,9 @@ const SideMenu = () => {
         <div className="SideMenu">
             {menuList.map(({ label, ref }) => (
                 <Link key={ref} to={ref}>
+                    <div>  
                     <button>{label}</button>
+                    </div>
                 </Link>
             ))}
 
