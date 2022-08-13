@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom'
-import React, { useContext } from 'react'
+import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
 import { AuthContext } from '../Context/auth';
 
 const TopMenu = () => {
-  const auth = useContext(AuthContext);
+    const auth = useContext(AuthContext);
 
     console.log(auth);
-  return (
+    return (
     <div className="TopMenu">
       <div className="nav-bar">
         <Link to="/">
@@ -18,7 +18,7 @@ const TopMenu = () => {
         <button className="loginBtn">{auth.isLoggedIn ? auth.nickname : '로그인'}</button>
       </div>
     </div>
-  )
-}
+    );
+};
 
-export default TopMenu
+export default TopMenu;

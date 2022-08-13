@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { deleteRequest, sendFriendRequest } from './../store/friend';
-function FriendsProfile(props) {
+function FriendsProfile (props) {
     const { profileImage, nickname, id } = props;
     const [isRequest, setIsRequest] = useState(false);
     const onRequestHandler = async (targetUserId) => {
@@ -28,7 +28,8 @@ function FriendsProfile(props) {
                 )}
             </div>
             <p>{nickname}</p>
-            {!isRequest ? (
+            {!isRequest
+              ? (
                 <button
                     onClick={() => {
                         onRequestHandler(id);
@@ -36,7 +37,8 @@ function FriendsProfile(props) {
                 >
                     💌친구요청하기
                 </button>
-            ) : (
+                )
+              : (
                 <button
                     onClick={() => {
                         onCancelHandler(id);
@@ -44,7 +46,7 @@ function FriendsProfile(props) {
                 >
                     ❌요청취소하기
                 </button>
-            )}
+                )}
         </div>
     );
 }

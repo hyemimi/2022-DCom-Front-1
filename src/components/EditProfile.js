@@ -1,9 +1,8 @@
-import { isValidTimestamp } from '@firebase/util';
-import { useState, useRef } from 'react';
-import FriendsProfile from './FriendsProfile';
+import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { edit, register } from '../store/temp/Reducer';
-function EditProfile({ setIsEdit }) {
+import { edit } from '../store/temp/Reducer';
+
+function EditProfile ({ setIsEdit }) {
     const user = useSelector((state) => state.user);
     const dispatch = useDispatch();
     const [myimage, setMyImage] = useState(user.profileImage);
@@ -11,34 +10,33 @@ function EditProfile({ setIsEdit }) {
     const [mymotto, setMyMotto] = useState(user.motto);
     const onChange = (e) => {
         if (e.target.name === 'mynickname') {
-            setMyNickname(e.target.value);
+          setMyNickname(e.target.value);
         }
         if (e.target.name === 'myimage') {
-            setMyImage(e.target.value);
+          setMyImage(e.target.value);
         }
         if (e.target.name === 'mymotto') {
-            setMyMotto(e.target.value);
+          setMyMotto(e.target.value);
         }
     };
     const onSubmit = (event) => {
         event.preventDefault();
         if (mynickname.length === 0) {
-            window.alert('별명은 한 글자 이상 작성해주세요');
-            nicknameRef.current.focus();
-            return;
+          window.alert('별명은 한 글자 이상 작성해주세요');
+          nicknameRef.current.focus();
         } else {
-            if (window.confirm('수정하시겠습니까?')) {
-                dispatch(
-                    edit({
-                        motto: mymotto,
-                        nickname: mynickname,
-                        profileImage: myimage,
-                    })
-                );
-                setIsEdit(false);
-            } else {
-                return;
-            }
+          if (window.confirm('수정하시겠습니까?')) {
+            dispatch(
+                edit({
+                    motto: mymotto,
+                    nickname: mynickname,
+                    profileImage: myimage
+                })
+            );
+            setIsEdit(false);
+          } else {
+
+          }
         }
     };
     const onClick = () => {

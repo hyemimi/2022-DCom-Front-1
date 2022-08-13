@@ -1,11 +1,11 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import TopMenu from '../Layout/TopMenu'
-import SideMenu from '../Layout/SideMenu'
-import styles from '../assets/styles.module.css'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import TopMenu from '../Layout/TopMenu';
+import SideMenu from '../Layout/SideMenu';
+import styles from '../assets/styles.module.css';
 
 const BaseLayout = (props) => {
-  return (
+    return (
     <div className={styles.layout}>
        <TopMenu/>
         <div className={styles.mainContainer}>
@@ -13,7 +13,7 @@ const BaseLayout = (props) => {
             <main className={styles.main}>{props.children}</main>
         </div>
     </div>
-  )
-}
+    );
+};
 
-export default BaseLayout
+export default BaseLayout;
