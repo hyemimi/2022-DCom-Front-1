@@ -18,3 +18,7 @@ export const acceptFriend = (targetUserId) =>
 export const deleteFriend = (targetUserId) => {
     deleteAxios(`/friend/delete/${targetUserId}`);
 };
+
+export const deleteRequest = (targetUserId) => {
+    deleteAxios(`/friend/request/delete/${targetUserId}`);
+};

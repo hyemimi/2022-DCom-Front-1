@@ -19,9 +19,9 @@ function NewGroup() {
         }
     };
 
-    const onSubmit = (event) => {
+    const onSubmit = async (event) => {
         event.preventDefault();
-        createGroup({
+        await createGroup({
             description: des,
             name: groupname,
         });

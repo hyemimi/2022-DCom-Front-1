@@ -68,8 +68,8 @@ const routes = [
         component: RequestFriend,
     },
     {
-        id: 'webcam',
-        path: '/webcam',
+        id: 'cam',
+        path: '/cam',
         component: WebcamComponent,
     },
 ];
