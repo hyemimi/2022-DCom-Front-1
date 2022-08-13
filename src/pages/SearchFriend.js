@@ -3,6 +3,7 @@ import { AuthContext } from '../Context/auth';
 import FriendsProfileList from '../components/FriendsProfileList';
 import { fetchAllUserList } from '../store/user';
 import { sendFriendRequest } from '../store/friend';
+import Pagination from '../components/Common/pagination';
 
 const SearchFriend = () => {
     // App.js에서 주입(Provide)한 context정보 받아오기
@@ -12,6 +13,8 @@ const SearchFriend = () => {
     const [allUserList, setAllUserList] = useState([]);
     const [searchText, setSearchText] = useState();
     const [allRequestList, setAllRequestList] = useState();
+    /* const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(5); */
 
     useEffect(() => {
         // 모든 유저 정보 API Call
@@ -42,7 +45,7 @@ const SearchFriend = () => {
             );
         }
     });
-
+    // const paginate = (pageNumber) => setCurrentPage(pageNumber);
     return (
         <>
             <div className="content">
@@ -62,6 +65,11 @@ const SearchFriend = () => {
                     </div>
                 </div>
                 <FriendsProfileList data={filteredFriend} />
+                {/* <Pagination
+                    postsPerPage={postsPerPage}
+                    totalPosts={filteredFriend.length}
+                    paginate={paginate}
+                /> */}
             </div>
         </>
     );
