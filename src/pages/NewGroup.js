@@ -1,15 +1,19 @@
 import { createGroup } from './../store/group';
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../Context/auth';
+import { Box } from '../components/Styled/Box'
+import { BasicInput, TextareaInput } from '../components/Styled/Input';
 
 function NewGroup () {
     const auth = useContext(AuthContext);
-    const [groupname, setGroupName] = useState('');
-    const [des, setDes] = useState('');
+    const [inputs, setInputs] = useState({
+        name: '',
+        description: '',
+    });
 
     const onChange = (e) => {
-        if (e.target.name === 'groupname') {
-          setGroupName(e.target.value);
+        if (e.target.name === 'inputs') {
+          setInputs(e.target.value);
         }
         if (e.target.name === 'des') {
           setDes(e.target.value);
@@ -20,7 +24,7 @@ function NewGroup () {
         event.preventDefault();
         await createGroup({
             description: des,
-            name: groupname
+            name: inputs
         });
     };
 
@@ -29,68 +33,30 @@ function NewGroup () {
     };
 
     return (
-        <div className="NewGroup">
-            <h1>
-                <a
-                    style={{
-                        color: '#ffc83d',
-                        fontSize: 'min(6vw, 100px)',
-                        textAlign: 'center'
-                    }}
-                >
-                    New Group
-                </a>
-                <p className="line"></p>
-            </h1>
-            <form onSubmit={onSubmit}>
-                <div>
-                    <h1
-                        style={{
-                            fontSize: 'min(6vw, 40px)',
-                            textAlign: 'center'
-                        }}
-                    >
-                        <input
-                            placeholder="그룹명"
-                            name="groupname"
-                            value={groupname}
-                            type="text"
-                            onChange={onChange}
-                        />
-                    </h1>
-                    <h1
-                        style={{
-                            fontSize: 'min(6vw, 40px)',
-                            textAlign: 'center'
-                        }}
-                    >
-                        <input value={`그룹장 | ${auth.user.name}`} />
-                    </h1>
-                </div>
-
-                <div>
-                    <h1
-                        style={{
-                            fontSize: 'min(6vw, 40px)',
-                            textAlign: 'center'
-                        }}
-                    >
-                        <input
-                            placeholder="description"
-                            name="des"
-                            value={des}
-                            type="text"
-                            onChange={onChange}
-                        />
-                    </h1>
-                </div>
-                <div>
-                    <input type="submit" value="추가하기" />
+        <div>
+            <Box width="80%">
+            <h1> 스터디그룹 생성하기 </h1>
+            <form onSubmit={onSubmit} style={{display: 'flex', flexDirection: 'column', gap: '0.5em'}}>
+                <BasicInput
+                    placeholder="그룹명"
+                    name="name"
+                    type="text"
+                    value={inputs.name}
+                    onChange={onChange}
+                />    
+                <TextareaInput
+                    placeholder="설명"
+                    name="description"
+                    value={inputs.description}
+                    onChange={onChange}
+                />       
+                
+                <div style={{display: 'flex', justifyContent: 'center', gap: '0.5em'}}>
+                    <button onClick={onClick}>취소하기</button>
+                    <button className='light'>추가하기</button>
                 </div>
             </form>
-            <div>
-                <button onClick={onClick}>cancel</button>
-            </div>
+        </Box>
         </div>
     );
 }
