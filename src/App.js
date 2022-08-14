@@ -14,12 +14,11 @@ function App () {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        fetchAllUserList()
-            .then((res) => {
-                setUser(res.data[1]);
-                setIsLoggedIn(true);
-                console.log('user', res.data);
-            });
+        fetchUserInfo(2).then((res) => {
+            setUser(res.data);
+            setIsLoggedIn(true);
+            console.log('user', res.data);
+        });
     }, []);
 
     return (
@@ -27,8 +26,9 @@ function App () {
             <AuthContext.Provider
                 value={{
                     isLoggedIn,
-                    user
-                }}>
+                    user,
+                }}
+            >
                 <BaseLayout>
                     <Routes style={{backgroundColor: theme.background}}>
                         {routes.map((r) => (
