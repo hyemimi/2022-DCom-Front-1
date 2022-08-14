@@ -8,7 +8,6 @@ function GroupItem({ id, name, leader, members, buttontext }) {
     const auth = useContext(AuthContext);
     const navigate = useNavigate();
     const onClick = (targetGroupId) => {
-        console.log(targetGroupId);
         navigate(`/groups/${targetGroupId}`);
     };
     return (

@@ -148,7 +148,7 @@ const Groups = () => {
 
 export default Groups;
 
-const Button = styled.button`
+export const Button = styled.button`
     width: 250px;
     padding: 10px 20px;
     background-color: ${(props) => props.theme.lightBackground || '#2f2f2f'};

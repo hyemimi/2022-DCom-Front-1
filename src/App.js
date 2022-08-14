@@ -5,10 +5,10 @@ import { AuthContext } from './Context/auth';
 import { ThemeProvider } from './Context/theme';
 import { Routes, Route } from 'react-router-dom';
 import routes from './components/Common/Routes';
-import { fetchAllUserList, fetchUserInfo } from './store/user';
+import { fetchUserInfo } from './store/user';
 import { useThemeColor } from './Context/theme';
 
-function App () {
+function App() {
     const theme = useThemeColor();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [user, setUser] = useState(null);
@@ -30,7 +30,7 @@ function App () {
                 }}
             >
                 <BaseLayout>
-                    <Routes style={{backgroundColor: theme.background}}>
+                    <Routes style={{ backgroundColor: theme.background }}>
                         {routes.map((r) => (
                             <Route
                                 key={r.id}

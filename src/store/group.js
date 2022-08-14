@@ -15,3 +15,11 @@ export const sendGroupRequest = (targetGroupId) =>
 //현재 유저가 해당 그룹에서 탈퇴합니다.
 export const quitGroup = (targetGroupId) =>
     deleteAxios(`/group/quit/${targetGroupId}`);
+
+//해당멤버를 그룹에서 강퇴시킵니다 ㅠ
+export const kickoutGroup = (targetGroupId, targetUserId) =>
+    postAxios(`/group/kickOut/${targetGroupId}/${targetUserId}`);
+
+//그룹을 삭제합니다
+export const deleteGroup = (targetGroupId) =>
+    deleteAxios(`/group/delete/${targetGroupId}`);
