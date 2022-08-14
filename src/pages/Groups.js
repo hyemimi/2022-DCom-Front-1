@@ -9,6 +9,94 @@ import { PageDiv } from './SearchFriend';
 import styled from 'styled-components';
 const Groups = () => {
     const auth = useContext(AuthContext);
+    const groups = [
+        // dummy
+        // 이후 auth.user.groups로 바꾸기
+        {
+            description: '파이썬스터디',
+            id: 1,
+            name: '파이썬스터디',
+            users: [
+                {
+                    id: 1,
+                    motto: 'string',
+                    name: '박민재',
+                    nickname: '호스트',
+                    profileImage: 'string',
+                },
+                {
+                    id: 2,
+                    motto: 'string',
+                    name: '정지원',
+                    nickname: '손님',
+                    profileImage: 'string',
+                },
+            ],
+        },
+        {
+            description: '파이썬스터디',
+            id: 2,
+            name: 'string',
+            users: [
+                {
+                    id: 1,
+                    motto: 'string',
+                    name: '박민재',
+                    nickname: '호스트',
+                    profileImage: 'string',
+                },
+                {
+                    id: 2,
+                    motto: 'string',
+                    name: '정지원',
+                    nickname: '손님',
+                    profileImage: 'string',
+                },
+            ],
+        },
+        {
+            description: '파이썬스터디',
+            id: 3,
+            name: 'string',
+            users: [
+                {
+                    id: 2,
+                    motto: 'string',
+                    name: '박민재',
+                    nickname: '호스트',
+                    profileImage: 'string',
+                },
+                {
+                    id: 3,
+                    motto: 'string',
+                    name: '정지원',
+                    nickname: '손님',
+                    profileImage: 'string',
+                },
+            ],
+        },
+        {
+            description: '파이썬스터디',
+            id: 4,
+            name: 'string',
+            users: [
+                {
+                    id: 1,
+                    motto: 'string',
+                    name: '박민재',
+                    nickname: '호스트',
+                    profileImage: 'string',
+                },
+                {
+                    id: 2,
+                    motto: 'string',
+                    name: '정지원',
+                    nickname: '손님',
+                    profileImage: 'string',
+                },
+            ],
+        },
+    ];
 
     return (
         <PageDiv>
@@ -33,14 +121,13 @@ const Groups = () => {
                     <Button>⚒️ 스터디그룹 생성하기</Button>
                 </Link>
             </div>
-            <div>
-                {!auth.user.groups.length === 0 ? (
-                    auth.user.groups.map((it) => {
+            📑{groups.length}개의 스터디그룹이 있습니다
+            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                {groups.length !== 0 ? (
+                    groups.map((it) => {
                         return (
                             // eslint-disable-next-line react/jsx-key
                             <div>
-                                {auth.user.groups.length}개의 스터디그룹이
-                                있습니다
                                 <GroupItem
                                     id={it.id}
                                     name={it.name}
