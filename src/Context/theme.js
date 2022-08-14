@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 
-export const ThemeContext = createContext({
+const themeState = {
     darkmode: true,
     colorSet: {
         dark: {
@@ -15,7 +15,16 @@ export const ThemeContext = createContext({
             point: 'rgb(255, 191, 31)'
         }
     }
-});
+}
+
+// @ts-ignore
+export const ThemeContext = createContext(themeState);
+
+export const ThemeProvider = ({children}) => {
+    return <ThemeContext.Provider value={themeState}>
+        {children}
+    </ThemeContext.Provider>
+}
 
 export const useTheme = () => useContext(ThemeContext);
 export const useThemeColor = () => {

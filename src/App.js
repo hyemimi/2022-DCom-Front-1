@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import BaseLayout from './components/BaseLayout';
 import { AuthContext } from './Context/auth';
-import { ThemeContext } from 'styled-components';
+import { ThemeProvider } from './Context/theme';
 import { Routes, Route } from 'react-router-dom';
 import routes from './components/Common/Routes';
 import { fetchAllUserList } from './store/user';
@@ -23,7 +23,7 @@ function App () {
     }, []);
 
     return (
-        <ThemeContext.Provider>
+        <ThemeProvider>
             <AuthContext.Provider
                 value={{
                     isLoggedIn,
@@ -41,7 +41,7 @@ function App () {
                     </Routes>
                 </BaseLayout>
             </AuthContext.Provider>
-        </ThemeContext.Provider>
+        </ThemeProvider>
     );
 }
 
