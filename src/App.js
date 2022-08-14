@@ -5,19 +5,18 @@ import { AuthContext } from './Context/auth';
 import { ThemeContext } from 'styled-components';
 import { Routes, Route } from 'react-router-dom';
 import routes from './components/Common/Routes';
-import { fetchAllUserList } from './store/user';
+import { fetchAllUserList, fetchUserInfo } from './store/user';
 
-function App () {
+function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        fetchAllUserList()
-            .then((res) => {
-                setUser(res.data[1]);
-                setIsLoggedIn(true);
-                console.log('user', res.data);
-            });
+        fetchUserInfo(2).then((res) => {
+            setUser(res.data);
+            setIsLoggedIn(true);
+            console.log('user', res.data);
+        });
     }, []);
 
     return (
@@ -25,8 +24,9 @@ function App () {
             <AuthContext.Provider
                 value={{
                     isLoggedIn,
-                    user
-                }}>
+                    user,
+                }}
+            >
                 <BaseLayout>
                     <Routes>
                         {routes.map((r) => (
