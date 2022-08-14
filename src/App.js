@@ -5,7 +5,7 @@ import { AuthContext } from './Context/auth';
 import { ThemeProvider } from './Context/theme';
 import { Routes, Route } from 'react-router-dom';
 import routes from './components/Common/Routes';
-import { fetchAllUserList } from './store/user';
+import { fetchAllUserList, fetchUserInfo } from './store/user';
 import { useThemeColor } from './Context/theme';
 
 function App () {
