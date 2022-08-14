@@ -11,73 +11,79 @@ import Friends from '../../pages/Friends';
 import RequestFriend from '../../pages/RequestFriend';
 import WebcamComponent from '../../pages/Cam';
 import Test from '../Test';
+import GroupInfo from '../../pages/GroupInfo';
 
 const routes = [
     {
         id: 'main',
         path: '/',
-        component: Main
+        component: Main,
     },
     {
         id: 'login',
         path: '/login',
-        component: Login
+        component: Login,
     },
     {
         id: 'signup',
         path: '/signup',
-        component: SignUp
+        component: SignUp,
     },
     {
         id: 'searchFriend',
         path: '/search-friend',
-        component: SearchFriend
+        component: SearchFriend,
     },
     {
         id: 'searchGroup',
         path: '/search-group',
-        component: SearchGroup
+        component: SearchGroup,
     },
     {
         id: 'newGroup',
         path: '/new-group',
-        component: NewGroup
+        component: NewGroup,
     },
     {
         id: 'record',
         path: '/record',
-        component: Record
+        component: Record,
     },
     {
         id: 'editProfile',
         path: '/edit-profile',
-        component: EditProfile
+        component: EditProfile,
     },
     {
         id: 'groups',
         path: '/groups',
-        component: Groups
+        component: Groups,
     },
     {
         id: 'friends',
         path: '/friends',
-        component: Friends
+        component: Friends,
     },
     {
         id: 'requestFriends',
         path: '/request-friends',
-        component: RequestFriend
+        component: RequestFriend,
     },
     {
         id: 'cam',
         path: '/cam',
-        component: WebcamComponent
+        component: WebcamComponent,
     },
     {
         id: 'test',
         path: '/test',
-        component: Test
-    }
+        component: Test,
+    },
+    {
+        id: 'groupinfo',
+        path: '/groups/:id',
+        component: GroupInfo,
+    },
 ];
 
 export default routes;
