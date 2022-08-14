@@ -39,7 +39,7 @@ const SearchFriend = () => {
 
     return (
         <PageDiv>
-            <SearchBox onChange={onChange}/>
+            <SearchBox onChange={onChange} placeholder="친구의 닉네임을 입력하세요"/>
             <div style={{display: 'flex', flexWrap: 'wrap'}}>
                 {searchUserList.map((user)=>(
                     // @ts-ignore

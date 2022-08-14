@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import styled, { useTheme } from 'styled-components';
 import { useAuth } from '../Context/auth';
 import { deleteRequest, sendFriendRequest } from './../store/friend';
+import { Box } from '../components/Styled/Box';
 
 function FriendsProfile ({user}) {
     const { profileImage, nickname, id } = user;
@@ -27,8 +28,8 @@ function FriendsProfile ({user}) {
     };
 
     return (
-        <Box theme={theme}>
-            <div>
+        <Box theme={theme} width="200px" height="240px">
+            <div style={{height: '130px', maxHeight: '130px'}}>
                 {profileImage && (
                     <img src={profileImage} width="100px" height="100px" />
                 )}
@@ -49,27 +50,3 @@ function FriendsProfile ({user}) {
 }
 
 export default FriendsProfile;
-
-const Box = styled.div`
-    width: 200px;
-    height: 240px;
-    background-color: rgb(230,230,230);
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    justify-content: space-between;
-    margin: 10px;
-    *{
-        color: rgb(39, 39, 39);
-        font-weight: bold;
-    }
-    >div:first-child{
-        height: 130px;
-        max-height: 130px;
-    }
-    button{
-        color: rgb(230,230,230);
-    }
-`

@@ -43,18 +43,18 @@ button.light {
     height: fit-content;
     padding: 5px 16px 5px 16px;
     text-align: center;
-    color: rgb(7, 7, 7);
+    color: rgb(48, 48, 48) !important;
     font-size: 14px;
     border-radius: 30px;
     cursor: pointer;
-    border: 1.2px solid rgb(7, 7, 7);
+    border: 1.2px solid rgb(48, 48, 48);
     font-weight: 600;
     background-color: rgb(255, 255, 255);
     transition-duration: 200ms;
 }
 button.light:hover {
-    color: white;
-    background-color: rgba(0, 0, 0, 0);
+    color: white !important;
+    background-color: rgb(48, 48, 48) !important;
     border: 1.2px solid white;
     transition-duration: 200ms;
 }
@@ -80,6 +80,7 @@ main{
 
 /* SideMenu */
 .SideMenu {
+    position: fixed;
     padding-top: 30px;
     padding-left:10px;
     left: 0px;

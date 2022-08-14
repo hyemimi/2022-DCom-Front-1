@@ -1,23 +1,19 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
+import { BasicInput } from "../Styled/Input";
 
-export const SearchBox = ({onChange}) => {
+export const SearchBox = ({onChange, placeholder}) => {
     const theme = useTheme();
 
     return (
-        <Input
+        <BasicInput
             theme={theme}
+            width='500px'
             id="inputvalue"
             type="text"
-            placeholder="친구의 닉네임을 입력하세요."
+            placeholder="{placeholder}"
             onChange={onChange}
             />
     )
 }
 
-const Input = styled.input`
-    width: 500px;
-    padding: 10px 20px;
-    background-color: ${(props) => props.theme.lightBackground || '#2f2f2f'};
-    border-radius: 20px;
-`
