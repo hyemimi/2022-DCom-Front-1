@@ -6,7 +6,7 @@ export const createGroup = (data) => postAxios('/group', data);
 export const getGroupInfo = (targetGroupId) => {
     getAxios(`/group/${targetGroupId}`);
 };
-//현재 유저를 그룹의 멤버로 등록합니다
+//유저를 그룹의 멤버로 등록합니다
 export const registerMember = (targetGroupId, targetUserId) =>
     postAxios(`/group/accept/${targetGroupId}/${targetUserId}`);
 //현재 유저가 그룹에 가입 요청을 보냅니다.
@@ -23,3 +23,8 @@ export const kickoutGroup = (targetGroupId, targetUserId) =>
 //그룹을 삭제합니다
 export const deleteGroup = (targetGroupId) =>
     deleteAxios(`/group/delete/${targetGroupId}`);
+
+//그룹 가입 신청 목록을 가져옵니다
+
+export const requestList = (targetGroupId) =>
+    getAxios(`/group/requestlist/${targetGroupId}`);
