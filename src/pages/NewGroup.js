@@ -1,35 +1,31 @@
 import { createGroup } from './../store/group';
-import React, { useState, useContext } from 'react';
-import { AuthContext } from '../Context/auth';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Box } from '../components/Styled/Box'
 import { BasicInput, TextareaInput } from '../components/Styled/Input';
 
 function NewGroup () {
-    const auth = useContext(AuthContext);
     const [inputs, setInputs] = useState({
         name: '',
         description: '',
     });
 
     const onChange = (e) => {
-        if (e.target.name === 'inputs') {
-          setInputs(e.target.value);
+        if(e.target.name === 'name'){
+            setInputs({ name: e.target.value, description: inputs.description });
         }
-        if (e.target.name === 'des') {
-          setDes(e.target.value);
-        }
+        if(e.target.name === 'description'){
+            setInputs({ name: inputs.name, description: e.target.value });
+        }  
+        console.log(inputs);
     };
 
     const onSubmit = async (event) => {
         event.preventDefault();
         await createGroup({
-            description: des,
-            name: inputs
+            description: inputs.description,
+            name: inputs.name,
         });
-    };
-
-    const onClick = () => {
-        // setIsEdit(false);
     };
 
     return (
@@ -52,7 +48,9 @@ function NewGroup () {
                 />       
                 
                 <div style={{display: 'flex', justifyContent: 'center', gap: '0.5em'}}>
-                    <button onClick={onClick}>취소하기</button>
+                    <Link to="/">
+                        <button>취소하기</button>
+                    </Link>
                     <button className='light'>추가하기</button>
                 </div>
             </form>
