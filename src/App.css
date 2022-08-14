@@ -648,19 +648,6 @@ main{
     margin: 3vw;
 }
 
-.friendscontent .friendstable {
-    border-collapse: collapse;
-    text-align: center;
-    vertical-align: middle;
-}
-.friendscontent .friendstable th,
-td {
-    border: 1px solid #ffffff;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 50px;
-    padding-right: 50px;
-}
 .friendsDeleteButton {
     margin: 0;
     padding: 0.5rem 1rem;
@@ -746,14 +733,6 @@ td {
     justify-content: center;
     align-items: center;
 }
-/* .ProfileLists {
-    display: grid;
-    grid-template-columns: repeat(5, auto);
-    gap: 3%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-} */
 
 .groupsAddBtn {
     margin: 0;
@@ -808,4 +787,10 @@ td {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.newgroup-header {
+    color: #ffffff;
+    font-size: 2vw;
+    margin: 3vw; 
 }

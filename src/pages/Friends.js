@@ -1,83 +1,64 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import MyProfile from '../components/MyProfile';
+import MyFriendsProfile from '../components/MyFriendsProfile';
 import { AuthContext } from '../Context/auth';
 import { getFriendList, deleteFriend } from '../store/friend';
+import FriendsProfile from '../components/FriendsProfile';
+import styled from 'styled-components';
+import { PageDiv } from './SearchFriend';
+import { SearchBox } from '../components/Common/SearchBox';
 
 const Friends = () => {
     const auth = useContext(AuthContext);
     const [allFriendsList, setAllFriendsList] = useState();
 
-    useEffect(async () => {
-        // 모든 친구 리스트 API Call
-        await getFriendList()
-            .then((res) => {
-                console.log('all Friend list', res.data);
-                setAllFriendsList(res.data);
-            })
-            .catch((e) =>
-                setAllFriendsList([
-                    //dummy
-                    {
-                        id: 0,
-                        motto: '없음음음',
-                        name: '이혜미',
-                        nickname: '손님',
-                        profileImage: null,
-                    },
-                ])
-            );
-    }, []);
-    const onClick = async (targetUserId) => {
-        if (confirm('친구를 목록에서 삭제하시겠습니까?')) {
-            await deleteFriend(targetUserId);
-        }
-    };
+    useEffect(()=>{
+        getFriendList()
+        .then((res) => {
+            setAllFriendsList(res.data);
+        });
+    },[])
+
     return (
-        <>
-            <div className="content">
-                <h1 className="friendsheader"> My Friends </h1>
+        <PageDiv>
+            <h1 className="friendsheader"> My Friends </h1>
+            <div style={{ display: 'flex' }}>
+                <Link key="SearchFriend" to="/search-friend">
+                    <Button className="friendsAddBtn">
+                        🔍　친구 추가 하러가기
+                    </Button>
+                </Link>
 
-                <div className="friendsAdd">
-                    <Link key="SearchFriend" to="/search-friend">
-                        <button className="friendsAddBtn">
-                            🔍　친구 추가 하러가기
-                        </button>
-                    </Link>
-
-                    <Link key="requestFriends" to="/request-friends">
-                        <button className="friendsAddBtn">
-                            📩　친구 요청 확인하기
-                        </button>
-                    </Link>
-                </div>
-
-                <div className="FriendsProfileBoxes">
-                    {allFriendsList
-                        ? allFriendsList.map((it) => {
-                              return (
-                                  // eslint-disable-next-line react/jsx-key
-                                  <>
-                                      <MyProfile
-                                          image={it.profileImage}
-                                          name={it.name}
-                                          nickname={it.nickname}
-                                          motto={it.motto}
-                                      />
-                                      <button onClick={() => onClick(it.id)}>
-                                          친구 삭제
-                                      </button>
-                                      {/*  <button className="friendsDeleteButton">
-                                          친구 삭제
-                                      </button> */}
-                                  </>
-                              );
-                          })
-                        : '친구 목록이 비어있습니다'}
-                </div>
+                <Link key="requestFriends" to="/request-friends">
+                    <Button className="friendsAddBtn">
+                        📩　친구 요청 확인하기
+                    </Button>
+                </Link>
             </div>
-        </>
+
+
+            {/*<SearchBox onChange={onChange} placeholder="친구의 닉네임을 입력하세요"/>*/}
+            <div className="FriendsProfileBoxes" style={{display: 'flex', flexWrap: 'wrap'}}>
+                {allFriendsList
+                    ? allFriendsList.map((it) => {
+                            return (
+                                <>
+                                <MyFriendsProfile key={user.id}
+                                                user={user} />
+                                </>
+                            );
+                        })
+                    : '친구 목록이 비어있습니다'}
+            </div>
+        </PageDiv>
     );
 };
 
 export default Friends;
+
+export const Button = styled.button`
+    width: 250px;
+    padding: 10px 20px;
+    background-color: ${(props) => props.theme.lightBackground || '#2f2f2f'};
+    border-radius: 20px;
+`;

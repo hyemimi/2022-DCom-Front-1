@@ -1,9 +1,6 @@
 import { useEffect, useState, useContext } from 'react';
 import GroupItem from '../components/GroupItem';
-import SideMenu from '../Layout/SideMenu';
 import { Link } from 'react-router-dom';
-import GroupButton from '../components/GroupButton';
-import { useSelector } from 'react-redux';
 import { AuthContext } from '../Context/auth';
 import { PageDiv } from './SearchFriend';
 import styled from 'styled-components';

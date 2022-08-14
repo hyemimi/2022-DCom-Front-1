@@ -29,9 +29,9 @@ function NewGroup () {
     };
 
     return (
-        <div>
+        <div style={{display: 'flex', justifyContent: 'center', gap: '0.5em'}}>
             <Box width="80%">
-            <h1> 스터디그룹 생성하기 </h1>
+            <h1 className="newgroup-header"> 스터디그룹 생성하기 </h1>
             <form onSubmit={onSubmit} style={{display: 'flex', flexDirection: 'column', gap: '0.5em'}}>
                 <BasicInput
                     placeholder="그룹명"
