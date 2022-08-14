@@ -1,15 +1,23 @@
 import React, { useEffect, useState, useRef, Component } from 'react'
-import GroupItem from '../components/GroupItem'
-import App from '../App'
-import FriendsProfileList from '../components/FriendsProfileList'
 import GroupItemList from '../components/GroupItemList'
 import GroupButton from '../components/GroupButton'
+import { getGroupInfo } from '../store/group'
 
-const SearchGroup = ({studyList, setStudyList}) => {
+const SearchGroup = () => {
   const [searchText, setSearchText] = useState()
+  const [searchedGroupId, setSearchedGroupId] = useState()
+  const [searchedGroupInfo, setSearchedGroupInfo] = useState()
+  
+  useEffect(()=>{
+    getGroupInfo(searchText)
+    .then((res) => {
+        setSearchedGroupInfo(res.data);
+    });
+},[])
 
   const onSearch = () => {
     console.log(searchText)
+    setSearchText(document.getElementById('inputvalue')?.value);
     //const searchednickname = users.filter((val) => (searchText === val.nickname))
     // const result = users.filter((it) =>it.nickname === searchText)
     // return(result)
@@ -21,12 +29,15 @@ const SearchGroup = ({studyList, setStudyList}) => {
     }
   }
 
-  const filteredGroup = studyList.filter((studyList) => {
-    if(searchText === "" || searchText === null)
-      return ("검색 결과 없음")
-    else
-      return studyList.name.includes(searchText);
-  })
+   /* useEffect(()=>{
+      const filteredGroup = searchedGroupInfo.filter((searchedGroupInfo) => {
+        if(searchText === "" || searchText === null)
+          return ("검색 결과 없음")
+        else
+          return searchedGroupInfo.id.includes(searchText);
+      })
+      setSearchedGroupInfo(filteredGroup)
+      },[searchText])*/
 
   return (
     <>
@@ -35,7 +46,8 @@ const SearchGroup = ({studyList, setStudyList}) => {
           <div className="searchBox">
             <input
               type="text"
-              placeholder="그룹명을 입력하세요."
+              id="inputvalue"
+              placeholder="그룹 아이디를 입력하세요."
               onChange={(e) => { setSearchText(e.target.value) }}
               onKeyPress={onPressEnter}
             />
@@ -44,7 +56,10 @@ const SearchGroup = ({studyList, setStudyList}) => {
             </button>
           </div>
         </div>
-        <GroupItemList key={studyList.studyId} data={filteredGroup}/>
+        {searchedGroupInfo.map((group)=>(
+                    <GroupItemList key={group.id}
+                                    data={group} />
+        ))}
       </div>
     </>
   )
