@@ -8,28 +8,29 @@ const SearchFriend = () => {
     // App.js에서 주입(Provide)한 context정보 받아오기
     // @ts-ignore
     const [allUserList, setAllUserList] = useState([]);
-    const [searchUserList, setSearchedUserList] = useState([])
+    const [searchUserList, setSearchedUserList] = useState([]);
     const [searchText, setSearchText] = useState();
     // @ts-ignore
     const [allRequestList, setAllRequestList] = useState();
     /* const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(5); */
-    
+
     // 모든 유저 정보 API Call
-    useEffect(()=>{
-        fetchAllUserList()
-        .then((res) => {
+    useEffect(() => {
+        fetchAllUserList().then((res) => {
             setAllUserList(res.data);
             setSearchedUserList(res.data);
         });
-    },[])
-   
-    useEffect(()=>{
+    }, []);
+
+    useEffect(() => {
         // @ts-ignore
-        const filteredFriend = allUserList.filter((user) => user?.nickname?.includes(searchText))
+        const filteredFriend = allUserList.filter((user) =>
+            user?.nickname?.includes(searchText)
+        );
         // @ts-ignore
-        setSearchedUserList(filteredFriend)
-    },[searchText])
+        setSearchedUserList(filteredFriend);
+    }, [searchText]);
 
     const onChange = () => {
         setSearchText(document.getElementById('inputvalue')?.value);
@@ -39,12 +40,11 @@ const SearchFriend = () => {
 
     return (
         <PageDiv>
-            <SearchBox onChange={onChange}/>
-            <div style={{display: 'flex', flexWrap: 'wrap'}}>
-                {searchUserList.map((user)=>(
+            <SearchBox onChange={onChange} />
+            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                {searchUserList.map((user) => (
                     // @ts-ignore
-                    <FriendsProfile key={user.id}
-                                    user={user} />
+                    <FriendsProfile key={user.id} user={user} />
                 ))}
             </div>
             {/* <Pagination
@@ -52,12 +52,15 @@ const SearchFriend = () => {
                 totalPosts={filteredFriend.length}
                 paginate={paginate}
             /> */}
-    </PageDiv>
+        </PageDiv>
     );
 };
 
 export default SearchFriend;
 
-const PageDiv = styled.div`
-    display: flex; flex-direction: column; align-items: center; gap: 1em;
-`
+export const PageDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+`;
