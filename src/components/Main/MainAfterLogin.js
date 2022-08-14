@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import EditProfile from '../EditProfile';
 import MyProfile from '../MyProfile';
 import { useAuth } from '../../Context/auth';
+import { Link } from 'react-router-dom';
 
 const MainPage = () => {
     const [editMode, setEditMode] = useState(false);
@@ -20,7 +21,9 @@ const MainPage = () => {
             {!editMode ? (
                 <div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5em', alignItems: 'center', marginTop: '20px' }}>
-                        <button className='light'>시작하기</button>
+                    <Link key="cam" to="/cam">
+                        <button className='light'>공부 시작하기</button>
+                    </Link>
                         {/* <button onClick={() => { setEditMode(true); }}>
                             내 프로필 수정하기
                         </button> */}
