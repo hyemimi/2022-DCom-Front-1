@@ -18,7 +18,10 @@ a {
 }
 
 input:focus,
-input:active{
+input:active,
+textarea:focus,
+textarea:active,
+button:focus{
     outline: none;
 }
 

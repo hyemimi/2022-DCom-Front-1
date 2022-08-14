@@ -6,8 +6,10 @@ import { ThemeContext } from 'styled-components';
 import { Routes, Route } from 'react-router-dom';
 import routes from './components/Common/Routes';
 import { fetchAllUserList } from './store/user';
+import { useThemeColor } from './Context/theme';
 
 function App () {
+    const theme = useThemeColor();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [user, setUser] = useState(null);
 
@@ -28,7 +30,7 @@ function App () {
                     user
                 }}>
                 <BaseLayout>
-                    <Routes>
+                    <Routes style={{backgroundColor: theme.background}}>
                         {routes.map((r) => (
                             <Route
                                 key={r.id}
