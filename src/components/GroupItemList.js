@@ -7,7 +7,7 @@ function GroupItemList ({ data }) {
   return (
         <div className='GroupItemList'>
             {data.map((it) => (
-                <GroupItem key={it.studyId} name={it.name} leader={it.leader} members={it.members} buttontext={buttontext}/>
+                <GroupItem key={it.id} name={it.name} users={it.users} buttontext={buttontext}/>
             ))}
         </div>
   )
