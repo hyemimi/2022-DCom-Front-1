@@ -2,8 +2,11 @@
 import React, { useEffect, useState, useRef } from 'react';
 import GroupButton from './GroupButton';
 import {createGroup, getGroupInfo} from './../store/group'
+import { useAuth } from '../Context/auth';
+
 
 function GroupItem({ id, name, users, buttontext }) {
+
     return (
         <div>
             <div className="group-name">{name}</div>
