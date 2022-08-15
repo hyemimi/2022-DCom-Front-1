@@ -37,11 +37,12 @@ const Friends = () => {
 
     const [allFriendsList, setAllFriendsList] = useState();
 
-    useEffect(() => {
-        getFriendList().then((res) => {
+    useEffect(()=>{
+        getFriendList()
+        .then((res) => {
             setAllFriendsList(res.data);
         });
-    }, []);
+    },[])
 
     return (
         <PageDiv>
@@ -52,6 +53,7 @@ const Friends = () => {
                         fontSize: 'min(6vw, 40px)',
                     }}
                 >
+                    {' '}My Friends{' '}
                 </a>
             </h1>
             <div style={{ display: 'flex' }}>
@@ -67,7 +69,6 @@ const Friends = () => {
                     </Button>
                 </Link>
             </div>
-
             📑{friendummylist.length}명의 친구가 있습니다
             {/*<SearchBox onChange={onChange} placeholder="친구의 닉네임을 입력하세요"/>*/}
             <div style={{display: 'flex', flexWrap: 'wrap'}}>
