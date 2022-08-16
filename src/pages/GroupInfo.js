@@ -121,7 +121,7 @@ const GroupInfo = () => {
                 </>
             ) : (
                 <>
-                    <button onClick={onClick}>그룹 홈으로 돌아가기</button>
+                    <button onClick={onClick}>그룹 관리 페이지로 돌아가기</button>
                     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                         {requestGroupList.map((user, idx) => (
                             <RequestGroupProfile

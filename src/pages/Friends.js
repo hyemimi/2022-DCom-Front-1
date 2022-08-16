@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import MyFriendsProfile from '../components/MyFriendsProfile';
 import { AuthContext } from '../Context/auth';
 import { getFriendList, deleteFriend } from '../store/friend';
-import FriendsProfile from '../components/FriendsProfile';
 import styled from 'styled-components';
 import { PageDiv } from '../components/Styled/PageDiv';
 import { SearchBox } from '../components/Common/SearchBox';

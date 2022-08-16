@@ -1,12 +1,9 @@
 import { fetchAllRequest, acceptFriend } from './../store/friend';
 import { useState, useEffect } from 'react';
 import { PageDiv } from '../components/Styled/PageDiv';
-import { Box } from '../components/Styled/Box';
-import UserProfileModal from '../components/UserProfileModal';
-import MyFriendsProfile from '../components/MyFriendsProfile';
-import RequestUserProfile from '../components/RequestUserProfile';
+import { Link } from 'react-router-dom';
 import RequestFriendBox from '../components/RequestFriendBox';
-import RequestProfile from '../components/RequestGroupProfile';
+import { Button } from './Friends';
 
 const RequestFriend = () => {
     const [allRequest, setAllRequest] = useState();
@@ -40,6 +37,22 @@ const RequestFriend = () => {
 
     return (
         <PageDiv>
+            <h1 className="friendsheader">
+                <a
+                style={{
+                color: '#ffc83d',
+                fontSize: 'min(6vw, 40px)',
+                }}
+                >
+                {' '}
+                친구 요청 알림 확인하기{' '}
+                </a>
+            </h1>
+            <div style={{ display: 'flex' }}>
+                <Link key="SearchFriend" to="/search-friend">
+                    <Button>🔍　친구 추가 하러가기</Button>
+                </Link>
+            </div>
             {allRequest
                 ? allRequest.map((user, idx) => {
                       return (
