@@ -22,10 +22,10 @@ const RequestProfile = ({ id, user, message }) => {
                 }}
             >
                 <img
-                    style={{ width: '100px', height: '50px' }}
+                     style={{ width: '90px', height: '50px', marginLeft: '16px', marginRight: '16px' }}
                     src={user.profileImage}
                 />
-                {`💙${user.nickname}💙님의 그룹 가입 요청`}
+                {`${user.nickname} 님의 그룹 가입 요청`}
             </div>
             <button onClick={onClick}>수락하기</button>
         </Box>

@@ -38,10 +38,10 @@ const RequestFriendBox = ({user}) => {
             >
             {`💌`}
                 <img
-                    style={{ width: '100px', height: '50px', paddingLeft: '16px',paddingRight: '16px' }}
+                    style={{ width: '90px', height: '50px', marginLeft: '16px', marginRight: '16px'  }}
                     src={user.profileImage}
                 />
-            {`${user.nickname}님의 친구 요청`}
+            {`${user.nickname} 님의 친구 요청`}
 
             </div>{' '}
             <div style={{ display: 'flex', alignItems: 'center'}}>
