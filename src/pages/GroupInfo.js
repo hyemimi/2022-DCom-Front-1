@@ -66,6 +66,9 @@ const GroupInfo = () => {
             .then((r) => alert('승인 성공'))
             .catch((e) => alert('승인 실패'));
     };
+    const onClick = () => {
+        setIsRequest(!isRequest);
+    };
     return (
         <PageDiv>
             <h1 className="groupList-header">
@@ -87,9 +90,7 @@ const GroupInfo = () => {
                         </button>
                     </>
                 ) : (
-                    <button onClick={onRequestHandler}>
-                        그룹 홈으로 돌아가기
-                    </button>
+                    <button onClick={onClick}>그룹 홈으로 돌아가기</button>
                 )}
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
@@ -142,7 +143,7 @@ const GroupInfo = () => {
                                       style={{ width: '100px', height: '50px' }}
                                       src={user.profileImage}
                                   />
-                                  {`💙${user.nickname}💙님의 그룹 참여 요청`}
+                                  {`💙${user.nickname}💙님의 그룹가입 신청`}
                               </div>{' '}
                               <button
                                   onClick={() => {
