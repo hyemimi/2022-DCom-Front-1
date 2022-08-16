@@ -342,9 +342,6 @@ main{
     cursor: pointer;
 }
 
-.PostList {
-    /* margin-top: 5vw; */
-}
 
 .PostItem {
     box-sizing: border-box;
@@ -476,9 +473,6 @@ main{
     text-align: center;
     color: rgb(247, 247, 247);
     margin-bottom: 2vw;
-}
-
-.LoginPage {
 }
 
 .LoginPage .box {

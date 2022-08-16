@@ -2,14 +2,13 @@ import { fetchAllRequest, acceptFriend } from './../store/friend';
 import { useState, useEffect } from 'react';
 import { PageDiv } from '../components/Styled/PageDiv';
 import { Box } from '../components/Styled/Box';
+import UserProfileModal from '../components/UserProfileModal';
+import MyFriendsProfile from '../components/MyFriendsProfile';
+import RequestUserProfile from '../components/RequestUserProfile';
+import RequestFriendBox from '../components/RequestFriendBox';
 
 const RequestFriend = () => {
     const [allRequest, setAllRequest] = useState();
-    const onClick = (targetUserId) => {
-        acceptFriend(targetUserId);
-        alert('친구 추가 완료!');
-    };
-
     useEffect(() => {
         // 모든 친구요청 API CALL
         fetchAllRequest()
@@ -37,42 +36,17 @@ const RequestFriend = () => {
                 ])
             );
     }, []);
+
     return (
         <PageDiv>
             {allRequest
                 ? allRequest.map((user, idx) => {
                       return (
-                          <Box
-                              key={user.id}
-                              width="800px"
-                              height="80px"
-                              color="black"
-                              style={{ flexDirection: 'row' }}
-                          >
-                              <div
-                                  style={{
-                                      display: 'flex',
-                                      alignItems: 'center',
-                                      justifyContent: 'space-between',
-                                  }}
-                              >
-                                  <img
-                                      style={{ width: '100px', height: '50px' }}
-                                      src={user.profileImage}
-                                  />
-                                  {`💙${user.nickname}💙님의 친구 요청`}
-                              </div>{' '}
-                              <button
-                                  onClick={() => {
-                                      onAcceptHandler(user.id);
-                                  }}
-                              >
-                                  수락하기
-                              </button>
-                          </Box>
+                          <RequestFriendBox key={user.id} user={user}></RequestFriendBox>
                       );
                   })
                 : '비어있습니다'}
+
         </PageDiv>
     );
 };
