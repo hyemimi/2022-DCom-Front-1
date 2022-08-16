@@ -1,4 +1,5 @@
 import { Box } from './Styled/Box';
+import { acceptFriend } from '../store/friend';
 import { registerMember } from '../store/group';
 const RequestProfile = ({ id, user, message }) => {
     const onClick = async () => {
@@ -6,7 +7,7 @@ const RequestProfile = ({ id, user, message }) => {
             //id는 그룹의 id입니다
             await registerMember(id, user.id)
                 .then((r) => alert('승인 성공'))
-                .catch((e) => alert('승인 실패'));
+                .catch((e) => alert('그룹 승인 실패'));
         }
         if (message === '친구') {
             await acceptFriend(user.id)
