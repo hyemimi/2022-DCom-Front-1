@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from 'react';
 import GroupItem from '../components/GroupItem';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Context/auth';
-import { PageDiv } from './SearchFriend';
+import { PageDiv } from '../components/Styled/PageDiv';
 import styled from 'styled-components';
 const Groups = () => {
     const auth = useContext(AuthContext);
@@ -97,7 +97,7 @@ const Groups = () => {
 
     return (
         <PageDiv>
-            <h1 className="groupList-header">
+            <h1 className="friendsheader">
                 <a
                     style={{
                         color: '#ffc83d',

@@ -8,7 +8,7 @@ import {
     registerMember,
 } from '../store/group';
 import styled from 'styled-components';
-import { PageDiv } from './SearchFriend';
+import { PageDiv } from '../components/Styled/PageDiv';
 import { AuthContext } from '../Context/auth';
 import FriendsProfile from '../components/FriendsProfile';
 

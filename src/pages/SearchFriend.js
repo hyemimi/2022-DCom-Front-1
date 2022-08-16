@@ -3,7 +3,7 @@ import { fetchAllUserList } from '../store/user';
 import { SearchBox } from '../components/Common/SearchBox';
 import FriendsProfile from '../components/FriendsProfile';
 import styled from 'styled-components';
-
+import { PageDiv } from '../components/Styled/PageDiv';
 const SearchFriend = () => {
     // App.js에서 주입(Provide)한 context정보 받아오기
     // @ts-ignore
@@ -40,9 +40,12 @@ const SearchFriend = () => {
 
     return (
         <PageDiv>
-            <SearchBox onChange={onChange} placeholder="친구의 닉네임을 입력하세요"/>
-            <div style={{display: 'flex', flexWrap: 'wrap'}}>
-                {searchUserList.map((user)=>(
+            <SearchBox
+                onChange={onChange}
+                placeholder="친구의 닉네임을 입력하세요"
+            />
+            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                {searchUserList.map((user) => (
                     // @ts-ignore
                     <FriendsProfile key={user.id} user={user} />
                 ))}
@@ -57,10 +60,3 @@ const SearchFriend = () => {
 };
 
 export default SearchFriend;
-
-export const PageDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1em;
-`;
