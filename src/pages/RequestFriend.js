@@ -6,6 +6,7 @@ import UserProfileModal from '../components/UserProfileModal';
 import MyFriendsProfile from '../components/MyFriendsProfile';
 import RequestUserProfile from '../components/RequestUserProfile';
 import RequestFriendBox from '../components/RequestFriendBox';
+import RequestProfile from '../components/RequestGroupProfile';
 
 const RequestFriend = () => {
     const [allRequest, setAllRequest] = useState();

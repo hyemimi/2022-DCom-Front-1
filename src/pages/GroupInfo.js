@@ -12,6 +12,7 @@ import { PageDiv } from '../components/Styled/PageDiv';
 import { AuthContext } from '../Context/auth';
 import FriendsProfile from '../components/FriendsProfile';
 import { Box } from '../components/Styled/Box';
+import RequestGroupProfile from '../components/RequestGroupProfile';
 
 const GroupInfo = () => {
     const { id } = useParams();
@@ -38,6 +39,7 @@ const GroupInfo = () => {
             .then((res) => setGroupInfo(res.data))
             .catch((e) => console.log(e));
     }, []);
+    //멤버를 그룹에서 강퇴시킵니다
     const onKickoutHandler = async (targetGroupId, targetUserId) => {
         if (confirm('❗해당 멤버를 정말 강퇴하시겠습니까?')) {
             await kickoutGroup(targetGroupId, targetUserId);
@@ -46,6 +48,7 @@ const GroupInfo = () => {
             return;
         }
     };
+    //해당 그룹을 삭제합니다
     const onDeleteHandler = async () => {
         if (confirm('❗해당 그룹을 정말 삭제하시겠습니까?')) {
             await deleteGroup(id).then((r) => alert('삭제 성공!'));
@@ -53,6 +56,7 @@ const GroupInfo = () => {
             return;
         }
     };
+    //그룹 가입 요청을 한 유저 목록을 불러옵니다
     const onRequestHandler = async () => {
         await requestList(id)
             .then((r) => {
@@ -61,11 +65,7 @@ const GroupInfo = () => {
             })
             .catch((e) => setIsRequest(!isRequest));
     };
-    const onAcceptHandler = async (targetUserId) => {
-        await registerMember(id, targetUserId)
-            .then((r) => alert('승인 성공'))
-            .catch((e) => alert('승인 실패'));
-    };
+
     const onClick = () => {
         setIsRequest(!isRequest);
     };
@@ -81,80 +81,59 @@ const GroupInfo = () => {
                     {groupinfo.name}
                 </a>
             </h1>
-            <div style={{ display: 'flex' }}>
-                {!isRequest ? (
-                    <>
+            {!isRequest ? (
+                <>
+                    <div style={{ display: 'flex' }}>
                         <button onClick={onDeleteHandler}>그룹 삭제하기</button>
                         <button onClick={onRequestHandler}>
                             그룹 가입신청 목록
                         </button>
-                    </>
-                ) : (
+                    </div>
+                    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                        {/*      @ts-ignore
+                             실제로는 idx !== 0이 되어야함 */}
+                        {groupinfo.users.map(
+                            (user, idx) =>
+                                idx !== 1 && (
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            alignItems: 'center',
+                                        }}
+                                    >
+                                        <FriendsProfile
+                                            key={user.id}
+                                            user={user}
+                                        />
+                                        <button
+                                            className="light"
+                                            onClick={() => {
+                                                onKickoutHandler(id, user.id);
+                                            }}
+                                        >
+                                            강퇴하기
+                                        </button>
+                                    </div>
+                                )
+                        )}
+                    </div>
+                </>
+            ) : (
+                <>
                     <button onClick={onClick}>그룹 홈으로 돌아가기</button>
-                )}
-            </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                {!isRequest
-                    ? groupinfo.users.map(
-                          (user, idx) =>
-                              // @ts-ignore
-                              // 실제로는 idx !== 0이 되어야함
-                              idx !== 1 && (
-                                  <div
-                                      style={{
-                                          display: 'flex',
-                                          flexDirection: 'column',
-                                          alignItems: 'center',
-                                      }}
-                                  >
-                                      <FriendsProfile
-                                          key={user.id}
-                                          user={user}
-                                      />
-                                      <button
-                                          className="light"
-                                          onClick={() => {
-                                              onKickoutHandler(id, user.id);
-                                          }}
-                                      >
-                                          강퇴하기
-                                      </button>
-                                  </div>
-                              )
-                      )
-                    : requestGroupList.map((user, idx) => (
-                          // @ts-ignore
-                          // 실제로는 idx !== 0이 되어야함
-                          <Box
-                              key={user.id}
-                              width="800px"
-                              height="80px"
-                              color="black"
-                              style={{ flexDirection: 'row' }}
-                          >
-                              <div
-                                  style={{
-                                      display: 'flex',
-                                      alignItems: 'center',
-                                      justifyContent: 'space-between',
-                                  }}
-                              >
-                                  <img
-                                      style={{ width: '100px', height: '50px' }}
-                                      src={user.profileImage}
-                                  />
-                                  {`💙${user.nickname}💙님의 그룹가입 신청`}
-                              </div>{' '}
-                              <button
-                                  onClick={() => {
-                                      onAcceptHandler(user.id);
-                                  }}
-                              >
-                                  수락하기
-                              </button>
-                          </Box>
-                      ))}
-            </div>
+                    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                        {requestGroupList.map((user, idx) => (
+                            <RequestGroupProfile
+                                id={id}
+                                key={idx}
+                                user={user}
+                                message={'그룹가입'}
+                            />
+                        ))}
+                    </div>
+                </>
+            )}
         </PageDiv>
     );
 };

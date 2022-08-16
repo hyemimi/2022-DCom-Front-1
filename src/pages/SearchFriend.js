@@ -42,7 +42,7 @@ const SearchFriend = () => {
         <PageDiv>
             <SearchBox
                 onChange={onChange}
-                placeholder="친구의 닉네임을 입력하세요"
+                placeholder={'친구의 닉네임을 입력하세요'}
             />
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                 {searchUserList.map((user) => (

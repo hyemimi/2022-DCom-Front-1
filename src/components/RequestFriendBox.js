@@ -6,20 +6,16 @@ import MyFriendsProfile from '../components/MyFriendsProfile';
 import RequestUserProfile from '../components/RequestUserProfile';
 
 const RequestFriendBox = ({user}) => {
-
-    const onAcceptHandler = (targetUserId) => {
-        acceptFriend(targetUserId);
-        alert('친구 추가 완료!');
+    const onAcceptHandler = async () => {
+            await acceptFriend(user.id)
+                .then((r) => alert('친구추가 성공'))
+                .catch((e) => alert('친구추가 실패'));
+        
     };
 
-
     const [modalOpen, setModalOpen] = useState(false);
-    const [modalUser, setModalUser] = useState();
-
     const openModal = (targetUserId) => {
     setModalOpen(true);
-    setModalUser(targetUserId);
-    console.log(targetUserId)
     };
     const closeModal = () => {
     setModalOpen(false);
