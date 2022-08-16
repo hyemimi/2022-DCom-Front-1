@@ -11,6 +11,7 @@ import styled from 'styled-components';
 import { PageDiv } from '../components/Styled/PageDiv';
 import { AuthContext } from '../Context/auth';
 import FriendsProfile from '../components/FriendsProfile';
+import { Box } from '../components/Styled/Box';
 
 const GroupInfo = () => {
     const { id } = useParams();
@@ -26,9 +27,10 @@ const GroupInfo = () => {
             //dummy
             id: 3,
             motto: '.......',
-            name: '이혜미',
-            nickname: '밈미밈밈밈',
-            profileImage: null,
+            name: '혜미',
+            nickname: '혜미........',
+            profileImage:
+                'https://images.mypetlife.co.kr/content/uploads/2021/10/19151330/corgi-g1a1774f95_1280-1024x682.jpg',
         },
     ]);
     useEffect(async () => {
@@ -36,7 +38,7 @@ const GroupInfo = () => {
             .then((res) => setGroupInfo(res.data))
             .catch((e) => console.log(e));
     }, []);
-    const onClick = async (targetGroupId, targetUserId) => {
+    const onKickoutHandler = async (targetGroupId, targetUserId) => {
         if (confirm('❗해당 멤버를 정말 강퇴하시겠습니까?')) {
             await kickoutGroup(targetGroupId, targetUserId);
             alert('강퇴 성공!');
@@ -60,7 +62,9 @@ const GroupInfo = () => {
             .catch((e) => setIsRequest(!isRequest));
     };
     const onAcceptHandler = async (targetUserId) => {
-        await registerMember(id, targetUserId);
+        await registerMember(id, targetUserId)
+            .then((r) => alert('승인 성공'))
+            .catch((e) => alert('승인 실패'));
     };
     return (
         <PageDiv>
@@ -83,7 +87,9 @@ const GroupInfo = () => {
                         </button>
                     </>
                 ) : (
-                    <button onClick={onRequestHandler}>그룹관리</button>
+                    <button onClick={onRequestHandler}>
+                        그룹 홈으로 돌아가기
+                    </button>
                 )}
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
@@ -107,7 +113,7 @@ const GroupInfo = () => {
                                       <button
                                           className="light"
                                           onClick={() => {
-                                              onClick(id, user.id);
+                                              onKickoutHandler(id, user.id);
                                           }}
                                       >
                                           강퇴하기
@@ -118,25 +124,34 @@ const GroupInfo = () => {
                     : requestGroupList.map((user, idx) => (
                           // @ts-ignore
                           // 실제로는 idx !== 0이 되어야함
-
-                          <div
+                          <Box
                               key={user.id}
-                              style={{
-                                  display: 'flex',
-                                  flexDirection: 'column',
-                                  alignItems: 'center',
-                              }}
+                              width="800px"
+                              height="80px"
+                              color="black"
+                              style={{ flexDirection: 'row' }}
                           >
-                              <FriendsProfile key={user.id} user={user} />
+                              <div
+                                  style={{
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      justifyContent: 'space-between',
+                                  }}
+                              >
+                                  <img
+                                      style={{ width: '100px', height: '50px' }}
+                                      src={user.profileImage}
+                                  />
+                                  {`💙${user.nickname}💙님의 그룹 참여 요청`}
+                              </div>{' '}
                               <button
-                                  className="light"
                                   onClick={() => {
                                       onAcceptHandler(user.id);
                                   }}
                               >
                                   수락하기
                               </button>
-                          </div>
+                          </Box>
                       ))}
             </div>
         </PageDiv>

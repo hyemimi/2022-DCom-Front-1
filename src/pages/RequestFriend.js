@@ -27,24 +27,44 @@ const RequestFriend = () => {
                         nickname: '미미혬',
                         profileImage: null,
                     },
+                    {
+                        id: 5,
+                        motto: 'ㅇㅇㅇ',
+                        name: '정혜인',
+                        nickname: 'ㅎㅎㅎ',
+                        profileImage: null,
+                    },
                 ])
             );
     }, []);
     return (
         <PageDiv>
             {allRequest
-                ? allRequest.map((it, idx) => {
+                ? allRequest.map((user, idx) => {
                       return (
                           <Box
-                              key={it.id}
+                              key={user.id}
                               width="800px"
                               height="80px"
                               color="black"
+                              style={{ flexDirection: 'row' }}
                           >
-                              {`${it.nickname}님이 친구 요청을 보내셨습니다`}
+                              <div
+                                  style={{
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      justifyContent: 'space-between',
+                                  }}
+                              >
+                                  <img
+                                      style={{ width: '100px', height: '50px' }}
+                                      src={user.profileImage}
+                                  />
+                                  {`💙${user.nickname}💙님의 친구 요청`}
+                              </div>{' '}
                               <button
                                   onClick={() => {
-                                      onClick(it.id);
+                                      onAcceptHandler(user.id);
                                   }}
                               >
                                   수락하기
