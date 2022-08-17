@@ -2,10 +2,10 @@
 import React, { useEffect, useState, useRef, useContext } from 'react';
 import GroupButton from './GroupButton';
 import styled from 'styled-components';
-import { AuthContext } from '../Context/auth';
+import { useAuth } from '../Context/auth';
 import { useNavigate } from 'react-router-dom';
 function GroupItem({ id, name, leader, members, buttontext }) {
-    const auth = useContext(AuthContext);
+    const auth = useAuth();
     const navigate = useNavigate();
     const onClick = (targetGroupId) => {
         navigate(`/groups/${targetGroupId}`);

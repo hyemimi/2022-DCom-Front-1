@@ -13,27 +13,16 @@ import { AuthContext } from '../Context/auth';
 import FriendsProfile from '../components/FriendsProfile';
 import { Box } from '../components/Styled/Box';
 import RequestGroupProfile from '../components/RequestGroupProfile';
+import { friendummylist } from '../store/temp/tempFriendsData';
+import { groups } from '../store/temp/tempGroupsData';
 
 const GroupInfo = () => {
     const { id } = useParams();
     const auth = useContext(AuthContext);
-    const [groupinfo, setGroupInfo] = useState({
-        //dummy
-        name: '(스터디이름)',
-        users: [auth.user],
-    });
+    const [groupinfo, setGroupInfo] = useState(groups[0]);
     const [isRequest, setIsRequest] = useState(false);
-    const [requestGroupList, setRequestGroupList] = useState([
-        {
-            //dummy
-            id: 3,
-            motto: '.......',
-            name: '혜미',
-            nickname: '혜미........',
-            profileImage:
-                'https://images.mypetlife.co.kr/content/uploads/2021/10/19151330/corgi-g1a1774f95_1280-1024x682.jpg',
-        },
-    ]);
+    //dummylist 넣어줌, 추후 제거
+    const [requestGroupList, setRequestGroupList] = useState(friendummylist);
     useEffect(async () => {
         await getGroupInfo(parseInt(id))
             .then((res) => setGroupInfo(res.data))
@@ -121,14 +110,21 @@ const GroupInfo = () => {
                 </>
             ) : (
                 <>
-                    <button onClick={onClick}>그룹 관리 페이지로 돌아가기</button>
-                    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                    <button onClick={onClick}>
+                        그룹 관리 페이지로 돌아가기
+                    </button>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            justifyContent: 'center',
+                        }}
+                    >
                         {requestGroupList.map((user, idx) => (
                             <RequestGroupProfile
                                 id={id}
                                 key={idx}
                                 user={user}
-                                message={'그룹가입'}
                             />
                         ))}
                     </div>

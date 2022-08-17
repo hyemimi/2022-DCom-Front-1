@@ -1,11 +1,11 @@
 import { Box } from './Styled/Box';
 import { acceptFriend } from '../store/friend';
 import { registerMember } from '../store/group';
-const RequestProfile = ({ id, user, message }) => {
+const RequestProfile = ({ id, user }) => {
     const onClick = async () => {
-            await registerMember(id, user.id)
-                .then((r) => alert('승인 성공'))
-                .catch((e) => alert('그룹 승인 실패'));
+        await registerMember(id, user.id)
+            .then((r) => alert('승인 성공'))
+            .catch((e) => alert('그룹 승인 실패'));
     };
     return (
         <Box
@@ -22,7 +22,12 @@ const RequestProfile = ({ id, user, message }) => {
                 }}
             >
                 <img
-                     style={{ width: '90px', height: '50px', marginLeft: '16px', marginRight: '16px' }}
+                    style={{
+                        width: '90px',
+                        height: '50px',
+                        marginLeft: '16px',
+                        marginRight: '16px',
+                    }}
                     src={user.profileImage}
                 />
                 {`${user.nickname} 님의 그룹 가입 요청`}

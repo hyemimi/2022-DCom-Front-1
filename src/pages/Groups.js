@@ -5,96 +5,10 @@ import { AuthContext } from '../Context/auth';
 import { PageDiv } from '../components/Styled/PageDiv';
 import styled from 'styled-components';
 import { SearchBox } from '../components/Common/SearchBox';
+import { groups } from '../store/temp/tempGroupsData';
 const Groups = () => {
-    const auth = useContext(AuthContext);
-    const groups = [
-        // dummy
-        // 이후 auth.user.groups로 바꾸기
-        {
-            description: '파이썬스터디',
-            id: 1,
-            name: '파이썬스터디',
-            users: [
-                {
-                    id: 1,
-                    motto: 'string',
-                    name: '박민재',
-                    nickname: '호스트',
-                    profileImage: 'string',
-                },
-                {
-                    id: 2,
-                    motto: 'string',
-                    name: '정지원',
-                    nickname: '손님',
-                    profileImage: 'string',
-                },
-            ],
-        },
-        {
-            description: '파이썬스터디',
-            id: 2,
-            name: 'string',
-            users: [
-                {
-                    id: 1,
-                    motto: 'string',
-                    name: '박민재',
-                    nickname: '호스트',
-                    profileImage: 'string',
-                },
-                {
-                    id: 2,
-                    motto: 'string',
-                    name: '정지원',
-                    nickname: '손님',
-                    profileImage: 'string',
-                },
-            ],
-        },
-        {
-            description: '파이썬스터디',
-            id: 3,
-            name: 'string',
-            users: [
-                {
-                    id: 2,
-                    motto: 'string',
-                    name: '박민재',
-                    nickname: '호스트',
-                    profileImage: 'string',
-                },
-                {
-                    id: 3,
-                    motto: 'string',
-                    name: '정지원',
-                    nickname: '손님',
-                    profileImage: 'string',
-                },
-            ],
-        },
-        {
-            description: '파이썬스터디',
-            id: 4,
-            name: 'string',
-            users: [
-                {
-                    id: 1,
-                    motto: 'string',
-                    name: '박민재',
-                    nickname: '호스트',
-                    profileImage: 'string',
-                },
-                {
-                    id: 2,
-                    motto: 'string',
-                    name: '정지원',
-                    nickname: '손님',
-                    profileImage: 'string',
-                },
-            ],
-        },
-    ];
+    // const auth = useContext(AuthContext);
+    // 추후 const groups = auth.user.groups로 바꾸기
     const [searchGroupList, setSearchedGroupList] = useState(groups);
     const [searchText, setSearchText] = useState('');
     const onChange = () => {
@@ -139,7 +53,7 @@ const Groups = () => {
             📑{groups.length}개의 스터디그룹에 참여중입니다
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                 {groups.length !== 0 ? (
-                    searchGroupList.map((it) => {
+                    searchGroupList.map((it, idx) => {
                         return (
                             // eslint-disable-next-line react/jsx-key
                             <div>
