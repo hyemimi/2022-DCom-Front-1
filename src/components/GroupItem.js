@@ -16,7 +16,7 @@ function GroupItem({ id, name, leader, members, buttontext }) {
             <div>{leader}님의 스터디그룹</div>
             <div style={{ display: 'flex' }}>
                 <GroupButton id={id} text={buttontext}></GroupButton>
-                {members[0].id === auth.user.id && (
+                {members[0].id === auth.user?.id && (
                     <button
                         onClick={() => {
                             onClick(id);
