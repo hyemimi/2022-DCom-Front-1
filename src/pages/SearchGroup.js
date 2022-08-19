@@ -62,7 +62,6 @@ const SearchGroup = () => {
 
     const onSearch = (e) => {
       setSearchText(document.getElementById('inputvalue')?.value);
-      console.log(searchText)
     }
   const onPressEnter = (e) => {
     if (e.key == 'Enter') {
@@ -73,7 +72,7 @@ const SearchGroup = () => {
   return (
     <PageDiv>
       <SearchBox
-          placeholder={'그룹 아이디를 입력하세요'}
+          placeholder={'그룹 이름을 입력하세요'}
           onKeyPress={onPressEnter}
           onClick={onSearch}
       />

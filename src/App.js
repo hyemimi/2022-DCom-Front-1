@@ -17,7 +17,6 @@ function App() {
         fetchUserInfo(2).then((res) => {
             setUser(res.data);
             setIsLoggedIn(true);
-            console.log('user', res.data);
         });
     }, []);
 
