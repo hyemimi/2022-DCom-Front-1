@@ -37,6 +37,9 @@ const Friends = () => {
                 <Link key="requestFriends" to="/request-friends">
                     <Button>📩　친구 요청 확인하기</Button>
                 </Link>
+                <Link key="blockFriends" to="/block-friends">
+                    <Button>💔　차단 친구 목록</Button>
+                </Link>
             </div>
             📑{friendummylist.length}명의 친구가 있습니다
             {/*<SearchBox onChange={onChange} placeholder="친구의 닉네임을 입력하세요"/>*/}

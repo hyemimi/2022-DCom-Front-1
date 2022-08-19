@@ -12,6 +12,7 @@ import RequestFriend from '../../pages/RequestFriend';
 import WebcamComponent from '../../pages/Cam';
 import Test from '../Test';
 import GroupInfo from '../../pages/GroupInfo';
+import BlockedFriends from '../BlockedFriends';
 
 const routes = [
     {
@@ -83,6 +84,11 @@ const routes = [
         id: 'groupinfo',
         path: '/groups/:id',
         component: GroupInfo,
+    },
+    {
+        id: 'blockFriends',
+        path: '/block-friends',
+        component: BlockedFriends,
     },
 ];
 

@@ -35,5 +35,3 @@ export const deleteRequest = (targetUserId) => {
 export const blockdeleteRequest = (targetUserId) => {
     deleteAxios(`/friend/block/delete/${targetUserId}`);
 };
-
-
