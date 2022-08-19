@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef, Component } from 'react'
 import GroupItemList from '../components/GroupItemList'
 import GroupButton from '../components/GroupButton'
 import { getGroupInfo } from '../store/group'
+import { PageDiv } from '../components/Styled/PageDiv'
 
 const SearchGroup = () => {
   const [searchText, setSearchText] = useState()
@@ -40,7 +41,7 @@ const SearchGroup = () => {
       },[searchText])*/
 
   return (
-    <>
+    <PageDiv>
       <div className="content">
         <div className="SearchPage">
           <div className="searchBox">
@@ -61,7 +62,7 @@ const SearchGroup = () => {
                                     data={group} />
         ))}
       </div>
-    </>
+    </PageDiv>
   )
 }
 

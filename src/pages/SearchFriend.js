@@ -9,7 +9,7 @@ const SearchFriend = () => {
     // @ts-ignore
     const [allUserList, setAllUserList] = useState([]);
     const [searchUserList, setSearchedUserList] = useState([]);
-    const [searchText, setSearchText] = useState();
+    const [searchText, setSearchText] = useState("");
     // @ts-ignore
     const [allRequestList, setAllRequestList] = useState();
     /* const [currentPage, setCurrentPage] = useState(1);
@@ -19,30 +19,48 @@ const SearchFriend = () => {
     useEffect(() => {
         fetchAllUserList().then((res) => {
             setAllUserList(res.data);
-            setSearchedUserList(res.data);
         });
     }, []);
 
     useEffect(() => {
         // @ts-ignore
-        const filteredFriend = allUserList.filter((user) =>
-            user?.nickname?.includes(searchText)
-        );
+
+        const filteredFriend = allUserList.filter((user) => {
+            if(searchText === "" || searchText === null)
+              return (null)
+            else
+              return user?.nickname?.includes(searchText);
+          })
+
         // @ts-ignore
         setSearchedUserList(filteredFriend);
     }, [searchText]);
 
-    const onChange = () => {
+    const setSearch = () => {
         setSearchText(document.getElementById('inputvalue')?.value);
     };
 
+    const onPressEnter = (e) => {
+        if (e.key == 'Enter') {
+          onSearch()
+        }
+      }
     // const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+    const onSearch = (e) => {
+        setSearchText(document.getElementById('inputvalue')?.value);
+        console.log(searchText)
+        //const searchednickname = users.filter((val) => (searchText === val.nickname))
+        // const result = users.filter((it) =>it.nickname === searchText)
+        // return(result)
+      }
 
     return (
         <PageDiv>
             <SearchBox
-                onChange={onChange}
                 placeholder={'친구의 닉네임을 입력하세요'}
+                onKeyPress={onPressEnter}
+                onClick={onSearch}
             />
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                 {searchUserList.map((user) => (
