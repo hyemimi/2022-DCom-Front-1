@@ -10,10 +10,6 @@ const SearchFriend = () => {
     const [allUserList, setAllUserList] = useState([]);
     const [searchUserList, setSearchedUserList] = useState([]);
     const [searchText, setSearchText] = useState("");
-    // @ts-ignore
-    const [allRequestList, setAllRequestList] = useState();
-    /* const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage] = useState(5); */
 
     // 모든 유저 정보 API Call
     useEffect(() => {
@@ -36,9 +32,7 @@ const SearchFriend = () => {
         setSearchedUserList(filteredFriend);
     }, [searchText]);
 
-    const setSearch = () => {
-        setSearchText(document.getElementById('inputvalue')?.value);
-    };
+
 
     const onPressEnter = (e) => {
         if (e.key == 'Enter') {

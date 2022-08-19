@@ -1,7 +1,7 @@
 import { friendummylist } from './tempFriendsData';
 export const groups = [
     // dummy
-    // 이후 auth.user.groups로 바꾸기
+    // groups 페이지에서 이후 auth.user.groups로 바꾸기
     {
         description: '파이썬공부해요',
         id: 1,

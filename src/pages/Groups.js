@@ -6,6 +6,7 @@ import { PageDiv } from '../components/Styled/PageDiv';
 import styled from 'styled-components';
 import { SearchBox } from '../components/Common/SearchBox';
 import { groups } from '../store/temp/tempGroupsData';
+import SearchGroupItem from '../components/SearchGroupItem';
 const Groups = () => {
     // const auth = useContext(AuthContext);
     // 추후 const groups = auth.user.groups로 바꾸기
@@ -64,7 +65,7 @@ const Groups = () => {
                                     members={it.users}
                                     buttontext="탈퇴하기"
                                 />
-                            </div>
+                            </div> 
                         );
                     })
                 ) : (

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { quitGroup } from './../store/group';
-function GroupButton({ id, text }) {
+import { quitGroup } from '../store/group';
+function GroupQuitButton({ id, text }) {
     const onClick = async () => {
         if (confirm('그룹을 탈퇴하시겠습니까?')) {
             await quitGroup(id);
@@ -18,4 +18,4 @@ function GroupButton({ id, text }) {
     );
 }
 
-export default GroupButton;
+export default GroupQuitButton;

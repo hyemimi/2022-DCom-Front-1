@@ -1,36 +1,34 @@
 // GroupItem은 그룹별 프로필과 같다고 보면 된다. 그룹 리스트를 나열할 때 컴포넌트로 사용될 예정
 import React, { useEffect, useState, useRef, useContext } from 'react';
-import GroupQuitButton from './GroupQuitButton';
 import styled from 'styled-components';
+import { joinGroup } from '../store/group';
 import { useAuth } from '../Context/auth';
 import { useNavigate } from 'react-router-dom';
-function GroupItem({ id, name, leader, members, buttontext }) {
-    const auth = useAuth();
-    const navigate = useNavigate();
-    const onClick = (targetGroupId) => {
-        navigate(`/groups/${targetGroupId}`);
-    };
+import {sendGroupRequest} from '../store/group'
+
+function SearchGroupItem({ group }) {
+    const {id, name, users} = group
+
+    const onClick = async () => {
+    if (confirm('그룹에 참여하시겠습니까?')) {
+        joinGroup(id);
+        return;
+    } else {
+        return;
+    }
+};
     return (
         <Box>
             <div>{name}</div>
-            <div>{leader}님의 스터디그룹</div>
+            <div>{users[0].nickname}님의 스터디그룹</div>
             <div style={{ display: 'flex' }}>
-                <GroupQuitButton id={id} text={buttontext}></GroupQuitButton>
-                {members[0].id === auth.user?.id && (
-                    <button
-                        onClick={() => {
-                            onClick(id);
-                        }}
-                    >
-                        그룹관리
-                    </button>
-                )}
+            <button onClick={onClick}>그룹 참여</button>
             </div>
         </Box>
     );
 }
 
-export default GroupItem;
+export default SearchGroupItem;
 
 const Box = styled.div`
     width: 270px;
@@ -57,4 +55,10 @@ const Box = styled.div`
     button {
         color: rgb(230, 230, 230);
     }
+`;
+const Button = styled.button`
+    width: 230px;
+    padding: 10px 20px;
+    background-color: ${(props) => props.theme.lightBackground || '#2f2f2f'};
+    border-radius: 20px;
 `;

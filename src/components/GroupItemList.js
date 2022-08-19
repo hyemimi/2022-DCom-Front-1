@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import GroupItem from './GroupItem'
-import GroupButton from './GroupButton'
+import GroupQuitButton from './GroupQuitButton'
 
 function GroupItemList ({ data }) {
     const buttontext = "이 스터디 참가하기"
