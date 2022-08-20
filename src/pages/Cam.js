@@ -45,7 +45,7 @@ function FaceDetector() {
     const [timer, setTimer] = React.useState(undefined);
     const [time, setTime] = React.useState(0);
     const [isActive, setIsActive] = React.useState(false);
-    const [stoptime, setStopTime] = React.useState([]);
+    const [isBreak, setIsBreak] = React.useState(false);
 
     const videoRef = React.useRef(null);
     const canvasRef = React.useRef(null);
@@ -85,12 +85,8 @@ function FaceDetector() {
 
                 const preds = await estimateCanvas(canvasRef.current);
                 if (preds.length === 0) {
-                    setIsActive(false);
+                    setIsBreak(true);
                     alert('인식 실패❗시작하기를 다시 눌러주세요');
-                    currentTime();
-                    addStudy({
-                        timeSecond: time,
-                    });
                 }
 
                 for (let i = 0; i < preds.length; i++) {
@@ -112,7 +108,7 @@ function FaceDetector() {
     React.useEffect(() => {
         let interval = null;
 
-        if (isActive) {
+        if (isActive && isBreak === false) {
             interval = setInterval(() => {
                 setTime((time) => time + 1);
                 drawToCanvas();
@@ -123,27 +119,59 @@ function FaceDetector() {
         return () => {
             clearInterval(interval);
         };
-    }, [isActive]);
+    }, [isActive, isBreak]);
     const startOrStop = () => {
+        // start
         if (!isActive) {
             setIsActive(true);
-        } else {
+            setIsBreak(false);
+        }
+        //stop
+        else {
             setIsActive(false);
             currentTime();
             addStudy({
                 timeSecond: time,
             });
+            alert('저장완료!');
+            setTime(0);
+        }
+    };
+    const breakHandler = () => {
+        // 다시 시작하기
+        if (isBreak) {
+            setIsBreak(false);
+        }
+        // 잠시 멈추기
+        else {
+            setIsBreak(true);
         }
     };
 
     return (
         <PageDiv>
             <div style={{ display: 'flex' }}>
-                <Button btn onClick={() => startOrStop()}>
-                    {isActive ? '공부 멈추기' : '공부 시작하기'}{' '}
-                </Button>
+                {isActive ? (
+                    <Button btn color="#ff6347" onClick={() => startOrStop()}>
+                        Save
+                    </Button>
+                ) : (
+                    <Button btn color="green" onClick={() => startOrStop()}>
+                        Start
+                    </Button>
+                )}
+                {!isBreak ? (
+                    <Button btn color="#b22222" onClick={breakHandler}>
+                        Stop
+                    </Button>
+                ) : (
+                    <Button btn color="green" onClick={breakHandler}>
+                        Restart
+                    </Button>
+                )}
+
                 <Button>
-                    <Timer time={time} />
+                    <Timer watch time={time} />
                 </Button>
             </div>
 
@@ -184,10 +212,11 @@ function FaceDetector() {
 export default FaceDetector;
 
 const Button = styled.button`
-    width: 500px;
+    width: ${(props) => (props.btn ? '230px' : '450px')};
     height: 100px;
     padding: 10px 20px;
-    background-color: ${(props) => props.btn && '#ff6347'};
-    border-radius: 25px;
+    background-color: ${(props) => props.color};
+    border-radius: 0px;
+
     font-size: 30px;
 `;
