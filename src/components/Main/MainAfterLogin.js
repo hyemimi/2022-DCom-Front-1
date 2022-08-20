@@ -58,6 +58,7 @@ const MainPage = () => {
                         {alarm && (
                             <>
                                 <button
+                                    className="light"
                                     onClick={openModal}
                                     style={{ fontSize: '14px' }}
                                 >
