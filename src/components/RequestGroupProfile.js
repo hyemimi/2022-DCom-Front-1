@@ -21,6 +21,7 @@ const RequestProfile = ({ id, user }) => {
                     justifyContent: 'space-between',
                 }}
             >
+                💌
                 <img
                     style={{
                         width: '90px',

@@ -12,7 +12,7 @@ import RequestFriend from '../../pages/RequestFriend';
 import WebcamComponent from '../../pages/Cam';
 import Test from '../Test';
 import GroupInfo from '../../pages/GroupInfo';
-import BlockedFriends from '../BlockedFriends';
+import BlockedFriends from '../../pages/BlockedFriends';
 
 const routes = [
     {

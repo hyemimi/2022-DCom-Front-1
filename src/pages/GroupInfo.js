@@ -15,6 +15,8 @@ import { Box } from '../components/Styled/Box';
 import RequestGroupProfile from '../components/RequestGroupProfile';
 import { friendummylist } from '../store/temp/tempFriendsData';
 import { groups } from '../store/temp/tempGroupsData';
+import RequestUserProfile from '../components/RequestUserProfile';
+import { Button } from './Groups';
 
 const GroupInfo = () => {
     const { id } = useParams();
@@ -60,7 +62,7 @@ const GroupInfo = () => {
     };
     return (
         <PageDiv>
-            <h1 className="groupList-header">
+            <h1 className="friendsheader">
                 <a
                     style={{
                         color: '#ffc83d',
@@ -73,17 +75,19 @@ const GroupInfo = () => {
             {!isRequest ? (
                 <>
                     <div style={{ display: 'flex' }}>
-                        <button onClick={onDeleteHandler}>그룹 삭제하기</button>
-                        <button onClick={onRequestHandler}>
-                            그룹 가입신청 목록
-                        </button>
+                        <Button onClick={onDeleteHandler}>
+                            ❌　그룹 삭제하기
+                        </Button>
+                        <Button onClick={onRequestHandler}>
+                            📩 가입신청 확인하기
+                        </Button>
                     </div>
                     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                         {/*      @ts-ignore
                              실제로는 idx !== 0이 되어야함 */}
                         {groupinfo.users.map(
                             (user, idx) =>
-                                idx !== 1 && (
+                                idx !== 0 && (
                                     <div
                                         style={{
                                             display: 'flex',
@@ -91,18 +95,12 @@ const GroupInfo = () => {
                                             alignItems: 'center',
                                         }}
                                     >
-                                        <FriendsProfile
-                                            key={user.id}
+                                        <RequestUserProfile
+                                            key={idx}
                                             user={user}
+                                            buttontext={'강퇴하기'}
+                                            groupId={id}
                                         />
-                                        <button
-                                            className="light"
-                                            onClick={() => {
-                                                onKickoutHandler(id, user.id);
-                                            }}
-                                        >
-                                            강퇴하기
-                                        </button>
                                     </div>
                                 )
                         )}

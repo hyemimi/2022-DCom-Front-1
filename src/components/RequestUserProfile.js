@@ -7,15 +7,23 @@ import {
     deleteFriend,
 } from './../store/friend';
 import { Box } from '../components/Styled/Box';
+import { kickoutGroup } from '../store/group';
 
-function RequestUserProfile({ user, buttontext }) {
+function RequestUserProfile({ user, buttontext, groupId }) {
     const { profileImage, name, motto, nickname, id } = user;
     const [isRequest, setIsRequest] = useState(false);
     const theme = useTheme();
     const auth = useAuth();
-    const cancelBlocking = (targetUserId) => {
-        if (confirm('차단을 취소하시겠습니까?')) {
-            blockdeleteRequest(targetUserId);
+    const onClick = () => {
+        if (buttontext === '차단 취소하기') {
+            if (confirm('차단을 취소하시겠습니까?')) {
+                blockdeleteRequest(targetUserId);
+            }
+        }
+        if (buttontext === '강퇴하기') {
+            if (confirm('유저를 강퇴하시겠습니까?')) {
+                kickoutGroup(groupId, id);
+            }
         }
     };
 
@@ -49,15 +57,7 @@ function RequestUserProfile({ user, buttontext }) {
                 {motto}
             </div>
             <div>
-                {buttontext && (
-                    <button
-                        onClick={() => {
-                            cancelBlocking(id);
-                        }}
-                    >
-                        {buttontext}
-                    </button>
-                )}
+                {buttontext && <button onClick={onClick}>{buttontext}</button>}
             </div>
         </Box>
     );
