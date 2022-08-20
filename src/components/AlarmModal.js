@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button } from '../pages/Friends';
+import AlarmList from './AlarmList';
+import { AlarmModalMain, AlarmModalSection } from './Styled/Modal';
 import {
     UserProfileModalHeaderButton,
     UserProfileModalFooter,
@@ -9,8 +11,8 @@ import {
     UserProfileModalOpenModal,
 } from './Styled/Modal';
 
-const UserProfileModal = (props) => {
-    const { open, close, header } = props;
+const AlarmModal = (props) => {
+    const { open, close, header, alarm } = props;
 
     return (
         <div
@@ -18,20 +20,22 @@ const UserProfileModal = (props) => {
                 padding: '16px',
                 display: 'flex',
                 alignItems: 'center',
-                animation: 'modal-bg-show 0.3s',
+                animation: 'modal-bg-show 0.s',
             }}
         >
             {open ? (
                 <UserProfileModalSection>
                     <UserProfileModalHeader>
-                        {header}님의 프로필
+                        {header}
                         <UserProfileModalHeaderButton onClick={close}>
                             &times;
                         </UserProfileModalHeaderButton>
                     </UserProfileModalHeader>
-                    <UserProfileModalMain>
-                        {props.children}
-                    </UserProfileModalMain>
+                    <AlarmModalMain>
+                        {alarm.map((it, idx) => (
+                            <AlarmList key={idx} alarm={it} />
+                        ))}
+                    </AlarmModalMain>
                     <UserProfileModalFooter>
                         <Button className="close" onClick={close}>
                             close
@@ -43,4 +47,4 @@ const UserProfileModal = (props) => {
     );
 };
 
-export default UserProfileModal;
+export default AlarmModal;
