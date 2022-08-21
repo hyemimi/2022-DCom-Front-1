@@ -44,13 +44,3 @@ const MainDiv = styled.div`
 `
 
 export default MainBeforeLogin;
-
-
-
-
-
-const interval = setInterval(()=>{
-    /* 함수 구현 */
-}, 10000)
-
-clearInterval(interval);
