@@ -47,11 +47,11 @@ const UserRecord = () => {
     return (
         <>
             <h1 style={{ fontSize: '1.5rem', color: theme.point }}> 000 님의 총 집중시간은 ? </h1>
-            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', paddingTop: '30px' }}>
             <Box>
                 <div style={{ fontSize: '1rem' }}> 시작일
                 <DatePicker
-                dateFormat="yyyy년 MM월 dd일"
+                dateFormat="yyyy년 MM월 dd일 EE"
                 selected={startDate}
                 locale={ko}
                 onChange={date => setStartDate(date)}
@@ -67,7 +67,7 @@ const UserRecord = () => {
                 <div style={{ fontSize: '1rem' }}> 종료일
                 <DatePicker
                 selected={endDate}
-                dateFormat="yyyy년 MM월 dd일"
+                dateFormat="yyyy년 MM월 dd일 EE"
                 locale={ko}
                 onChange={date => setEndDate(date)}
                 selectsEnd
@@ -81,7 +81,7 @@ const UserRecord = () => {
             </Box>
             <Button onClick={onClick}>🔍</Button>
             </div>
-            <div style={{ fontSize: '5rem', color: 'white', fontStyle: 'bold' }}>❗ {totalTime} 시간 ❗</div>
+            <div style={{ fontSize: '5rem', color: 'white', fontStyle: 'bold', paddingTop: '40px'}}>❗ {totalTime} 분 ❗</div>
 
         </>
     );
@@ -91,7 +91,7 @@ export default UserRecord;
 export const Button = styled.button`
     width: 70px;
     font-size: 50px;
-    padding: 10px 20px;
+    padding: 0px 0px;
     color: black;
     border-radius: 20px;
 `;
