@@ -169,12 +169,12 @@
         "no-unsafe-finally": "warn",
         "no-unsafe-negation": "warn",
         "no-unused-expressions": "warn",
-        "no-unused-vars": ["warn", {
-            "args": "none",
-            "caughtwarns": "none",
-            "ignoreRestSiblings": true,
-            "vars": "all"
-        }],
+        // "no-unused-vars": ["warn", {
+        //     "args": "none",
+        //     "caughtwarns": "none",
+        //     "ignoreRestSiblings": true,
+        //     "vars": "all"
+        // }],
         "no-use-before-define": ["warn", { "functions": false, "classes": false, "variables": false }],
         "no-useless-call": "warn",
         "no-useless-computed-key": "warn",
