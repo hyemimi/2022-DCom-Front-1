@@ -13,6 +13,7 @@ import WebcamComponent from '../../pages/Cam';
 import Test from '../Test';
 import GroupInfo from '../../pages/GroupInfo';
 import BlockedFriends from '../../pages/BlockedFriends';
+import GroupInfoKickout from '../../pages/GroupInfoKickout';
 
 const routes = [
     {
@@ -90,6 +91,11 @@ const routes = [
         path: '/block-friends',
         component: BlockedFriends,
     },
+    {
+        id: 'groupinfoKickout',
+        path: '/groups/kickoutlist/:id',
+        component: GroupInfoKickout,
+    }
 ];
 
 export default routes;

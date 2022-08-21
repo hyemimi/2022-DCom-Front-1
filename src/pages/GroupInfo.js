@@ -5,7 +5,6 @@ import {
     kickoutGroup,
     deleteGroup,
     requestList,
-    registerMember,
 } from '../store/group';
 import styled from 'styled-components';
 import { PageDiv } from '../components/Styled/PageDiv';
@@ -17,6 +16,7 @@ import { friendummylist } from '../store/temp/tempFriendsData';
 import { groups } from '../store/temp/tempGroupsData';
 import RequestUserProfile from '../components/RequestUserProfile';
 import { Button } from './Groups';
+import { useNavigate } from 'react-router-dom';
 
 const GroupInfo = () => {
     const { id } = useParams();
@@ -60,6 +60,17 @@ const GroupInfo = () => {
     const onClick = () => {
         setIsRequest(!isRequest);
     };
+
+   //그룹 목록으로 돌아갑니다. 
+    const navigate = useNavigate();
+    const onClickBack = () => {
+        navigate(`/groups`);
+    };
+    //그룹 강퇴 목록 페이지로 이동합니다.
+    const onKickoutList = () => {
+        navigate(`/groups/kickoutlist/${id}`);
+    }
+
     return (
         <PageDiv>
             <h1 className="friendsheader">
@@ -75,8 +86,8 @@ const GroupInfo = () => {
             {!isRequest ? (
                 <>
                     <div style={{ display: 'flex' }}>
-                        <Button onClick={onDeleteHandler}>
-                            ❌　그룹 삭제하기
+                        <Button onClick={onKickoutList}>
+                            💔　그룹 강퇴 유저 확인하기
                         </Button>
                         <Button onClick={onRequestHandler}>
                             📩 가입신청 확인하기
@@ -105,6 +116,14 @@ const GroupInfo = () => {
                                 )
                         )}
                     </div>
+                    <div style={{ display: 'flex'}}>
+                         <Button onClick={onClickBack}>
+                            ⬅　그룹 목록으로 돌아가기
+                        </Button>
+                        <Button onClick={onDeleteHandler}>
+                            ❌　그룹 삭제하기
+                        </Button>
+                    </div>
                 </>
             ) : (
                 <>
@@ -131,5 +150,4 @@ const GroupInfo = () => {
         </PageDiv>
     );
 };
-
 export default GroupInfo;

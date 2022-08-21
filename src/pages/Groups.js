@@ -46,10 +46,12 @@ const Groups = () => {
                 <Link key="newGroup" to="/new-group">
                     <Button>⚒️ 스터디그룹 생성하기</Button>
                 </Link>
-                <SearchBox
-                    onChange={onChange}
-                    placeholder="그룹명을 입력하여 검색해보세요"
-                />
+                </div>
+            <div style={{ display: 'flex' }}>
+                    <SearchBox
+                        onChange={onChange}
+                        placeholder="그룹명을 입력하여 검색해보세요"
+                    />
             </div>
             📑{groups.length}개의 스터디그룹에 참여중입니다
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>

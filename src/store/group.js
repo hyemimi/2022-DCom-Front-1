@@ -36,3 +36,8 @@ export const deleteGroup = (targetGroupId) =>
 //그룹 가입 신청 목록을 가져옵니다
 export const requestList = (targetGroupId) =>
     getAxios(`/group/requestlist/${targetGroupId}`);
+
+//그룹에서 강퇴 당한 멤버 목록을 보여줍니다.
+export const kickoutList = (GroupId) =>
+    getAxios(`​/group​/kickOutList​/${groupId}`);
+
