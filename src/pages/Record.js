@@ -10,7 +10,7 @@ const Record = ({ postList, onEdit }) => {
         <div>
           <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>
             <Box
-                width="50%"
+                width="30%"
                 height="400px"
                 color="black"
                 bgColor="#2F2F2F"
@@ -18,7 +18,7 @@ const Record = ({ postList, onEdit }) => {
               <UserRecord></UserRecord>
             </Box>
             <Box
-                width="50%"
+                width="70%"
                 height="400px"
                 color="black"
                 bgColor="#2F2F2F"
