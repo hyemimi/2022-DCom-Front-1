@@ -41,3 +41,5 @@ export const requestList = (targetGroupId) =>
 export const kickoutList = (GroupId) =>
     getAxios(`​/group​/kickOutList​/${groupId}`);
 
+// 해당 유저가 속해있는 모든 그룹 목록을 보여줍니다.
+export const getGroupList = () => getAxios(`/group/list/${userId}`);

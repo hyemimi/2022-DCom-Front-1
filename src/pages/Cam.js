@@ -50,6 +50,7 @@ function FaceDetector() {
     const [isBreak, setIsBreak] = React.useState(false);
     //isCam이 true이면 캠이 켜짐
     const [isCam, setIsCam] = React.useState(false);
+    const sendtime = React.useRef(0);
 
     const videoRef = React.useRef(null);
     const canvasRef = React.useRef(null);
@@ -98,7 +99,7 @@ function FaceDetector() {
                 const preds = await estimateCanvas(canvasRef.current);
                 if (preds.length === 0) {
                     setIsBreak(true);
-                    alert('인식 실패❗시작하기를 다시 눌러주세요');
+                    alert('인식 실패❗다시 시작하려면 RESTART를 눌러주세요');
                 }
 
                 for (let i = 0; i < preds.length; i++) {
@@ -124,6 +125,9 @@ function FaceDetector() {
             interval = setInterval(() => {
                 setTime((time) => time + 1);
                 drawToCanvas();
+                addStudy({
+                    timeSecond: sendtime.current + 1,
+                });
             }, 1000);
         } else {
             clearInterval(interval);
@@ -165,16 +169,11 @@ function FaceDetector() {
     return (
         <PageDiv>
             <div style={{ display: 'flex' }}>
-                {isActive ? (
-                    <Button btn color="#ff6347" onClick={() => startOrStop()}>
-                        Save
-                    </Button>
-                ) : (
+                {!isActive ? (
                     <Button btn color="green" onClick={() => startOrStop()}>
                         Start
                     </Button>
-                )}
-                {!isBreak ? (
+                ) : !isBreak ? (
                     <Button btn color="#b22222" onClick={breakHandler}>
                         Stop
                     </Button>
