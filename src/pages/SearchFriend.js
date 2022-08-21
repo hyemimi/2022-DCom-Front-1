@@ -15,6 +15,7 @@ const SearchFriend = () => {
     useEffect(() => {
         fetchAllUserList().then((res) => {
             setAllUserList(res.data);
+            setSearchedUserList(res.data);
         });
     }, []);
 
@@ -57,8 +58,7 @@ const SearchFriend = () => {
                 onClick={onSearch}
             />
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                {searchUserList.map((user) => (
-                    // @ts-ignore
+                {searchUserList && searchUserList.map((user) => (
                     <FriendsProfile key={user.id} user={user} />
                 ))}
             </div>

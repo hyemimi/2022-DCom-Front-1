@@ -21,6 +21,7 @@ function NewGroup () {
     };
 
     const onSubmit = async (event) => {
+        if(inputs.name.length)
         event.preventDefault();
         await createGroup({
             description: inputs.description,
