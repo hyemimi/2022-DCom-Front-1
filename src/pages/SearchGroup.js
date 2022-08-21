@@ -51,9 +51,9 @@ const SearchGroup = () => {
 
 //3. filter 앞 groups대신 allGroupList로 바꾸기
     useEffect(() => {
-      const filteredGroup = groups.filter((group) => {
+      const filteredGroup = allGroupList.filter((group) => {
           if(searchText === "" || searchText === null)
-            return (null)
+            return group
           else
             return group?.name?.includes(searchText);
         })
