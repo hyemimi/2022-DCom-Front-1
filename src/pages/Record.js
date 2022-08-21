@@ -10,15 +10,14 @@ const Record = ({ postList, onEdit }) => {
         <div>
           <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>
             <Box
-                width="30%"
+                width="40%"
                 height="400px"
                 color="black"
-                bgColor="#2F2F2F"
-                style={{alignItems: 'flex-start'}}>
+                bgColor="#2F2F2F">
               <UserRecord></UserRecord>
             </Box>
             <Box
-                width="70%"
+                width="60%"
                 height="400px"
                 color="black"
                 bgColor="#2F2F2F"

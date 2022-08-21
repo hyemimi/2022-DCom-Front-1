@@ -7,8 +7,8 @@ const GroupRecord = () => {
 
     return (
         <>
-            <h1 style={{fontSize: '1.5rem', color: theme.point}}> 그룹별 집중시간 랭킹 </h1>
+            <h1 style={{ fontSize: '1.5rem', color: theme.point }}> 그룹별 집중시간 랭킹 </h1>
         </>
-    )
-}
-export default GroupRecord
+    );
+};
+export default GroupRecord;
