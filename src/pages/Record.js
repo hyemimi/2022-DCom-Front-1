@@ -14,21 +14,23 @@ const Record = ({ postList, onEdit }) => {
                 height="400px"
                 color="black"
                 bgColor="#2F2F2F"
-            >
+                style={{alignItems: 'flex-start'}}>
               <UserRecord></UserRecord>
             </Box>
             <Box
                 width="50%"
                 height="400px"
                 color="black"
-                bgColor="#2F2F2F">
+                bgColor="#2F2F2F"
+                style={{alignItems: 'flex-start'}}>
                   <RecordGraph></RecordGraph>
             </Box>
           </div>
           <Box
             width="inherit"
             height="500px"
-            bgColor="#2F2F2F">
+            bgColor="#2F2F2F"
+            style={{alignItems: 'flex-start'}}>
             <GroupRecord></GroupRecord>
           </Box>
       </div>
