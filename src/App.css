@@ -75,6 +75,14 @@ main {
     background-color: rgb(39, 39, 39);
 }
 
+h1{
+    font-size: 2rem;
+}
+
+h2{
+    font-size: 1rem;
+}
+
 .App {
     text-align: center;
     width: 100%;

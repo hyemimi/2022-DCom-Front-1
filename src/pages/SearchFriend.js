@@ -9,7 +9,7 @@ const SearchFriend = () => {
     // @ts-ignore
     const [allUserList, setAllUserList] = useState([]);
     const [searchUserList, setSearchedUserList] = useState([]);
-    const [searchText, setSearchText] = useState("");
+    const [searchText, setSearchText] = useState('');
 
     // 모든 유저 정보 API Call
     useEffect(() => {
@@ -23,32 +23,30 @@ const SearchFriend = () => {
         // @ts-ignore
 
         const filteredFriend = allUserList.filter((user) => {
-            if(searchText === "" || searchText === null)
-              return user
+            if (searchText === '' || searchText === null)
+              return user;
             else
               return user?.nickname?.includes(searchText);
-          })
+        });
 
         // @ts-ignore
         setSearchedUserList(filteredFriend);
     }, [searchText]);
 
-
-
     const onPressEnter = (e) => {
         if (e.key == 'Enter') {
-          onSearch()
+          onSearch();
         }
-      }
+    };
     // const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     const onSearch = (e) => {
         setSearchText(document.getElementById('inputvalue')?.value);
-        console.log(searchText)
-        //const searchednickname = users.filter((val) => (searchText === val.nickname))
+        console.log(searchText);
+        // const searchednickname = users.filter((val) => (searchText === val.nickname))
         // const result = users.filter((it) =>it.nickname === searchText)
         // return(result)
-      }
+    };
 
     return (
         <PageDiv>

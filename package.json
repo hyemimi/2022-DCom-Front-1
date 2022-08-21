@@ -45,7 +45,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "npm run predeploy && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -79,5 +79,5 @@
     "webpack": "^5.73.0",
     "windicss-webpack-plugin": "^1.7.4"
   },
-  "homepage": "https://wjdwl002.github.io/"
+  "homepage": "https://wjdwl002.github.io/2022-DCom-Front/"
 }
