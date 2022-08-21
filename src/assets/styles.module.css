@@ -11,5 +11,7 @@
 
 .main{
     width: 100%;
+    min-height: 100vh;
+    height: fit-content;
     padding: 40px 40px 40px 280px;
 }
