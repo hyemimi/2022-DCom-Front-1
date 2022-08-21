@@ -17,16 +17,18 @@ function NewGroup () {
         if(e.target.name === 'description'){
             setInputs({ name: inputs.name, description: e.target.value });
         }  
-        console.log(inputs);
     };
 
     const onSubmit = async (event) => {
-        if(inputs.name.length)
-        event.preventDefault();
-        await createGroup({
-            description: inputs.description,
-            name: inputs.name,
-        });
+        if((inputs.name.length >= 4) && (inputs.description.length >= 4))
+            {event.preventDefault();
+            await createGroup({
+                description: inputs.description,
+                name: inputs.name,
+            })}
+        else {
+            alert('네 글자 이상의 그룹명과 설명을 입력해주세요.');
+        }
     };
 
     return (
