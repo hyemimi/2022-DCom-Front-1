@@ -10,6 +10,7 @@ const pageDiv = styled.div`
     justifyContent: 'center',
     alignItems: 'center'
 `
+const authUrl = 'http://focuz.justkode.kr:8080/oauth2/authorization/kakao?redirect_uri=http://focuz.justkode.kr:8080/login/oauth2/code/kakao'
 
 const MainBeforeLogin = () => {
     const themeColor = useThemeColor();
@@ -25,9 +26,9 @@ const MainBeforeLogin = () => {
             <p className="line"></p>
             <h1>로그인하고 친구들과 스터디 집중도를 측정해보세요!</h1>
             <div style={{marginTop: '2rem'}}>
-            <Link to="login">
+            <a href={authUrl}>
                 <button>카카오로 로그인하기</button>
-            </Link>{' '}
+            </a>
             </div>
         </MainDiv>
     );
