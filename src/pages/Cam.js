@@ -6,6 +6,7 @@ import * as blazeface from '@tensorflow-models/blazeface';
 import styled from 'styled-components';
 import Timer from '../components/Timer';
 import { addStudy, currentTime } from '../store/study';
+import { useLocation } from 'react-router';
 
 const g_var = {};
 
@@ -42,14 +43,21 @@ const estimateCanvas = async (canvasRef) => {
 };
 
 function FaceDetector() {
+    const location = useLocation();
     const [timer, setTimer] = React.useState(undefined);
     const [time, setTime] = React.useState(0);
     const [isActive, setIsActive] = React.useState(false);
     const [isBreak, setIsBreak] = React.useState(false);
+    //isCam이 true이면 캠이 켜짐
+    const [isCam, setIsCam] = React.useState(false);
 
     const videoRef = React.useRef(null);
     const canvasRef = React.useRef(null);
-
+    React.useEffect(() => {
+        if (location.pathname !== '/cam') {
+            setIsCam(false);
+        }
+    }, [location]);
     React.useEffect(() => {
         const initFD = async () => {
             await tf.setBackend('webgl');
@@ -59,8 +67,12 @@ function FaceDetector() {
                 videoRef.current.srcObject = stream;
             });
         };
-        initFD();
-    }, []);
+        if (isCam) {
+            initFD();
+        } else {
+            return;
+        }
+    }, [isCam]);
 
     const drawToCanvas = async () => {
         try {
@@ -123,6 +135,7 @@ function FaceDetector() {
     const startOrStop = () => {
         // start
         if (!isActive) {
+            setIsCam(true);
             setIsActive(true);
             setIsBreak(false);
         }
@@ -135,6 +148,7 @@ function FaceDetector() {
             });
             alert('저장완료!');
             setTime(0);
+            setIsCam(false);
         }
     };
     const breakHandler = () => {
