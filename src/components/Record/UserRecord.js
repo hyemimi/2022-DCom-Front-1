@@ -74,6 +74,7 @@ const UserRecord = () => {
                 startDate={startDate}
                 endDate={endDate}
                 minDate={startDate}
+                maxDate={new Date()}
                 customInput={ <Form.Control as="textarea" rows={1} style={{ width: '130px', fontSize: '13px' }}/>}
                 />
                 </div>
