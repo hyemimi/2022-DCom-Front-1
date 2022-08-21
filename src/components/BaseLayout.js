@@ -16,10 +16,11 @@ const BaseLayout = (props) => {
        <TopMenu/>
         <div className={styles.mainContainer}>
             <SideMenu/>
-            {location?.pathname !== '/record' ? 
+            <main className={styles.main}>{props.children}</main>:
+            {/* {location?.pathname !== '/record' ? 
                 <main className={styles.main}>{props.children}</main>:
                 <main className={styles.main} style={{padding: '0px 0px 0px 250px'}}>{props.children}</main>
-            }
+            } */}
         </div>
     </div>
     );
