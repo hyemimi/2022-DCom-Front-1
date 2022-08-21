@@ -14,6 +14,7 @@ import Test from '../Test';
 import GroupInfo from '../../pages/GroupInfo';
 import BlockedFriends from '../../pages/BlockedFriends';
 import GroupInfoKickout from '../../pages/GroupInfoKickout';
+import MyProfile from '../MyProfile';
 
 const routes = [
     {
@@ -95,7 +96,12 @@ const routes = [
         id: 'groupinfoKickout',
         path: '/groups/kickoutlist/:id',
         component: GroupInfoKickout,
-    }
+    },
+    {
+        id: 'myProfile',
+        path: '/my-profile',
+        component: MyProfile,
+    },
 ];
 
 export default routes;
