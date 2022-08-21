@@ -2,21 +2,21 @@ import axios from 'axios';
 
 export const getAxios = (endPoint, data = {}) =>
     axios({
-        url: `http://focuz.justkode.kr:8080${endPoint}`,
+        url: `http://focuz-api.justkode.kr${endPoint}`,
         method: 'get',
         data: data,
     });
 
 export const postAxios = (endPoint, params = {}) =>
     axios({
-        url: `http://focuz.justkode.kr:8080${endPoint}`,
+        url: `http://focuz-api.justkode.kr${endPoint}`,
         method: 'POST',
         data: params,
     });
 
 export const deleteAxios = (endPoint) =>
     axios({
-        url: `http://focuz.justkode.kr:8080${endPoint}`,
+        url: `http://focuz-api.justkode.kr${endPoint}`,
         method: 'DELETE',
     });
 
