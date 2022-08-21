@@ -23,7 +23,7 @@ const SearchFriend = () => {
 
         const filteredFriend = allUserList.filter((user) => {
             if(searchText === "" || searchText === null)
-              return (null)
+              return user
             else
               return user?.nickname?.includes(searchText);
           })
