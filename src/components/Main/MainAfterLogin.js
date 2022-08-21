@@ -8,6 +8,7 @@ import { AlarmList } from '../../store/temp/tempAlarmData';
 import AlarmModal from '../AlarmModal';
 import RequestUserProfile from '../RequestUserProfile';
 import UserProfileModal from '../UserProfileModal';
+import Info from '../FocuzInfo';
 const MainPage = () => {
     const [editMode, setEditMode] = useState(false);
     const [alarm, setAlarm] = useState(null);
@@ -73,7 +74,7 @@ const MainPage = () => {
                             </>
                         )}
                     </div>
-                    <MyProfile />
+                    <Info />
                 </div>
             ) : (
                 <EditProfile show={editMode} setEditMode={setEditMode} />
