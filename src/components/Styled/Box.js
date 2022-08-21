@@ -5,7 +5,7 @@ export const Box = styled.div`
     height: ${(props) => props.height};
     color: ${(props) => props.color};
     font-weight: bold;
-    background-color: rgb(230, 230, 230);
+    background-color: ${(props) => props.bgColor || 'rgb(230, 230, 230)'};
     border-radius: 20px;
     display: flex;
     flex-direction: column;
