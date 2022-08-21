@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import { useSelector } from 'react-redux';
+
 export const AuthContext = createContext({
     isLoggedIn: false,
     user: {
@@ -11,8 +11,8 @@ export const AuthContext = createContext({
         motto: null,
         groups: [],
     },
-    setIsSignedIn: () => {},
-    setProfile: () => {},
+    setIsLoggedIn: () => {},
+    setUser: () => {},
 });
 
 export const useAuth = () => useContext(AuthContext);

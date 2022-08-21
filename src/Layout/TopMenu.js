@@ -3,6 +3,8 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../Context/auth';
 import styled from 'styled-components';
 
+const authUrl = 'http://focuz.justkode.kr:8080/oauth2/authorization/kakao?redirect_uri=http://focuz.justkode.kr:8080/login/oauth2/code/kakao'
+
 const TopMenu = () => {
     const navigate = useNavigate();
     const auth = useContext(AuthContext);
@@ -23,7 +25,9 @@ const TopMenu = () => {
                         {auth.user.nickname}
                     </button>
                 ) : (
-                    <button className="light">로그인</button>
+                    <a href={authUrl}>
+                        <button className="light">로그인</button>
+                    </a>
                 )}
             </NavBarDiv>
         </div>

@@ -10,25 +10,37 @@ const pageDiv = styled.div`
     justifyContent: 'center',
     alignItems: 'center'
 `
+const authUrl = 'http://focuz.justkode.kr:8080/oauth2/authorization/kakao?redirect_uri=http://focuz.justkode.kr:8080/login/oauth2/code/kakao'
 
 const MainBeforeLogin = () => {
     const themeColor = useThemeColor();
 
     return (
-        <div>
+        <MainDiv>
             <h1>
                 Welcome to{' '}
                 <a style={{ color: themeColor.point, fontSize: 'min(6vw, 40px)' }}>
-                    FOCUZ cam study
+                    FOCUZ CAM STUDY
                 </a>
             </h1>
             <p className="line"></p>
             <h1>로그인하고 친구들과 스터디 집중도를 측정해보세요!</h1>
-            <Link to="login">
-                <button>로그인하고 시작하기</button>
-            </Link>{' '}
-        </div>
+            <div style={{marginTop: '2rem'}}>
+            <a href={authUrl}>
+                <button>카카오로 로그인하기</button>
+            </a>
+            </div>
+        </MainDiv>
     );
 };
+
+const MainDiv = styled.div`
+    height: 80vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
 
 export default MainBeforeLogin;
