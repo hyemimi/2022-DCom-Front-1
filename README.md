@@ -3,4 +3,4 @@
 
 
 ## 🛠 TECH STACK
-### React + Redux
+### React + Styled Componenet + Tensorflow.js
