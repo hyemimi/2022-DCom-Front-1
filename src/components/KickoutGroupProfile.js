@@ -9,11 +9,9 @@ const KickoutGroupProfile = ({ id, user }) => {
     const [modalOpen, setModalOpen] = useState(false);
     const openModal = (targetUserId) => {
     setModalOpen(true);
-    console.log(modalOpen)
     };
     const closeModal = () => {
     setModalOpen(false);
-    console.log(modalOpen)
     };
     
     const onCancelButton = async () => {
@@ -48,9 +46,13 @@ const KickoutGroupProfile = ({ id, user }) => {
                 />
                 {`${user.nickname}`}
             </div>
+            <div style={{ display: 'flex', alignItems: 'center'}}>
             <button onClick={() => {openModal(user.id);}} style={{fontSize: '10px'}}>프로필 보기</button>
-
+            <UserProfileModal open={modalOpen} close={closeModal} header={user.nickname}>
+            <RequestUserProfile key={user.id} user={user}></RequestUserProfile>
+            </UserProfileModal>
             <button onClick={onCancelButton}>강퇴 취소하기</button>
+            </div>
         </Box>
     );
 };
