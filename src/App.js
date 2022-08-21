@@ -16,7 +16,7 @@ function App() {
     useEffect(() => {
         fetchUserInfo(2).then((res) => {
             setUser(res.data);
-            setIsLoggedIn(true);
+            setIsLoggedIn(false);
         });
     }, []);
 
