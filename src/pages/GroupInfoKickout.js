@@ -10,7 +10,7 @@ import  GroupInfo from './GroupInfo';
 import { friendummylist } from '../store/temp/tempFriendsData';
 import KickoutGroupProfile from '../components/KickoutGroupProfile';
 import { Button } from './Groups';
-import { findRenderedDOMComponentWithClass } from 'react-dom/test-utils';
+import { useNavigate } from 'react-router-dom';
 
 function GroupInfoKickout(){
     const { id } = useParams();    
@@ -22,7 +22,7 @@ function GroupInfoKickout(){
                 setdummyKickoutList(r.data);
             })
     };
-
+    const navigate = useNavigate();
     const onClickBack = () => {
         navigate(`/groups/${id}`);
     };
