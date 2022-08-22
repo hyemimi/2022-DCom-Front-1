@@ -10,7 +10,7 @@ const pageDiv = styled.div`
     justifyContent: 'center',
     alignItems: 'center'
 `
-const authUrl = 'http://focuz.justkode.kr:8080/oauth2/authorization/kakao?redirect_uri=http://focuz.justkode.kr:8080/login/oauth2/code/kakao'
+const authUrl = 'http://focuz-api.justkode.kr/oauth2/authorization/kakao?redirect_uri=http://focuz-api.justkode.kr/login/oauth2/code/kakao'
 
 const MainBeforeLogin = () => {
     const themeColor = useThemeColor();
