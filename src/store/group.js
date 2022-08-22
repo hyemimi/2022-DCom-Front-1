@@ -4,10 +4,12 @@ import { getAxios, postAxios, deleteAxios } from './axiosCall';
 export const createGroup = (data) => postAxios('/group', data);
 
 // 해당 ID를 가진 그룹의 정보를 얻어옵니다(그룹검색)
-export const getGroupInfo = (targetGroupId) => getAxios(`/group/${targetGroupId}`);
+export const getGroupInfo = (targetGroupId) =>
+    getAxios(`/group/${targetGroupId}`);
 
-// 그룹 전체 목록을 보여줍니다.
-export const fetchAllGroupList = () => getAxios('/group/list');
+//그룹 전체 목록을 보여줍니다.
+export const fetchAllGroupList = () =>
+    getAxios(`/group/list`);
 
 // 유저를 그룹의 멤버로 등록합니다
 export const registerMember = (targetGroupId, targetUserId) =>
@@ -34,11 +36,11 @@ export const requestList = (targetGroupId) =>
   getAxios(`/group/requestlist/${targetGroupId}`);
 
 // 그룹에서 강퇴 당한 멤버 목록을 보여줍니다.
-export const kickoutList = (GroupId) =>
+export const kickoutList = (groupId) =>
   getAxios(`​/group​/kickOutList​/${groupId}`);
 // -----------------------------------------그룹분석---------
 // 해당 유저가 속해있는 모든 그룹 목록을 보여줍니다.
-export const getGroupList = () => getAxios(`/group/list/${userId}`);
+export const getGroupList = (userId) => getAxios(`/group/list/${userId}`);
 
 // 해당 그룹의 멤버 목록을 보여줍니다
 export const showMemberList = (groupID) =>

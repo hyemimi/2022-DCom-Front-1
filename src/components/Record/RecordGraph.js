@@ -9,6 +9,7 @@ import { Box } from '../Styled/Box';
 import Form from 'react-bootstrap/Form';
 import { getYear, getMonth, getDate, getDay } from 'date-fns';
 import { searchStudy } from '../../store/study';
+import Barchart from '../Record-Graph/Barchart';
 
 const RecordGraph = () => {
     const theme = useThemeColor();
@@ -84,6 +85,7 @@ const RecordGraph = () => {
             </Box>
             <Button onClick={onClick}>🔍</Button>
             </div>
+            <div style={{ fontSize: '0.9rem' }}><Box><Barchart></Barchart></Box></div>
         </>
     );
 };
