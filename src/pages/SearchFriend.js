@@ -23,10 +23,7 @@ const SearchFriend = () => {
         // @ts-ignore
 
         const filteredFriend = allUserList.filter((user) => {
-            if (searchText === '' || searchText === null)
-              return user;
-            else
-              return user?.nickname?.includes(searchText);
+            if (searchText === '' || searchText === null) { return user; } else { return user?.nickname?.includes(searchText); }
         });
 
         // @ts-ignore
@@ -55,16 +52,13 @@ const SearchFriend = () => {
                 onKeyPress={onPressEnter}
                 onClick={onSearch}
             />
-            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+            {searchUserList.length === 0
+              ? <div> 표시할 유저가 없습니다 </div>
+              : <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                 {searchUserList && searchUserList.map((user) => (
                     <FriendsProfile key={user.id} user={user} />
                 ))}
-            </div>
-            {/* <Pagination
-                postsPerPage={postsPerPage}
-                totalPosts={filteredFriend.length}
-                paginate={paginate}
-            /> */}
+            </div>}
         </PageDiv>
     );
 };
