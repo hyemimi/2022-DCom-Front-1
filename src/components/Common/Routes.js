@@ -1,6 +1,6 @@
 import Main from '../../pages/Main';
 import Login from '../../pages/Login';
-import SignUp from '../../pages/SignUp';
+import SignUp from '../../pages/Register';
 import SearchFriend from '../../pages/SearchFriend';
 import SearchGroup from '../../pages/SearchGroup';
 import NewGroup from '../../pages/NewGroup';
