@@ -5,7 +5,7 @@ import '@tensorflow/tfjs-backend-webgl';
 import * as blazeface from '@tensorflow-models/blazeface';
 import styled from 'styled-components';
 import Timer from '../components/Timer';
-import { addStudy, currentTime } from '../store/study';
+import { addStudy } from '../store/study';
 import { useLocation } from 'react-router';
 
 const g_var = {};
@@ -44,7 +44,6 @@ const estimateCanvas = async (canvasRef) => {
 
 function FaceDetector() {
     const location = useLocation();
-    const [timer, setTimer] = React.useState(undefined);
     const [time, setTime] = React.useState(0);
     const [isActive, setIsActive] = React.useState(false);
     const [isBreak, setIsBreak] = React.useState(false);
@@ -120,20 +119,25 @@ function FaceDetector() {
     };
     React.useEffect(() => {
         let interval = null;
+        let interval2 = null;
 
         if (isActive && isBreak === false) {
             interval = setInterval(() => {
                 setTime((time) => time + 1);
                 drawToCanvas();
-                addStudy({
-                    timeSecond: sendtime.current + 1,
-                });
             }, 1000);
+            interval2 = setInterval(() => {
+                addStudy({
+                    timeSecond: sendtime.current + 10,
+                }).catch((r) => console.log(sendtime.current + 10));
+            }, 10000);
         } else {
             clearInterval(interval);
+            clearInterval(interval2);
         }
         return () => {
             clearInterval(interval);
+            clearInterval(interval2);
         };
     }, [isActive, isBreak]);
     const startOrStop = () => {
@@ -146,7 +150,6 @@ function FaceDetector() {
         //stop
         else {
             setIsActive(false);
-            currentTime();
             addStudy({
                 timeSecond: time,
             });

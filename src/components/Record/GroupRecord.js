@@ -12,6 +12,8 @@ import { UserProfileModalHeaderButton } from '../Styled/Modal';
 const GroupRecord = () => {
     const theme = useThemeColor();
     const [date, setDate] = useState(getStringDate(new Date()));
+    const [myTime, setMyTime] = useState([]);
+
     const onClick = async () => {
         searchStudy({
             endDate: date,

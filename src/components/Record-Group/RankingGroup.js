@@ -18,11 +18,11 @@ const RankingGroup = ({ group, myRank, rankList }) => {
     };
 
     return (
-        <Box width="350px" height="180px">
+        <Box width="250px" height="130px">
             <Header>{group.name}</Header>
             <div style={{ display: 'flex' }}>
-                <Button>{myRank}등</Button>
-                <Button onClick={openModal}>📰랭킹</Button>
+                <Button>📖{myRank}등</Button>
+                <Button onClick={openModal}>🏆랭킹</Button>
                 <RankingModal
                     open={modalOpen}
                     close={closeModal}
@@ -37,15 +37,15 @@ const RankingGroup = ({ group, myRank, rankList }) => {
 export default RankingGroup;
 
 const Header = styled.h2`
-    font-size: 35px;
+    font-size: 20px;
 `;
 const Button = styled.button`
-    width: 100px;
-    height: 60px;
+    width: 75px;
+    height: 45px;
     margin: 5px;
     font-size: 20px;
     padding: 0px 0px;
+    border-radius: 7px;
 
     color: black;
-    border-radius: 20px;
 `;
