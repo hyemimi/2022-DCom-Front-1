@@ -1,14 +1,14 @@
-import React, { useEffect, useState, useRef } from 'react'
-import GroupRecord from '../components/Record/GroupRecord'
-import RecordGraph from '../components/Record/RecordGraph'
-import UserRecord from '../components/Record/UserRecord'
-import styled from 'styled-components'
-import SideMenu from '../Layout/SideMenu'
+import React, { useEffect, useState, useRef } from 'react';
+import GroupRecord from '../components/Record/GroupRecord';
+import RecordGraph from '../components/Record/RecordGraph';
+import UserRecord from '../components/Record/UserRecord';
+import styled from 'styled-components';
+import SideMenu from '../Layout/SideMenu';
 
 const Record = ({ postList, onEdit }) => {
-  return (
+    return (
         <div>
-          <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>
+          <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
             <Box
                 width="40%"
                 height="400px"
@@ -28,12 +28,12 @@ const Record = ({ postList, onEdit }) => {
             width="inherit"
             height="500px"
             bgColor="#2F2F2F"
-            style={{alignItems: 'flex-start'}}>
+            style={{ alignItems: 'flex-start' }}>
             <GroupRecord></GroupRecord>
           </Box>
       </div>
-  )
-}
+    );
+};
 
 export default Record;
 

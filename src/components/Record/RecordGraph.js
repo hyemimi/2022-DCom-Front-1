@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import { Box } from '../Styled/Box';
 import Form from 'react-bootstrap/Form';
 import { getYear, getMonth, getDate, getDay } from 'date-fns';
-import { addStudy } from '../../store/study';
+import { searchStudy } from '../../store/study';
 
 const RecordGraph = () => {
     const theme = useThemeColor();
@@ -31,24 +31,20 @@ const RecordGraph = () => {
         const getEndDate = ('0' + getDate(endDate)).slice(-2);
         return (String(getEndYear + '-' + getEndMonth + '-' + getEndDate));
     }
-    const filterDays = (date) => {
-        // Disable Weekends
-        const day = date.getDay();
-        return [(day !== 1 && day !== 2)];
-    };
 
     const onClick = () => {
-        addStudy({
-            endDate: getEndTime + ' 00:00:00',
-            startDate: getStartTime + ' 00:00:00'
+        searchStudy({
+            endDate: getEndTime() + ' 00:00:00',
+            startDate: getStartTime() + ' 00:00:00'
         });
-        setTotalTime(addStudy.studyTime);
+        setTotalTime(searchStudy.studyTime);
         console.log(totalTime);
         if (totalTime == undefined) {
           setTotalTime(0);
         }
         console.log(totalTime);
     };
+
     return (
         <>
             <h1 style={{ fontSize: '1.5rem', color: theme.point }}> 일주일 집중시간 분석 </h1>

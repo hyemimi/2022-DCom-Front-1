@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import { Box } from '../Styled/Box';
 import Form from 'react-bootstrap/Form';
 import { getYear, getMonth, getDate } from 'date-fns';
-import { addStudy } from '../../store/study';
+import { searchStudy } from '../../store/study';
 
 const UserRecord = () => {
     const theme = useThemeColor();
@@ -33,16 +33,17 @@ const UserRecord = () => {
     }
 
     const onClick = () => {
-        addStudy({
-            endDate: getEndTime + ' 00:00:00',
-            startDate: getStartTime + ' 00:00:00'
+        const setsearchStudy = async () => { await searchStudy({
+            endDate: (getEndTime() + ' 00:00:00'),
+            startDate: (getStartTime() + ' 00:00:00')
         });
-        setTotalTime(addStudy.studyTime);
-        console.log(totalTime);
-        if (totalTime == undefined) {
+        };
+        setTotalTime(setsearchStudy.studyTime);
+        console.log(setsearchStudy());
+        if (totalTime === undefined) {
           setTotalTime(0);
+          console.log(totalTime);
         }
-        console.log(totalTime);
     };
     return (
         <>
@@ -58,6 +59,7 @@ const UserRecord = () => {
                 selectsStart
                 startDate={startDate}
                 endDate={endDate}
+                maxDate={new Date()}
                 customInput={ <Form.Control as="textarea" rows={1} style={{ width: '130px', fontSize: '13px' }}/>}
                 />
                 </div>
@@ -81,7 +83,7 @@ const UserRecord = () => {
             </Box>
             <Button onClick={onClick}>🔍</Button>
             </div>
-            <div style={{ fontSize: '5rem', color: 'white', fontStyle: 'bold', paddingTop: '40px'}}>❗ {totalTime} 분 ❗</div>
+            <div style={{ fontSize: '5rem', color: 'white', fontStyle: 'bold', paddingTop: '40px' }}>❗ {totalTime} 분 ❗</div>
 
         </>
     );
