@@ -5,7 +5,8 @@ import '@tensorflow/tfjs-backend-webgl';
 import * as blazeface from '@tensorflow-models/blazeface';
 import styled from 'styled-components';
 import Timer from '../components/Timer';
-import { addStudy, currentTime } from '../store/study';
+import { addStudy } from '../store/study';
+import { useLocation } from 'react-router';
 
 const g_var = {};
 
@@ -42,14 +43,21 @@ const estimateCanvas = async (canvasRef) => {
 };
 
 function FaceDetector() {
-    const [timer, setTimer] = React.useState(undefined);
+    const location = useLocation();
     const [time, setTime] = React.useState(0);
     const [isActive, setIsActive] = React.useState(false);
     const [isBreak, setIsBreak] = React.useState(false);
+    //isCam이 true이면 캠이 켜짐
+    const [isCam, setIsCam] = React.useState(false);
+    const sendtime = React.useRef(0);
 
     const videoRef = React.useRef(null);
     const canvasRef = React.useRef(null);
-
+    React.useEffect(() => {
+        if (location.pathname !== '/cam') {
+            setIsCam(false);
+        }
+    }, [location]);
     React.useEffect(() => {
         const initFD = async () => {
             await tf.setBackend('webgl');
@@ -59,8 +67,12 @@ function FaceDetector() {
                 videoRef.current.srcObject = stream;
             });
         };
-        initFD();
-    }, []);
+        if (isCam) {
+            initFD();
+        } else {
+            return;
+        }
+    }, [isCam]);
 
     const drawToCanvas = async () => {
         try {
@@ -86,7 +98,7 @@ function FaceDetector() {
                 const preds = await estimateCanvas(canvasRef.current);
                 if (preds.length === 0) {
                     setIsBreak(true);
-                    alert('인식 실패❗시작하기를 다시 눌러주세요');
+                    alert('인식 실패❗다시 시작하려면 RESTART를 눌러주세요');
                 }
 
                 for (let i = 0; i < preds.length; i++) {
@@ -107,34 +119,43 @@ function FaceDetector() {
     };
     React.useEffect(() => {
         let interval = null;
+        let interval2 = null;
 
         if (isActive && isBreak === false) {
             interval = setInterval(() => {
                 setTime((time) => time + 1);
                 drawToCanvas();
             }, 1000);
+            interval2 = setInterval(() => {
+                addStudy({
+                    timeSecond: sendtime.current + 10,
+                }).catch((r) => console.log(sendtime.current + 10));
+            }, 10000);
         } else {
             clearInterval(interval);
+            clearInterval(interval2);
         }
         return () => {
             clearInterval(interval);
+            clearInterval(interval2);
         };
     }, [isActive, isBreak]);
     const startOrStop = () => {
         // start
         if (!isActive) {
+            setIsCam(true);
             setIsActive(true);
             setIsBreak(false);
         }
         //stop
         else {
             setIsActive(false);
-            currentTime();
             addStudy({
                 timeSecond: time,
             });
             alert('저장완료!');
             setTime(0);
+            setIsCam(false);
         }
     };
     const breakHandler = () => {
@@ -151,16 +172,11 @@ function FaceDetector() {
     return (
         <PageDiv>
             <div style={{ display: 'flex' }}>
-                {isActive ? (
-                    <Button btn color="#ff6347" onClick={() => startOrStop()}>
-                        Save
-                    </Button>
-                ) : (
+                {!isActive ? (
                     <Button btn color="green" onClick={() => startOrStop()}>
                         Start
                     </Button>
-                )}
-                {!isBreak ? (
+                ) : !isBreak ? (
                     <Button btn color="#b22222" onClick={breakHandler}>
                         Stop
                     </Button>

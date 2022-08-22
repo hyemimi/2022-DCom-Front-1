@@ -10,6 +10,8 @@
     "@fortawesome/free-regular-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
+    "@nivo/bar": "^0.79.1",
+    "@nivo/core": "^0.79.0",
     "@reduxjs/toolkit": "^1.8.3",
     "@tensorflow-models/blazeface": "^0.0.7",
     "@tensorflow-models/mobilenet": "^2.1.0",
@@ -20,6 +22,7 @@
     "axios": "^0.27.2",
     "babel-plugin-macros": "^3.1.0",
     "bootstrap": "^5.2.0",
+    "date-fns": "^2.29.2",
     "eslint-config-react-app": "^7.0.1",
     "eslint-webpack-plugin": "^3.2.0",
     "firebase": "^9.0.0",
@@ -27,6 +30,8 @@
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-axios": "^2.0.6",
+    "react-bootstrap": "^2.5.0",
+    "react-datepicker": "^4.8.0",
     "react-dom": "^17.0.2",
     "react-redux": "^8.0.2",
     "react-router": "^6.3.0",
@@ -34,6 +39,7 @@
     "react-scripts": "5.0.0",
     "react-tensorflow": "^2.2.0",
     "react-webcam": "^7.0.1",
+    "react-week-picker": "^1.1.4",
     "reactstrap": "^9.1.3",
     "redux-logger": "^3.0.6",
     "styled-components": "^5.3.5",
@@ -45,7 +51,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "npm run predeploy && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -78,6 +84,5 @@
     "tailwindcss": "^3.1.6",
     "webpack": "^5.73.0",
     "windicss-webpack-plugin": "^1.7.4"
-  },
-  "homepage": "https://wjdwl002.github.io"
+  }
 }

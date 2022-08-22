@@ -11,7 +11,8 @@ export const SearchBox = ({ onChange, placeholder, onKeyPress, onClick }) => {
             id="inputvalue"
             type="text"
             onChange={onChange}
-            onKeyPress={onKeyPress} /><Button className="searchBtn" onClick={onClick}>🔍</Button>
+            onKeyPress={onKeyPress} />
+            <Button className="searchBtn" onClick={onClick}> 🔍 </Button>
             </div></>  
     );
 };

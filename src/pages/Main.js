@@ -8,15 +8,11 @@ const Main = ({ userObj, users }) => {
     const auth = useAuth();
 
     return (
-    <>
-      <div className={auth.isLoggedIn ? '' : 'content'}>
-        <div className="MainAfterLogin">
-          {auth.isLoggedIn
-              ? <MainAfterLogin userObj={userObj} users = {users}/> 
-              :<MainBeforeLogin/> }
-        </div>
-      </div>
-    </>
+      <>
+        {auth.isLoggedIn
+          ? <MainAfterLogin userObj={userObj} users = {users}/> 
+            :<MainBeforeLogin/> }
+      </>
     );
 };
 
