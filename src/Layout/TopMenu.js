@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../Context/auth';
 import styled from 'styled-components';
 import logo from './image/FOCUZ.png';
-import { KAKAO_OAUTH_URL } from '../../env';
+import { KAKAO_OAUTH_URL } from '../env';
 
 const TopMenu = () => {
     const navigate = useNavigate();

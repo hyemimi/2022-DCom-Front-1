@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useThemeColor } from '../../Context/theme';
-import { KAKAO_OAUTH_URL } from '../../../env';
+import { KAKAO_OAUTH_URL } from '../../env';
 
 const pageDiv = styled.div`
     width: '100%',
