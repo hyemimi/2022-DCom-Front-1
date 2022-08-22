@@ -12,7 +12,7 @@ import {
 } from './../Styled/Modal';
 
 const RankingModal = (props) => {
-    const { open, close, header, usersRanking } = props;
+    const { open, close, header, usersRanking, name, description } = props;
 
     return (
         <div
@@ -26,14 +26,15 @@ const RankingModal = (props) => {
             {open ? (
                 <UserProfileModalSection>
                     <UserProfileModalHeader>
-                        {header}
+                        {name}
+                        🥇{header}🥇
                         <UserProfileModalHeaderButton onClick={close}>
                             &times;
                         </UserProfileModalHeaderButton>
                     </UserProfileModalHeader>
                     <AlarmModalMain>
                         {usersRanking.map((user, idx) => (
-                            <RankingList key={idx} user={user} />
+                            <RankingList key={idx} user={user} rank={idx} />
                         ))}
                     </AlarmModalMain>
                     <UserProfileModalFooter>
