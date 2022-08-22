@@ -7,13 +7,17 @@ import { getStringDate } from '../Common/date';
 import styled from 'styled-components';
 import { Button } from './UserRecord';
 import { UserProfileModalHeaderButton } from '../Styled/Modal';
-
 // 어제 하루 순위 매기기
 
 const GroupRecord = () => {
     const theme = useThemeColor();
     const [date, setDate] = useState(getStringDate(new Date()));
-    const onClick = () => {};
+    const onClick = async () => {
+        searchStudy({
+            endDate: date,
+            startDate: date,
+        });
+    };
     const groups = [
         {
             description: '파이썬공부해요',
