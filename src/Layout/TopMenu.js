@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import React, { useContext } from 'react';
 import { AuthContext } from '../Context/auth';
 import styled from 'styled-components';
+import logo from './image/FOCUZ.png';
 
 const authUrl = 'http://focuz-api.justkode.kr/oauth2/authorization/kakao?redirect_uri=http://focuz-api.justkode.kr/login/oauth2/code/kakao'
 
@@ -17,7 +18,7 @@ const TopMenu = () => {
             <NavBarDiv>
                 <Link to="/">
                     <div className="logo" style={{ color: '#ffc83d' }}>
-                        FOCUZ
+                        <img src={logo} />
                     </div>
                 </Link>
                 {auth.isLoggedIn ? (
