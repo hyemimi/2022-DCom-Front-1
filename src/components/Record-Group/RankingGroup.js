@@ -5,6 +5,7 @@ import AlarmModal from '../AlarmModal';
 import RankingModal from './RankingModal';
 const RankingGroup = ({ group, myRank, rankList }) => {
     const [modalOpen, setModalOpen] = useState(false);
+    //rankList를 usersRanking으로 바꾸기
     const usersRanking = [
         { id: 1, nickname: '미미', rank: 1 },
         { id: 5, nickname: '혠', rank: 2 },
