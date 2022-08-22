@@ -26,7 +26,7 @@ const TopMenu = () => {
                         {auth.user.nickname}
                     </button>
                 ) : (
-                    <a href={authUrl}>
+                    <a href={KAKAO_OAUTH_URL}>
                         <button className="light">로그인</button>
                     </a>
                 )}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useThemeColor } from '../../Context/theme';
+import { KAKAO_OAUTH_URL } from '../../../env';
 
 const pageDiv = styled.div`
     width: '100%',
@@ -10,7 +11,6 @@ const pageDiv = styled.div`
     justifyContent: 'center',
     alignItems: 'center'
 `
-const authUrl = 'http://focuz-api.justkode.kr/oauth2/authorization/kakao?redirect_uri=http://focuz-api.justkode.kr/login/oauth2/code/kakao'
 
 const MainBeforeLogin = () => {
     const themeColor = useThemeColor();
@@ -26,7 +26,7 @@ const MainBeforeLogin = () => {
             <p className="line"></p>
             <h1>로그인하고 친구들과 스터디 집중도를 측정해보세요!</h1>
             <div style={{marginTop: '2rem'}}>
-            <a href={authUrl}>
+            <a href={KAKAO_OAUTH_URL}>
                 <button>카카오로 로그인하기</button>
             </a>
             </div>
