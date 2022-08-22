@@ -7,11 +7,13 @@ import { getStringDate } from '../Common/date';
 import styled from 'styled-components';
 import { Button } from './UserRecord';
 import { UserProfileModalHeaderButton } from '../Styled/Modal';
+import { groups } from '../../store/temp/tempGroupsData';
 // 어제 하루 순위 매기기
 
 const GroupRecord = () => {
     const theme = useThemeColor();
     const [date, setDate] = useState(getStringDate(new Date()));
+    const [MyGroupsList, setMyGroupsList] = useState([]);
     const [myTime, setMyTime] = useState([]);
 
     const onClick = async () => {
@@ -20,36 +22,6 @@ const GroupRecord = () => {
             startDate: date,
         });
     };
-    const groups = [
-        {
-            description: '파이썬공부해요',
-            id: 1,
-            name: '파이썬스터디',
-            users: [
-                {
-                    id: 2,
-                    motto: 'string',
-                    name: '정지원',
-                    nickname: '손님',
-                    profileImage: null,
-                },
-            ],
-        },
-        {
-            description: '파이썬공부해요',
-            id: 1,
-            name: '파이썬스터디',
-            users: [
-                {
-                    id: 2,
-                    motto: 'string',
-                    name: '정지원',
-                    nickname: '손님',
-                    profileImage: null,
-                },
-            ],
-        },
-    ];
 
     return (
         <>
