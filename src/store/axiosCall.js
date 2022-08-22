@@ -1,17 +1,19 @@
 import axios from 'axios';
 
-export const getAxios = (endPoint, data = {}) =>
+export const getAxios = (endPoint, data = {}, config = {}) =>
   axios({
       url: `http://focuz-api.justkode.kr${endPoint}`,
       method: 'get',
-      data: data
+      data: data,
+      ...config,
   });
 
-export const postAxios = (endPoint, params = {}) =>
+export const postAxios = (endPoint, params = {}, config={}) =>
   axios({
       url: `http://focuz-api.justkode.kr${endPoint}`,
       method: 'POST',
-      data: params
+      data: params,
+      ...config
   });
 
 export const deleteAxios = (endPoint) =>
