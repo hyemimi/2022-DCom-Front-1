@@ -1,15 +1,37 @@
-import { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Box } from '../Styled/Box';
 import AlarmModal from '../AlarmModal';
 import RankingModal from './RankingModal';
-const RankingGroup = ({ group, myRank, rankList }) => {
+import { AuthContext } from '../../Context/auth';
+const RankingGroup = ({ group }) => {
+    const auth = useContext(AuthContext);
+    const dummyauthID = 2;
     const [modalOpen, setModalOpen] = useState(false);
-    //rankList를 usersRanking으로 바꾸기
-    const usersRanking = [
-        { id: 1, nickname: '미미', rank: 1 },
-        { id: 5, nickname: '혠', rank: 2 },
-    ];
+    const { description, id, name } = group;
+    const users = group.users;
+
+    const [rankList, setRankList] = useState([]);
+    const [usersRanking, setUsersRanking] = useState([]);
+    useEffect(() => {
+        const newArray = users.map((user) => {
+            return {
+                id: user.id,
+                studyTime: user.studyTime,
+                nickname: user.nickname,
+            };
+        });
+        setRankList(newArray);
+        console.log(rankList);
+    }, [group]);
+
+    useEffect(() => {
+        const result = rankList.sort(function (a, b) {
+            return b.studyTime - a.studyTime;
+        });
+        setUsersRanking(result);
+    }, [rankList]);
+
     const openModal = () => {
         setModalOpen(true);
     };
@@ -21,13 +43,26 @@ const RankingGroup = ({ group, myRank, rankList }) => {
         <Box width="250px" height="130px">
             <Header>{group.name}</Header>
             <div style={{ display: 'flex' }}>
-                <Button>📖{myRank}등</Button>
+                {/* {usersRanking.map(
+                    (user, idx) =>
+                        user.id === auth.user.id && (
+                            <Button>📖{idx + 1}등</Button>
+                        )
+                )} */}
+                {usersRanking.map(
+                    (user, idx) =>
+                        user.id === dummyauthID && (
+                            <Button>📖{idx + 1}등</Button>
+                        )
+                )}
                 <Button onClick={openModal}>🏆랭킹</Button>
                 <RankingModal
                     open={modalOpen}
                     close={closeModal}
-                    header={`📰랭킹`}
+                    header={`랭킹`}
                     usersRanking={usersRanking}
+                    name={name}
+                    description={description}
                 ></RankingModal>
             </div>
         </Box>
