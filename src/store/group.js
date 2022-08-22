@@ -36,11 +36,11 @@ export const requestList = (targetGroupId) =>
   getAxios(`/group/requestlist/${targetGroupId}`);
 
 // 그룹에서 강퇴 당한 멤버 목록을 보여줍니다.
-export const kickoutList = (GroupId) =>
+export const kickoutList = (groupId) =>
   getAxios(`​/group​/kickOutList​/${groupId}`);
 // -----------------------------------------그룹분석---------
 // 해당 유저가 속해있는 모든 그룹 목록을 보여줍니다.
-export const getGroupList = () => getAxios(`/group/list/${userId}`);
+export const getGroupList = (userId) => getAxios(`/group/list/${userId}`);
 
 // 해당 그룹의 멤버 목록을 보여줍니다
 export const showMemberList = (groupID) =>
