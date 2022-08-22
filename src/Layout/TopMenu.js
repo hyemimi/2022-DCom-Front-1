@@ -3,8 +3,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../Context/auth';
 import styled from 'styled-components';
 import logo from './image/FOCUZ.png';
-
-const authUrl = 'http://focuz-api.justkode.kr/oauth2/authorization/kakao?redirect_uri=http://focuz-api.justkode.kr/login/oauth2/code/kakao'
+import { KAKAO_OAUTH_URL } from '../../env';
 
 const TopMenu = () => {
     const navigate = useNavigate();
