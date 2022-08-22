@@ -11,14 +11,14 @@ const Record = ({ postList, onEdit }) => {
           <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
             <Box
                 width="40%"
-                height="400px"
+                height="500px"
                 color="black"
                 bgColor="#2F2F2F">
               <UserRecord></UserRecord>
             </Box>
             <Box
                 width="60%"
-                height="400px"
+                height="500px"
                 color="black"
                 bgColor="#2F2F2F">
                   <RecordGraph></RecordGraph>
