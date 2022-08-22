@@ -18,32 +18,48 @@ const UserRecord = () => {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [totalTime, setTotalTime] = useState(0);
+    const [searched, setSearched] = useState();
+
+    const [startTime, setStartTime] = useState('');
+    const [endTime, setEndTime] = useState('');
 
     function getStartTime () {
         const getStartYear = getYear(startDate);
         const getStartMonth = ('0' + (getMonth(startDate) + 1)).slice(-2);
         const getStartDate = ('0' + getDate(startDate)).slice(-2);
-        return (String(getStartYear + '-' + getStartMonth + '-' + getStartDate));
+        setStartTime(String(getStartYear + '-' + getStartMonth + '-' + getStartDate + ' 00:00:00'));
+        return (String(getStartYear + '-' + getStartMonth + '-' + getStartDate + ' 00:00:00'));
     }
     function getEndTime () {
         const getEndYear = getYear(endDate);
         const getEndMonth = ('0' + (getMonth(endDate) + 1)).slice(-2);
         const getEndDate = ('0' + getDate(endDate)).slice(-2);
-        return (String(getEndYear + '-' + getEndMonth + '-' + getEndDate));
+        setEndTime(String(getEndYear + '-' + getEndMonth + '-' + getEndDate + ' 00:00:00'));
+        return (String(getEndYear + '-' + getEndMonth + '-' + getEndDate + ' 00:00:00'));
     }
 
-    const onClick = () => {
-        const setsearchStudy = async () => { await searchStudy({
-            endDate: (getEndTime() + ' 00:00:00'),
-            startDate: (getStartTime() + ' 00:00:00')
+
+    const onClick = async () => {
+        await getStartTime();
+        await getEndTime();
+        const study = new Promise((searchStudy) => searchStudy({
+            endDate: (endTime),
+            startDate: (startTime)
+        }));
+        // const study = await searchStudy(
+        //     {
+        //         endDate: inputs.endDate,
+        //         startDate: inputs.startDate
+        //     });
+        // console.log(getStartTime);
+        // if (totalTime === undefined) {
+        //   setTotalTime(0);
+        //   console.log(totalTime);
+        //
+        study.then(function (time) {
+            setSearched(searchStudy(time));
+            console.log(time);
         });
-        };
-        setTotalTime(setsearchStudy.studyTime);
-        console.log(setsearchStudy());
-        if (totalTime === undefined) {
-          setTotalTime(0);
-          console.log(totalTime);
-        }
     };
     return (
         <>
