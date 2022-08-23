@@ -9,6 +9,8 @@ import { Box } from '../Styled/Box';
 import Form from 'react-bootstrap/Form';
 import { getYear, getMonth, getDate } from 'date-fns';
 import { searchStudy } from '../../store/study';
+import axios from 'axios';
+import { getAxios } from '../../store/axiosCall';
 
 const UserRecord = () => {
     const theme = useThemeColor();
@@ -27,7 +29,7 @@ const UserRecord = () => {
         const getStartYear = getYear(startDate);
         const getStartMonth = ('0' + (getMonth(startDate) + 1)).slice(-2);
         const getStartDate = ('0' + getDate(startDate)).slice(-2);
-        setStartTime(String(getStartYear + '-' + getStartMonth + '-' + getStartDate + ' 00:00:00'));
+        setStartTime(String(getStartYear + '-' + getStartMonth + '-' + getStartDate + ' 00:00:00' ));
         return (String(getStartYear + '-' + getStartMonth + '-' + getStartDate + ' 00:00:00'));
     }
     function getEndTime () {
@@ -35,17 +37,18 @@ const UserRecord = () => {
         const getEndMonth = ('0' + (getMonth(endDate) + 1)).slice(-2);
         const getEndDate = ('0' + getDate(endDate)).slice(-2);
         setEndTime(String(getEndYear + '-' + getEndMonth + '-' + getEndDate + ' 00:00:00'));
+        setEndTime(endTime.replace(/\+/g,"%20"))
         return (String(getEndYear + '-' + getEndMonth + '-' + getEndDate + ' 00:00:00'));
     }
 
 
     const onClick = async () => {
-        await getStartTime();
-        await getEndTime();
-        const study = new Promise((searchStudy) => searchStudy({
-            endDate: (endTime),
-            startDate: (startTime)
-        }));
+        getStartTime();
+        getEndTime();
+        //const study = new Promise((searchStudy) => searchStudy({
+        //    endDate: endTime,
+        //    startDate: startTime
+        //}));
         // const study = await searchStudy(
         //     {
         //         endDate: inputs.endDate,
@@ -56,11 +59,24 @@ const UserRecord = () => {
         //   setTotalTime(0);
         //   console.log(totalTime);
         //
-        study.then(function (time) {
-            setSearched(searchStudy(time));
-            console.log(time);
+
+       axios.get('http://focuz-api.justkode.kr/study/search', {
+        params: {
+            endDate: endTime,
+            startDate: startTime
+        }
+        }).then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
         });
-    };
+
+       // console.log(searchStudy(endTime, startTime));
+
+
+    }
+
     return (
         <>
             <h1 style={{ fontSize: '1.5rem', color: theme.point }}> 000 님의 총 집중시간은 ? </h1>

@@ -34,7 +34,7 @@ const RecordGraph = () => {
     }
 
     const onClick = () => {
-        searchStudy({
+        {/*searchStudy({
             endDate: getEndTime() + ' 00:00:00',
             startDate: getStartTime() + ' 00:00:00'
         });
@@ -43,7 +43,7 @@ const RecordGraph = () => {
         if (totalTime == undefined) {
           setTotalTime(0);
         }
-        console.log(totalTime);
+    console.log(totalTime);*/}
     };
 
     return (
