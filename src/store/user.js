@@ -5,4 +5,8 @@ export const fetchAllUserList = () => getAxios('/user/list');
 
 export const fetchUserInfo = (userId) => getAxios(`/user/${userId}`);
 
-export const registerUser = (data) => postAxios('user/register', data);
+export const registerUser = (data) => postAxios('/user/register', data);
+
+//현재 유저의 전체 정보를 반환합니다
+
+export const getCurrentUserInfo = () => getAxios('/user/my_profile/info');

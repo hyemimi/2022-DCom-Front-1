@@ -5,7 +5,7 @@ import { AuthContext } from './Context/auth';
 import { ThemeProvider } from './Context/theme';
 import { Routes, Route } from 'react-router-dom';
 import routes from './components/Common/Routes';
-import { fetchUserInfo } from './store/user';
+import { fetchUserInfo, getCurrentUserInfo } from './store/user';
 import { useThemeColor } from './Context/theme';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        fetchUserInfo(2).then((res) => {
+        getCurrentUserInfo().then((res) => {
             setUser(res.data);
             setIsLoggedIn(false);
         });
