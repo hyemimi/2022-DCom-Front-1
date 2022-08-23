@@ -1,13 +1,14 @@
+import logo from '../../Layout/image/FOCUZ.png'
 export const tempUser = {
     //id,email,name,pr-,nick,motto : null
     // groups : []
     id: 1,
     email: null,
-    name: '이혜미',
+    name: '포커즈',
     profileImage:
-        'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
-    nickname: '포커즈',
-    motto: '화이팅~!',
+        logo,
+    nickname: '디닷컴',
+    motto: '열심히 공부해야지!',
     groups: [
         {
             description: '파이썬공부해요',
@@ -16,11 +17,11 @@ export const tempUser = {
             users: [
                 {
                     id: 1,
-                    motto: '화이팅~!',
-                    name: '이혜미',
-                    nickname: '포커즈',
+                    motto: '열심히 공부해야지!',
+                    name: '포커즈',
+                    nickname: '디닷컴',
                     profileImage:
-                        'http://www.chemicalnews.co.kr/news/photo/202106/3636_10174_4958.jpg',
+                        {logo},
                     studyTime: 0,
                 },
                 {

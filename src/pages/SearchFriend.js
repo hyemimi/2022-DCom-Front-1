@@ -5,6 +5,7 @@ import FriendsProfile from '../components/FriendsProfile';
 import styled from 'styled-components';
 import { PageDiv } from '../components/Styled/PageDiv';
 import { friendummylist } from '../store/temp/tempFriendsData';
+import logo from '../Layout/image/FOCUZ.png'
 const SearchFriend = () => {
     // App.js에서 주입(Provide)한 context정보 받아오기
     // @ts-ignore

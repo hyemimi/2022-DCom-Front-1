@@ -10,8 +10,8 @@ function FriendsProfile({ user }) {
     const theme = useTheme();
     const auth = useAuth();
 
-    const onRequestHandler = async (targetUserId) => {
-        await sendFriendRequest(targetUserId)
+    const onRequestHandler =  (targetUserId) => {
+        sendFriendRequest(targetUserId)
             .then((r) => {
                 setIsRequest(true);
                 console.log(`${nickname} 유저에게 친구요청을 보냈습니다`);
@@ -22,7 +22,7 @@ function FriendsProfile({ user }) {
             });
     };
     const onCancelHandler = async (targetUserId) => {
-        await deleteRequest(targetUserId).then((r) => {
+        deleteRequest(targetUserId).then((r) => {
             setIsRequest(false);
             console.log('친구 요청 철회');
         });

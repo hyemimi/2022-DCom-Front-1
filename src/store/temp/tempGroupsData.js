@@ -23,13 +23,13 @@ export const groups = [
         description: 'react',
         id: 2,
         name: 'React',
-        users: friendummylist,
+        users: {friendummylist},
     },
     {
         description: '스피킹',
         id: 3,
         name: '스피킹',
-        users: friendummylist,
+        users: {friendummylist},
     },
     {
         description: '파이썬스터디',
