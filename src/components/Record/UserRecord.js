@@ -25,14 +25,14 @@ const UserRecord = () => {
     const [startTime, setStartTime] = useState('');
     const [endTime, setEndTime] = useState('');
 
-    function getStartTime () {
+    function getStartTime() {
         const getStartYear = getYear(startDate);
         const getStartMonth = ('0' + (getMonth(startDate) + 1)).slice(-2);
         const getStartDate = ('0' + getDate(startDate)).slice(-2);
         setStartTime(String(getStartYear + '-' + getStartMonth + '-' + getStartDate + ' 00:00:00' ));
         return (String(getStartYear + '-' + getStartMonth + '-' + getStartDate + ' 00:00:00'));
     }
-    function getEndTime () {
+    function getEndTime() {
         const getEndYear = getYear(endDate);
         const getEndMonth = ('0' + (getMonth(endDate) + 1)).slice(-2);
         const getEndDate = ('0' + getDate(endDate)).slice(-2);
@@ -40,7 +40,6 @@ const UserRecord = () => {
         setEndTime(endTime.replace(/\+/g,"%20"))
         return (String(getEndYear + '-' + getEndMonth + '-' + getEndDate + ' 00:00:00'));
     }
-
 
     const onClick = async () => {
         getStartTime();
@@ -59,7 +58,6 @@ const UserRecord = () => {
         //   setTotalTime(0);
         //   console.log(totalTime);
         //
-
        axios.get('http://focuz-api.justkode.kr/study/search', {
         params: {
             endDate: endTime,
@@ -79,44 +77,87 @@ const UserRecord = () => {
 
     return (
         <>
-            <h1 style={{ fontSize: '1.5rem', color: theme.point }}> 000 님의 총 집중시간은 ? </h1>
-            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', paddingTop: '30px' }}>
-            <Box>
-                <div style={{ fontSize: '1rem' }}> 시작일
-                <DatePicker
-                dateFormat="yyyy년 MM월 dd일 EE"
-                selected={startDate}
-                locale={ko}
-                onChange={date => setStartDate(date)}
-                selectsStart
-                startDate={startDate}
-                endDate={endDate}
-                maxDate={new Date()}
-                customInput={ <Form.Control as="textarea" rows={1} style={{ width: '130px', fontSize: '13px' }}/>}
-                />
+            <h1 style={{ fontSize: '1.5rem', color: theme.point }}>
+                {' '}
+                000 님의 총 집중시간은 ?{' '}
+            </h1>
+            <div
+                style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    alignItems: 'center',
+                    paddingTop: '30px',
+                }}
+            >
+                <Box>
+                    <div style={{ fontSize: '1rem' }}>
+                        {' '}
+                        시작일
+                        <DatePicker
+                            dateFormat="yyyy년 MM월 dd일 EE"
+                            selected={startDate}
+                            locale={ko}
+                            onChange={(date) => setStartDate(date)}
+                            selectsStart
+                            startDate={startDate}
+                            endDate={endDate}
+                            maxDate={new Date()}
+                            customInput={
+                                <Form.Control
+                                    as="textarea"
+                                    rows={1}
+                                    style={{ width: '130px', fontSize: '13px' }}
+                                />
+                            }
+                        />
+                    </div>
+                </Box>
+                <div
+                    style={{
+                        fontSize: '1rem',
+                        color: 'white',
+                        display: 'flex',
+                    }}
+                >
+                    {' '}
+                    ~{' '}
                 </div>
-            </Box>
-            <div style={{ fontSize: '1rem', color: 'white', display: 'flex' }}> ~ </div>
-            <Box>
-                <div style={{ fontSize: '1rem' }}> 종료일
-                <DatePicker
-                selected={endDate}
-                dateFormat="yyyy년 MM월 dd일 EE"
-                locale={ko}
-                onChange={date => setEndDate(date)}
-                selectsEnd
-                startDate={startDate}
-                endDate={endDate}
-                minDate={startDate}
-                maxDate={new Date()}
-                customInput={ <Form.Control as="textarea" rows={1} style={{ width: '130px', fontSize: '13px' }}/>}
-                />
-                </div>
-            </Box>
-            <Button onClick={onClick}>🔍</Button>
+                <Box>
+                    <div style={{ fontSize: '1rem' }}>
+                        {' '}
+                        종료일
+                        <DatePicker
+                            selected={endDate}
+                            dateFormat="yyyy년 MM월 dd일 EE"
+                            locale={ko}
+                            onChange={(date) => setEndDate(date)}
+                            selectsEnd
+                            startDate={startDate}
+                            endDate={endDate}
+                            minDate={startDate}
+                            maxDate={new Date()}
+                            customInput={
+                                <Form.Control
+                                    as="textarea"
+                                    rows={1}
+                                    style={{ width: '130px', fontSize: '13px' }}
+                                />
+                            }
+                        />
+                    </div>
+                </Box>
+                <Button onClick={onClick}>🔍</Button>
             </div>
-            <div style={{ fontSize: '5rem', color: 'white', fontStyle: 'bold', paddingTop: '40px' }}>❗ {totalTime} 분 ❗</div>
-
+            <div
+                style={{
+                    fontSize: '3rem',
+                    color: 'white',
+                    fontStyle: 'bold',
+                    paddingTop: '40px',
+                }}
+            >
+                ❗ {totalTime} 분 ❗
+            </div>
         </>
     );
 };

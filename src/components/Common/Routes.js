@@ -1,6 +1,6 @@
 import Main from '../../pages/Main';
 import Login from '../../pages/Login';
-import SignUp from '../../pages/Register';
+import Register from '../../pages/Register';
 import SearchFriend from '../../pages/SearchFriend';
 import SearchGroup from '../../pages/SearchGroup';
 import NewGroup from '../../pages/NewGroup';
@@ -28,9 +28,14 @@ const routes = [
         component: Login,
     },
     {
-        id: 'signup',
-        path: '/signup',
-        component: SignUp,
+        id: 'register',
+        path: '/user/register',
+        component: Register,
+    },
+    {
+        id: 'registerTest',
+        path: '/register',
+        component: Register,
     },
     {
         id: 'searchFriend',
