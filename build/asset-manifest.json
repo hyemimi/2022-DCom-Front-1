@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.3d613d78.css",
-    "main.js": "/static/js/main.b5213c48.js",
+    "main.css": "/static/css/main.9719edba.css",
+    "main.js": "/static/js/main.bd9e5974.js",
     "static/media/FOCUZ.png": "/static/media/FOCUZ.294376b8282f3c7a5004.png",
     "index.html": "/index.html",
-    "main.3d613d78.css.map": "/static/css/main.3d613d78.css.map",
-    "main.b5213c48.js.map": "/static/js/main.b5213c48.js.map"
+    "main.9719edba.css.map": "/static/css/main.9719edba.css.map",
+    "main.bd9e5974.js.map": "/static/js/main.bd9e5974.js.map"
   },
   "entrypoints": [
-    "static/css/main.3d613d78.css",
-    "static/js/main.b5213c48.js"
+    "static/css/main.9719edba.css",
+    "static/js/main.bd9e5974.js"
   ]
 }
