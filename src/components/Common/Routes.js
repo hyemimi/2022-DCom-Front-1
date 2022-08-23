@@ -33,6 +33,11 @@ const routes = [
         component: Register,
     },
     {
+        id: 'registerTest',
+        path: '/register',
+        component: Register,
+    },
+    {
         id: 'searchFriend',
         path: '/search-friend',
         component: SearchFriend,
