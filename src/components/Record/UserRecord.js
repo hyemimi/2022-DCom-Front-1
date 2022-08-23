@@ -19,7 +19,7 @@ const UserRecord = () => {
 
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
-    const [totalTime, setTotalTime] = useState(0);
+    const [totalTime, setTotalTime] = useState(10);
     const [searched, setSearched] = useState();
 
     const [startTime, setStartTime] = useState('');
@@ -79,7 +79,7 @@ const UserRecord = () => {
         <>
             <h1 style={{ fontSize: '1.5rem', color: theme.point }}>
                 {' '}
-                000 님의 총 집중시간은 ?{' '}
+                포커즈 님의 총 집중시간은 ?{' '}
             </h1>
             <div
                 style={{
@@ -156,7 +156,7 @@ const UserRecord = () => {
                     paddingTop: '40px',
                 }}
             >
-                ❗ {totalTime} 분 ❗
+                ❗ {totalTime} 초 ❗
             </div>
         </>
     );

@@ -16,8 +16,8 @@ const RecordGraph = () => {
     const auth = useAuth();
     const { user } = auth;
 
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date());
+    const [startDate, setStartDate] = useState(new Date(2022,7,21));
+    const [endDate, setEndDate] = useState(new Date(2022,7,28));
     const [totalTime, setTotalTime] = useState(0);
 
     function getStartTime () {
@@ -54,7 +54,7 @@ const RecordGraph = () => {
             <Box>
                 <div style={{ fontSize: '0.9rem' }}> 시작일
                 <DatePicker
-                dateFormat="yyyy년 MM월 dd일 EE"
+                dateFormat="yyyy년 MM월 dd일"
                 selected={startDate}
                 locale={ko}
                 onChange={date => setStartDate(date)}
@@ -71,7 +71,7 @@ const RecordGraph = () => {
                 <div style={{ fontSize: '0.9rem' }}> 종료일
                 <DatePicker
                 selected={endDate}
-                dateFormat="yyyy년 MM월 dd일 EE"
+                dateFormat="yyyy년 MM월 dd일"
                 locale={ko}
                 onChange={date => setEndDate(date)}
                 selectsEnd

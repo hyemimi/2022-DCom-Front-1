@@ -11,7 +11,7 @@ function SearchGroupItem({ group }) {
 
     const onClick = async () => {
     if (confirm('그룹에 참여하시겠습니까?')) {
-        joinGroup(id);
+        alert('그룹 신청 완료!');
         return;
     } else {
         return;

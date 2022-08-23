@@ -4,11 +4,11 @@ export const tempUser = {
     // groups : []
     id: 1,
     email: null,
-    name: '포커즈',
+    name: '디닷컴',
     profileImage:
         logo,
-    nickname: '디닷컴',
-    motto: '열심히 공부해야지!',
+    nickname: '포커즈',
+    motto: '화이팅~!',
     groups: [
         {
             description: '파이썬공부해요',
@@ -17,12 +17,12 @@ export const tempUser = {
             users: [
                 {
                     id: 1,
-                    motto: '열심히 공부해야지!',
-                    name: '포커즈',
-                    nickname: '디닷컴',
+                    motto: '화이팅~!',
+                    name: '디닷컴',
+                    nickname: '포커즈',
                     profileImage:
-                        {logo},
-                    studyTime: 0,
+                        logo,
+                    studyTime: 10,
                 },
                 {
                     id: 2,
@@ -50,6 +50,27 @@ export const tempUser = {
                     profileImage:
                         'https://images.mypetlife.co.kr/content/uploads/2021/10/19151330/corgi-g1a1774f95_1280-1024x682.jpg',
                     studyTime: 300,
+                },
+            ],
+        },
+        {
+            description: '파이썬스터디',
+            id: 4,
+            name: '파이썬스터디',
+            users: [
+                {
+                    id: 3,
+                    motto: '배고파...',
+                    name: '이혜미',
+                    nickname: '혜',
+                    profileImage: null,
+                },
+                {
+                    id: 2,
+                    motto: 'string',
+                    name: '정지원',
+                    nickname: '손님',
+                    profileImage: null,
                 },
             ],
         },

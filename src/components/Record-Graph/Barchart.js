@@ -24,11 +24,11 @@ const Barchart = () => {
                 data={[
                     { day: '일', time: 1200 },
                     { day: '월', time: 2200 },
-                    { day: '화', time: 3200 },
-                    { day: '수', time: 3200 },
-                    { day: '목', time: 3200 },
-                    { day: '금', time: 3200 },
-                    { day: '토', time: 3200 },
+                    { day: '화', time: 60 },
+                    { day: '수', time: 10 },
+                    { day: '목', time: 0 },
+                    { day: '금', time: 0 },
+                    { day: '토', time: 0 },
                 ]}
                 /**
                  * chart에 보여질 데이터 key (측정되는 값)

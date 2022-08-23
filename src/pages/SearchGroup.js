@@ -15,20 +15,17 @@ const SearchGroup = () => {
     const [searchText, setSearchText] = useState('');
 
     // 2. 주석 되어있는 부분 주석 취소하기
-    useEffect(() => {
+    {/*useEffect(() => {
         fetchAllGroupList().then((res) => {
             console.log(res);
             setAllGroupList(res.data);
             setSearchedGroupList(res.data);
         });
-    }, []);
+    }, []);*/}
 
     // 3. filter 앞 groups대신 allGroupList로 바꾸기
     useEffect(() => {
-        const filteredGroup = allGroupList.filter((group) => {
-            if (searchText === '' || searchText === null) {
-                return group;
-            } else {
+        const filteredGroup = allGroupList.filter((group) => {{
                 return group?.name?.includes(searchText);
             }
         });

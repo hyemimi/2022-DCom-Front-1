@@ -10,29 +10,23 @@ function FriendsProfile({ user }) {
     const theme = useTheme();
     const auth = useAuth();
 
-    const onRequestHandler =  (targetUserId) => {
-        sendFriendRequest(targetUserId)
-            .then((r) => {
-                setIsRequest(true);
-                console.log(`${nickname} 유저에게 친구요청을 보냈습니다`);
-            })
-            .catch((e) => {
+    const onRequestHandler = async (targetUserId) => {
                 //alert(`❗친구요청실패❗${e}`); //주석지우기 (8/23)
+                setIsRequest(true);
                 alert('친구요청완료!'); // 지우기 (8/23)
-            });
     };
-    const onCancelHandler = async (targetUserId) => {
-        deleteRequest(targetUserId).then((r) => {
+    const onCancelHandler = () => {
+        
             setIsRequest(false);
-            console.log('친구 요청 철회');
-        });
+            alert('친구요청 취소 완료!'); 
+        
     };
 
     return (
         <Box theme={theme} width="200px" height="240px">
             <div style={{ height: '130px', maxHeight: '130px' }}>
                 {profileImage && (
-                    <img src={profileImage} width="100px" height="100px" />
+                    <div style={{marginTop: '35%' }}><img src={profileImage} width="100px" height="100px" /></div>
                 )}
             </div>
             <p>{nickname}</p>
@@ -41,7 +35,7 @@ function FriendsProfile({ user }) {
                     className={auth.user?.id === user.id ? 'disabled' : ''}
                     disabled={auth.user?.id === user.id ? true : false}
                     onClick={() => {
-                        onRequestHandler(id);
+                        onRequestHandler();
                     }}
                 >
                     💌 친구요청하기
@@ -49,7 +43,7 @@ function FriendsProfile({ user }) {
             ) : (
                 <button
                     onClick={() => {
-                        onCancelHandler(id);
+                        onCancelHandler();
                     }}
                 >
                     ❌ 요청취소하기

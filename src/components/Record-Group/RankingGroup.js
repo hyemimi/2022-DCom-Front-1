@@ -49,13 +49,9 @@ const RankingGroup = ({ group }) => {
                             <Button>📖{idx + 1}등</Button>
                         )
                 )} */}
-                {usersRanking.map(
-                    (user, idx) =>
-                        //dummyauthID =>> auth.user.id로 바꾸기 (8/23)
-                        user.id === auth.user.id && (
-                            <Button>📖{idx + 1}등</Button>
-                        )
-                )}
+
+                 <Button>📖4등</Button>
+
                 <Button onClick={openModal}>🏆랭킹</Button>
                 <RankingModal
                     open={modalOpen}

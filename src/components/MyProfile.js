@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useAuth } from '../Context/auth';
-import logo from '../Layout/image/FOCUZ.png'
 
 const MyInfoDiv = styled.div`
     text-align: center;
