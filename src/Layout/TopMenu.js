@@ -20,7 +20,7 @@ const TopMenu = () => {
                         <img src={logo} />
                     </div>
                 </Link>
-                {auth.isLoggedIn ? (
+                {auth?.isLoggedIn ? (
                     <button onClick={onProfileHandler} className="light">
                         {auth.user.nickname}
                     </button>

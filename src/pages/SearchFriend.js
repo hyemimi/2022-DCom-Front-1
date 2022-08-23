@@ -4,10 +4,22 @@ import { SearchBox } from '../components/Common/SearchBox';
 import FriendsProfile from '../components/FriendsProfile';
 import styled from 'styled-components';
 import { PageDiv } from '../components/Styled/PageDiv';
+import { friendummylist } from '../store/temp/tempFriendsData';
 const SearchFriend = () => {
     // App.js에서 주입(Provide)한 context정보 받아오기
     // @ts-ignore
-    const [allUserList, setAllUserList] = useState([]);
+    const [allUserList, setAllUserList] = useState([
+        {
+            id: 1,
+            motto: '화이팅~!',
+            name: '이혜미',
+            nickname: '포커즈',
+            profileImage:
+                'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+            studyTime: 0,
+        },
+        ...friendummylist,
+    ]); // []로 바꾸기 (8/23)
     const [searchUserList, setSearchedUserList] = useState([]);
     const [searchText, setSearchText] = useState('');
 
@@ -23,7 +35,11 @@ const SearchFriend = () => {
         // @ts-ignore
 
         const filteredFriend = allUserList.filter((user) => {
-            if (searchText === '' || searchText === null) { return user; } else { return user?.nickname?.includes(searchText); }
+            if (searchText === '' || searchText === null) {
+                return user;
+            } else {
+                return user?.nickname?.includes(searchText);
+            }
         });
 
         // @ts-ignore
@@ -32,7 +48,7 @@ const SearchFriend = () => {
 
     const onPressEnter = (e) => {
         if (e.key == 'Enter') {
-          onSearch();
+            onSearch();
         }
     };
     // const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -52,13 +68,16 @@ const SearchFriend = () => {
                 onKeyPress={onPressEnter}
                 onClick={onSearch}
             />
-            {searchUserList.length === 0
-              ? <div> 표시할 유저가 없습니다 </div>
-              : <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                {searchUserList && searchUserList.map((user) => (
-                    <FriendsProfile key={user.id} user={user} />
-                ))}
-            </div>}
+            {searchUserList.length === 0 ? (
+                <div> 표시할 유저가 없습니다 </div>
+            ) : (
+                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                    {searchUserList &&
+                        searchUserList.map((user) => (
+                            <FriendsProfile key={user.id} user={user} />
+                        ))}
+                </div>
+            )}
         </PageDiv>
     );
 };

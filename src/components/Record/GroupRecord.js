@@ -5,16 +5,16 @@ import { searchStudy } from '../../store/study';
 import { Box } from '../Styled/Box';
 import { getStringDate } from '../Common/date';
 import styled, { withTheme } from 'styled-components';
-import { groups } from '../../store/temp/tempGroupsData';
 import Timer from './../Timer';
 import { AuthContext } from '../../Context/auth';
 import { fetchUserInfo } from '../../store/user';
+import { groups } from '../../store/temp/tempGroupsData';
 // 어제 하루 순위 매기기
 
 const GroupRecord = () => {
     const auth = useContext(AuthContext);
     // 연결되면 groups => groupsList로 바꾸기
-    //const groupsList = auth.user.groups;
+    const groupsList = auth.user.groups;
     const groups = [
         {
             description: '파이썬공부해요',
@@ -22,10 +22,18 @@ const GroupRecord = () => {
             name: '파이썬스터디',
             users: [
                 {
+                    id: 1,
+                    motto: 'string',
+                    name: '정지원',
+                    nickname: '포커즈',
+                    profileImage: null,
+                    studyTime: 100,
+                },
+                {
                     id: 2,
                     motto: 'string',
                     name: '정지원',
-                    nickname: '손님',
+                    nickname: '원',
                     profileImage: null,
                     studyTime: 2000,
                 },
@@ -37,16 +45,19 @@ const GroupRecord = () => {
                     profileImage: null,
                     studyTime: 10000,
                 },
+                {
+                    id: 4,
+                    motto: 'string',
+                    name: '정혜인',
+                    nickname: '혠',
+                    profileImage: null,
+                    studyTime: 300000,
+                },
             ],
         },
     ];
     const theme = useThemeColor();
-    const [date, setDate] = useState(getStringDate(new Date()));
-    const [MyGroupsList, setMyGroupsList] = useState([]);
-    const [myTime, setMyTime] = useState([]);
     const [isShown, setIsShown] = useState(false);
-
-    useEffect(() => {}, []);
 
     /*  const onClick = async () => {
         setIsShown(true);
@@ -103,7 +114,7 @@ const GroupRecord = () => {
                     paddingTop: '20px',
                 }}
             >
-                {groups.map((group, idx) => (
+                {groupsList.map((group, idx) => (
                     <RankingGroup key={idx} group={group} />
                 ))}
             </div>

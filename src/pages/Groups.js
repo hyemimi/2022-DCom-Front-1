@@ -5,11 +5,11 @@ import { AuthContext } from '../Context/auth';
 import { PageDiv } from '../components/Styled/PageDiv';
 import styled from 'styled-components';
 import { SearchBox } from '../components/Common/SearchBox';
-import { groups } from '../store/temp/tempGroupsData';
+
 import SearchGroupItem from '../components/SearchGroupItem';
 const Groups = () => {
-    // const auth = useContext(AuthContext);
-    // 추후 const groups = auth.user.groups로 바꾸기
+    const auth = useContext(AuthContext);
+    const groups = auth.user.groups;
     const [searchGroupList, setSearchedGroupList] = useState(groups);
     const [searchText, setSearchText] = useState('');
     const onChange = () => {
@@ -46,12 +46,12 @@ const Groups = () => {
                 <Link key="newGroup" to="/new-group">
                     <Button>⚒️ 스터디그룹 생성하기</Button>
                 </Link>
-                </div>
+            </div>
             <div style={{ display: 'flex' }}>
-                    <SearchBox
-                        onChange={onChange}
-                        placeholder="그룹명을 입력하여 검색해보세요"
-                    />
+                <SearchBox
+                    onChange={onChange}
+                    placeholder="그룹명을 입력하여 검색해보세요"
+                />
             </div>
             📑{groups.length}개의 스터디그룹에 참여중입니다
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
@@ -67,7 +67,7 @@ const Groups = () => {
                                     members={it.users}
                                     buttontext="탈퇴하기"
                                 />
-                            </div> 
+                            </div>
                         );
                     })
                 ) : (

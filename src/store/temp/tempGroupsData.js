@@ -5,14 +5,16 @@ export const groups = [
     {
         description: '파이썬공부해요',
         id: 1,
-        name: '파이썬스터디',
+        name: '디닷컴',
         users: [
             {
-                id: 2,
-                motto: 'string',
-                name: '정지원',
-                nickname: '손님',
-                profileImage: null,
+                id: 1,
+                motto: '화이팅~!',
+                name: '이혜미',
+                nickname: '포커즈',
+                profileImage:
+                    'http://www.chemicalnews.co.kr/news/photo/202106/3636_10174_4958.jpg',
+                studyTime: 0,
             },
             ...friendummylist,
         ],

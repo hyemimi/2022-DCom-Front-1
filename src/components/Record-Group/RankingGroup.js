@@ -6,7 +6,7 @@ import RankingModal from './RankingModal';
 import { AuthContext } from '../../Context/auth';
 const RankingGroup = ({ group }) => {
     const auth = useContext(AuthContext);
-    const dummyauthID = 2;
+    const dummyauthID = 1;
     const [modalOpen, setModalOpen] = useState(false);
     const { description, id, name } = group;
     const users = group.users;
@@ -51,7 +51,8 @@ const RankingGroup = ({ group }) => {
                 )} */}
                 {usersRanking.map(
                     (user, idx) =>
-                        user.id === dummyauthID && (
+                        //dummyauthID =>> auth.user.id로 바꾸기 (8/23)
+                        user.id === auth.user.id && (
                             <Button>📖{idx + 1}등</Button>
                         )
                 )}
