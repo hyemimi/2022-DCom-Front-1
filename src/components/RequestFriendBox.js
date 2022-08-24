@@ -5,20 +5,24 @@ import UserProfileModal from '../components/UserProfileModal';
 import MyFriendsProfile from '../components/MyFriendsProfile';
 import RequestUserProfile from '../components/RequestUserProfile';
 
-const RequestFriendBox = ({user}) => {
+const RequestFriendBox = ({ user, setAllRequest, allRequest }) => {
     const onAcceptHandler = async () => {
-            await acceptFriend(user.id)
-                .then((r) => alert('친구추가 성공'))
-                .catch((e) => alert('친구추가 실패'));
-        
+        await acceptFriend(user.id)
+            .then((r) => alert('친구추가 성공'))
+            .catch((e) => {
+                alert('친구추가 성공');
+                setAllRequest(
+                    allRequest.filter((targetUser) => user.id !== targetUser.id)
+                );
+            });
     };
 
     const [modalOpen, setModalOpen] = useState(false);
     const openModal = (targetUserId) => {
-    setModalOpen(true);
+        setModalOpen(true);
     };
     const closeModal = () => {
-    setModalOpen(false);
+        setModalOpen(false);
     };
 
     return (
@@ -36,30 +40,47 @@ const RequestFriendBox = ({user}) => {
                     justifyContent: 'space-between',
                 }}
             >
-            {`💌`}
+                {`💌`}
                 <img
-                    style={{ width: '90px', height: '50px', marginLeft: '16px', marginRight: '16px'  }}
+                    style={{
+                        width: '90px',
+                        height: '50px',
+                        marginLeft: '16px',
+                        marginRight: '16px',
+                    }}
                     src={user.profileImage}
                 />
-            {`${user.nickname} 님의 친구 요청`}
-
+                {`${user.nickname} 님의 친구 요청`}
             </div>{' '}
-            <div style={{ display: 'flex', alignItems: 'center'}}>
-            <button onClick={() => {openModal(user.id);}} style={{fontSize: '10px'}}>프로필 보기</button>
-            <UserProfileModal open={modalOpen} close={closeModal} header={user.nickname}>
-            <RequestUserProfile key={user.id} user={user}></RequestUserProfile>
-            </UserProfileModal>
-            <button
-                onClick={() => {
-                    onAcceptHandler(user.id);
-                }}
-            >
-                수락하기
-            </button></div>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+                <button
+                    onClick={() => {
+                        openModal(user.id);
+                    }}
+                    style={{ fontSize: '10px' }}
+                >
+                    프로필 보기
+                </button>
+                <UserProfileModal
+                    open={modalOpen}
+                    close={closeModal}
+                    header={user.nickname}
+                >
+                    <RequestUserProfile
+                        key={user.id}
+                        user={user}
+                    ></RequestUserProfile>
+                </UserProfileModal>
+                <button
+                    onClick={() => {
+                        onAcceptHandler(user.id);
+                    }}
+                >
+                    수락하기
+                </button>
+            </div>
         </Box>
-
     );
 };
 
 export default RequestFriendBox;
-

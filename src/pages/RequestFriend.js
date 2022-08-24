@@ -86,6 +86,8 @@ const RequestFriend = () => {
                           <RequestFriendBox
                               key={user.id}
                               user={user}
+                              setAllRequest={setAllRequest}
+                              allRequest={allRequest}
                           ></RequestFriendBox>
                       );
                   })
