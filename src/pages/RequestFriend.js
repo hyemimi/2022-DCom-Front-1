@@ -1,11 +1,13 @@
 import { fetchAllRequest, acceptFriend } from './../store/friend';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { PageDiv } from '../components/Styled/PageDiv';
 import { Link } from 'react-router-dom';
 import RequestFriendBox from '../components/RequestFriendBox';
 import { Button } from './Friends';
+import { AuthContext } from '../Context/auth';
 
 const RequestFriend = () => {
+    const auth = useContext(AuthContext);
     const requestfriendummylist = [
         // dummy
         // 이후 allFriendsList로 바꾸기

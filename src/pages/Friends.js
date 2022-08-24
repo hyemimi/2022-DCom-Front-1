@@ -8,7 +8,7 @@ import { PageDiv } from '../components/Styled/PageDiv';
 import { SearchBox } from '../components/Common/SearchBox';
 import { friendummylist } from '../store/temp/tempFriendsData';
 const Friends = () => {
-    const [allFriendsList, setAllFriendsList] = useState();
+    const [allFriendsList, setAllFriendsList] = useState(friendummylist);
 
     useEffect(() => {
         getFriendList().then((res) => {
@@ -44,11 +44,16 @@ const Friends = () => {
             📑{friendummylist.length}명의 친구가 있습니다
             {/*<SearchBox onChange={onChange} placeholder="친구의 닉네임을 입력하세요"/>*/}
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                {friendummylist
-                    ? friendummylist.map((user) => {
+                {allFriendsList
+                    ? allFriendsList.map((user) => {
                           return (
                               <>
-                                  <MyFriendsProfile key={user.id} user={user} />
+                                  <MyFriendsProfile
+                                      allFriendsList={allFriendsList}
+                                      setAllFriendsList={setAllFriendsList}
+                                      key={user.id}
+                                      user={user}
+                                  />
                               </>
                           );
                       })
