@@ -13,6 +13,9 @@ function MyFriendsProfile({ user, allFriendsList, setAllFriendsList }) {
 
     const onBlockHandler = (targetUserId) => {
         blcokRequest(targetUserId);
+        setAllFriendsList(
+            allFriendsList.filter((friend) => friend.id !== targetUserId)
+        );
         alert('친구 차단 완료!');
     }; //
     const onDeleteHandler = async (targetUserId) => {
