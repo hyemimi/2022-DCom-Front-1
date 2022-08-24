@@ -1,12 +1,11 @@
-import logo from '../../Layout/image/FOCUZ.png'
+import logo from '../../Layout/image/FOCUZ.png';
 export const tempUser = {
     //id,email,name,pr-,nick,motto : null
     // groups : []
     id: 1,
     email: null,
     name: '디닷컴',
-    profileImage:
-        logo,
+    profileImage: logo,
     nickname: '포커즈',
     motto: '화이팅~!',
     groups: [
@@ -20,8 +19,7 @@ export const tempUser = {
                     motto: '화이팅~!',
                     name: '디닷컴',
                     nickname: '포커즈',
-                    profileImage:
-                        logo,
+                    profileImage: logo,
                     studyTime: 10,
                 },
                 {
@@ -64,6 +62,7 @@ export const tempUser = {
                     name: '이혜미',
                     nickname: '혜',
                     profileImage: null,
+                    studyTime: 458,
                 },
                 {
                     id: 2,
@@ -71,6 +70,7 @@ export const tempUser = {
                     name: '정지원',
                     nickname: '손님',
                     profileImage: null,
+                    studyTime: 190,
                 },
             ],
         },
