@@ -11,6 +11,7 @@
     <li><a href="#-getting-started-installation">Getting Started</a></li>
     <li><a href="#-main-feature">Main Feature</a></li> 
     <li><a href="#-page">Page</a></li> 
+    <li><a href="#-architecture">Architecture</a></li> 
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -93,6 +94,15 @@
 <img src=""></img>
 </div>
 
+# 💨 Architecture
+<div align="center">
+<h5>architecture</h5>
+<img src="https://user-images.githubusercontent.com/103382269/190843118-1e7c69f7-9f6c-497d-b19f-71d99b8e8793.JPG" width="500"></img>
+<h5>backend architecture</h5>
+<img src="https://user-images.githubusercontent.com/103382269/190843119-fc26e9df-1745-4cd9-b616-ba4cdd3b676f.JPG" width="500"></img>
+<h5>db</h5>
+<img src="https://user-images.githubusercontent.com/103382269/190843117-f3e22a7d-7978-4f55-ba13-0c61c95258f6.jpg" width="500"></img>
+</div>
 
 # Contributing
 프로젝트에 기여하고 싶으신 분들은 아래 절차를 따라주시기 바랍니다.
