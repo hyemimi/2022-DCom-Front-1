@@ -7,15 +7,14 @@ import styled from 'styled-components';
 import { PageDiv } from '../components/Styled/PageDiv';
 import { AuthContext } from '../Context/auth';
 import  GroupInfo from './GroupInfo';
-import { friendummylist } from '../store/temp/tempFriendsData';
 import KickoutGroupProfile from '../components/KickoutGroupProfile';
 import { Button } from './Groups';
 import { useNavigate } from 'react-router-dom';
 
 function GroupInfoKickout(){
     const { id } = useParams();    
-    //dummylist넣어줌
-    const [dummykickoutList, setdummyKickoutList] = useState(friendummylist);
+    const [dummykickoutList, setdummyKickoutList] = useState([]);
+
     const onKickoutList = async () => {
         await kickoutList(id)
             .then((r) => {
@@ -49,7 +48,7 @@ function GroupInfoKickout(){
                     justifyContent: 'center',
                 }}
             >
-                {friendummylist.map((user, idx) => (
+                {dummykickoutList.map((user, idx) => (
                     <KickoutGroupProfile
                         id={id}
                         key={idx}

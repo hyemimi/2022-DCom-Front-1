@@ -1,7 +1,6 @@
 import { PageDiv } from '../components/Styled/PageDiv';
 import { getBlockedFriendList } from '../store/friend';
 import { useEffect, useState } from 'react';
-import { friendummylist } from '../store/temp/tempFriendsData';
 import RequestUserProfile from '../components/RequestUserProfile';
 
 const BlockedFriends = () => {
@@ -9,7 +8,6 @@ const BlockedFriends = () => {
     useEffect(() => {
         getBlockedFriendList()
             .then((r) => setBlockedList(r.data))
-            .catch((e) => setBlockedList(friendummylist));
     }, []);
     return (
         <PageDiv>

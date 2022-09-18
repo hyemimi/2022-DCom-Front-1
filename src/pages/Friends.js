@@ -5,10 +5,9 @@ import { AuthContext } from '../Context/auth';
 import { getFriendList, deleteFriend } from '../store/friend';
 import styled from 'styled-components';
 import { PageDiv } from '../components/Styled/PageDiv';
-import { SearchBox } from '../components/Common/SearchBox';
-import { friendummylist } from '../store/temp/tempFriendsData';
+
 const Friends = () => {
-    const [allFriendsList, setAllFriendsList] = useState(friendummylist);
+    const [allFriendsList, setAllFriendsList] = useState();
 
     useEffect(() => {
         getFriendList().then((res) => {
@@ -41,7 +40,7 @@ const Friends = () => {
                     <Button>💔　차단 친구 목록</Button>
                 </Link>
             </div>
-            📑{allFriendsList.length}명의 친구가 있습니다
+            {/*allFriendsList.length}명의 친구가 있습니다*/}
             {/*<SearchBox onChange={onChange} placeholder="친구의 닉네임을 입력하세요"/>*/}
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                 {allFriendsList
