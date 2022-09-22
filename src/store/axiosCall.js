@@ -22,6 +22,7 @@ export const deleteAxios = (endPoint) =>
         method: 'DELETE',
     });
 
+
 // // 사용예시
 // getAxios('/user/list').then((res) => {
 //     console.log(res);
