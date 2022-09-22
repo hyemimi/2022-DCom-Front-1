@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const getAxios = (endPoint, data = {}, config = {}) =>
   axios({
-      url: `http://focuz-api.justkode.kr${endPoint}`,
+      url: `http://localhost:8080${endPoint}`,
       method: 'get',
       data: data,
       ...config,
@@ -10,7 +10,7 @@ export const getAxios = (endPoint, data = {}, config = {}) =>
 
 export const postAxios = (endPoint, params = {}, config={}) =>
   axios({
-      url: `http://focuz-api.justkode.kr${endPoint}`,
+      url: `http://localhost:8080${endPoint}`,
       method: 'POST',
       data: params,
       ...config
@@ -18,7 +18,7 @@ export const postAxios = (endPoint, params = {}, config={}) =>
 
 export const deleteAxios = (endPoint) =>
   axios({
-      url: `http://focuz-api.justkode.kr${endPoint}`,
+      url: `http://localhost:8080${endPoint}`,
       method: 'DELETE'
   });
 

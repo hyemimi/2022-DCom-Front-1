@@ -7,6 +7,7 @@ import { KAKAO_OAUTH_URL } from '../env';
 import { getAlarm } from '../store/notification';
 import { AlarmList } from '../store/temp/tempAlarmData';
 import AlarmModal from '../components/AlarmModal';
+import { kakaoAuthUrl} from '../env'
 
 const TopMenu = () => {
     const navigate = useNavigate();
@@ -61,7 +62,7 @@ const TopMenu = () => {
                         </button>
                     </div>
                 ) : (
-                    <a href={KAKAO_OAUTH_URL}>
+                    <a href={kakaoAuthUrl}>
                         <button className="light">로그인</button>
                     </a>
                 )}
