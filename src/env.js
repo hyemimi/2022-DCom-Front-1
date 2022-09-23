@@ -1,4 +1,4 @@
-export const kakaoAuthUrl = "https://kauth.kakao.com/oauth/authorize?client_id=0479a7dcff6f8c5692a91c16cc73977a&redirect_uri=http://localhost:3000/auth/kakao/callback&response_type=code"
+export const kakaoAuthUrl = "http://localhost:8080/oauth2/authorization/kakao?redirect_uri=http://localhost:8080/login/oauth2/code/kakao"
 
 /*
 const KAKAO_OAUTH_URL = () => {
