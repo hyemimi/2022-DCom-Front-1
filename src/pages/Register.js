@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import UserRegister from '../components/UserRegister';
 
 const SignUp = () => {
   
@@ -13,6 +14,7 @@ const SignUp = () => {
         <button className="signUpBtn">
           회원가입
         </button>
+        <UserRegister></UserRegister>
       </div>
     </>
     );
