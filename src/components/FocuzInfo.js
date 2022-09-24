@@ -18,7 +18,7 @@ const Info = () => {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <Button btn color="#b22222">
-                        Stopn
+                        Stop
                     </Button>
                     <div style={{ fontSize: '20px', margin: '20px' }}>
                         잠시 멈출 수 있습니다. (시간은 리셋되지 않습니다)
