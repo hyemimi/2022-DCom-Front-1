@@ -9,7 +9,7 @@ const AlarmList = ({ alarm }) => {
                 color="black"
                 style={{ flexDirection: 'row' }}
             >
-                ({alarm.created.slice(0, 10)}) {alarm.message}
+                ({alarm.created?.slice(0, 10)}) {alarm.message}
             </Box>
         </div>
     );
