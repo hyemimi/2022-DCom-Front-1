@@ -15,7 +15,7 @@ const SearchGroup = () => {
         fetchAllGroupList().then((res) => {
             console.log(res);
             setAllGroupList(res.data);
-            setSearchedGroupList(res.data);
+
         });
     }, []);
 

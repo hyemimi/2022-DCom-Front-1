@@ -26,6 +26,7 @@ const NewGroup = () => {
     const onSubmit = (e) => {
         if ((inputs.name.length >= 2) && (inputs.description.length >= 2)) {
              e.preventDefault();          
+             createGroup(inputs);
              alert('그룹 생성이 완료되었습니다!');
              setInputs({name: '',
              description: ''})
