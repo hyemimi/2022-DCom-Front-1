@@ -1,6 +1,5 @@
 // GroupItem은 그룹별 프로필과 같다고 보면 된다. 그룹 리스트를 나열할 때 컴포넌트로 사용될 예정
 import React, { useEffect, useState, useRef, useContext } from 'react';
-import GroupQuitButton from './GroupQuitButton';
 import styled from 'styled-components';
 import { useAuth } from '../Context/auth';
 import { useNavigate } from 'react-router-dom';
@@ -15,7 +14,7 @@ function GroupItem({ id, name, leader, members, buttontext }) {
             <div>{name}</div>
             <div>{leader}님의 스터디그룹</div>
             <div style={{ display: 'flex' }}>
-                <GroupQuitButton id={id} text={buttontext}></GroupQuitButton>
+
                 {members[0].id === auth.user?.id && (
                     <button
                         onClick={() => {
