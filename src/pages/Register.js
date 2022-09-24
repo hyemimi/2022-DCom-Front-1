@@ -2,6 +2,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { getCurrentUserInfo } from '../store/user';
 import { registerUser } from '../store/user';
+import { frontUrl } from '../env';
 import axios from 'axios';
 import UserRegister from '../components/UserRegister';
 import { Link } from 'react-router-dom';
@@ -30,26 +31,24 @@ const SignUp = () => {
       }
   };
 
-  const onSubmit = (e) => {        
-          //registerUser(inputs);
-          console.log(inputs);
-          const params = useParams();
-          const [cookies, setCookie] = useCookies(['id']);
+  const onSubmit = async (e) => {        
+      //registerUser(inputs);
+      console.log(inputs);
 
-          axios
-            .post('http://localhost:8080/user/register', {
-                motto: inputs.motto,
-                nickname: inputs.nickname,
-            })
-            .then(function (response) {
-                getCurrentUserInfo().then((r) => console.log(r.data));
-                setCookie('token', response.data.token)
-                return response.data;                
-            })
-            .catch(function (error) {
-                // 오류발생시 실행
-            });
-           alert('회원가입이 완료되었습니다!');
+      try {
+        const res = await axios.post('http://localhost:8080/user/register', {
+          motto: inputs.motto,
+          nickname: inputs.nickname,
+        }, {
+          withCredentials: true
+        })
+
+        alert("회원가입에 성공하였습니다!")
+        window.location.href = `${frontUrl}`
+
+      } catch (error) {
+        alert('잘못된 요청입니다.');
+      }
   }
   
     // useEffect(() => {
