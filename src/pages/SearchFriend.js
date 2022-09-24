@@ -8,15 +8,14 @@ import logo from '../Layout/image/FOCUZ.png';
 const SearchFriend = () => {
     // App.js에서 주입(Provide)한 context정보 받아오기
     // @ts-ignore
-    const [allUserList, setAllUserList] = useState([]); 
+    const [allUserList, setAllUserList] = useState([]);
     const [searchUserList, setSearchedUserList] = useState([]);
     const [searchText, setSearchText] = useState('');
 
     // 모든 유저 정보 API Call
     useEffect(() => {
         fetchAllUserList().then((res) => {
-            setAllUserList(res.data);
-            setSearchedUserList(res.data);
+            setAllUserList(res.data.content);
         });
     }, []);
 
