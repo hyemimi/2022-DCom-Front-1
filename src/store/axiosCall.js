@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 export const getAxios = (endPoint, data = {}, config = {}) =>
     axios({
         url: `http://localhost:8080${endPoint}`,
