@@ -6,8 +6,7 @@ import { useAuth } from '../Context/auth';
 import { useNavigate } from 'react-router-dom';
 import {sendGroupRequest} from '../store/group'
 
-function SearchGroupItem({ group }) {
-    const {id, name, users} = group
+function SearchGroupItem({ name, description }) {
 
     const onClick = async () => {
     if (confirm('그룹에 참여하시겠습니까?')) {
@@ -20,7 +19,7 @@ function SearchGroupItem({ group }) {
     return (
         <Box>
             <div>{name}</div>
-            <div>{users[0].nickname}님의 스터디그룹</div>
+            <div>{description}</div>
             <div style={{ display: 'flex' }}>
             <button onClick={onClick}>그룹 참여</button>
             </div>

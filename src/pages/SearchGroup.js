@@ -13,12 +13,11 @@ const SearchGroup = () => {
 
     useEffect(() => {
         fetchAllGroupList().then((res) => {
-            console.log(res);
-            setAllGroupList(res.data);
-
+            console.log(res.data.content);
+            setAllGroupList(res.data.content);
         });
     }, []);
-
+    console.log(allGroupList)
     useEffect(() => {
         const filteredGroup = allGroupList.filter((group) => {{
                 return group?.name?.includes(searchText);
@@ -44,15 +43,16 @@ const SearchGroup = () => {
                 onKeyPress={onPressEnter}
                 onClick={onSearch}
             />
-            {searchedGroupList.length === 0 ? (
+            {allGroupList.length === 0 ? (
                 <div> 표시할 그룹이 없습니다 </div>
             ) : (
                 <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                    {searchedGroupList &&
-                        searchedGroupList.map((group) => (
+                    {allGroupList &&
+                        allGroupList.map((group) => (
                             <SearchGroupItem
                                 key={group.id}
-                                group={group}
+                                name={group.name}
+                                description={group.description}
                                 buttontext="탈퇴하기"
                             />
                         ))}
