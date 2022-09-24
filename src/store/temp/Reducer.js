@@ -5,7 +5,7 @@ import axios from 'axios';
 const asyncUpFetch = createAsyncThunk('userSlice/asyncUpFetch', async () => {
     let userData;
     await axios({
-        url: 'http://focuz.justkode.kr:8080/user/1',
+        url: 'http://localhost:8080/user/1',
         method: 'get',
         data: {},
     }).then((r) => (userData = r.data));

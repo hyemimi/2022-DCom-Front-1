@@ -58,7 +58,7 @@ const UserRecord = () => {
         //   setTotalTime(0);
         //   console.log(totalTime);
         //
-       axios.get('http://focuz-api.justkode.kr/study/search', {
+       axios.get('http://localhost:8080/study/search', {
         params: {
             endDate: endTime,
             startDate: startTime
