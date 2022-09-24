@@ -6,8 +6,7 @@ import RequestUserProfile from '../components/RequestUserProfile';
 const BlockedFriends = () => {
     const [BlockedList, setBlockedList] = useState([]);
     useEffect(() => {
-        getBlockedFriendList()
-            .then((r) => setBlockedList(r.data))
+        getBlockedFriendList().then((r) => setBlockedList(r.data.content));
     }, []);
     return (
         <PageDiv>

@@ -52,13 +52,13 @@ const RequestFriend = () => {
                 'https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202105/16/23714614-36d1-4059-9692-b7bfd973d1a7.jpg',
         },
     ];
-    const [allRequest, setAllRequest] = useState();
+    const [allRequest, setAllRequest] = useState([]);
     useEffect(() => {
         // 모든 친구요청 API CALL
         fetchAllRequest()
             .then((res) => {
-                console.log('all requests', res.data);
-                setAllRequest(res.data);
+                console.log('all requests', res.data.content);
+                setAllRequest(res.data.content);
             })
             //추후 지우기 dummy
             .catch(setAllRequest(requestfriendummylist));
