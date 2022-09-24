@@ -7,7 +7,9 @@ import styled from 'styled-components';
 import { PageDiv } from '../components/Styled/PageDiv';
 
 const Friends = () => {
-    const [allFriendsList, setAllFriendsList] = useState();
+    const auth = useContext(AuthContext);
+    const friends = auth.user.friends;
+    const [allFriendsList, setAllFriendsList] = useState(friends);
 
     useEffect(() => {
         getFriendList().then((res) => {
