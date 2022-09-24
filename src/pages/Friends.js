@@ -8,12 +8,13 @@ import { PageDiv } from '../components/Styled/PageDiv';
 
 const Friends = () => {
     const auth = useContext(AuthContext);
-    const friends = auth.user.friends;
-    const [allFriendsList, setAllFriendsList] = useState(friends);
+
+    const [allFriendsList, setAllFriendsList] = useState([]);
 
     useEffect(() => {
         getFriendList().then((res) => {
-            setAllFriendsList(res.data);
+            console.log(res.data.content);
+            setAllFriendsList(res.data.content);
         });
     }, []);
 
