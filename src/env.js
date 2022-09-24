@@ -1,5 +1,6 @@
 export const kakaoAuthUrl = "http://localhost:8080/oauth2/authorization/kakao?redirect_uri=http://localhost:8080/login/oauth2/code/kakao"
 export const frontUrl = "http://localhost:3000/"
+
 /*
 const KAKAO_OAUTH_URL = () => {
     const console = require("better-console");
