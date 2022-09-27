@@ -1,0 +1,22 @@
+version: '3.1'
+services:
+  mysql:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: focuz
+      MYSQL_ROOT_PASSWORD: focuz
+      MYSQL_USER: focuz
+      MYSQL_PASSWORD: focuz
+    platform: linux/x86_64
+  redis:
+    image: redis:alpine
+    command: redis-server --port 6379  # 실제 배포시 비밀번호 사용
+    labels:
+      - "name=redis"
+      - "mode=standalone"
+    ports:
+      - "6379:6379"
