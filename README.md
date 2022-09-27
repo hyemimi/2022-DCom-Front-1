@@ -69,7 +69,16 @@
    ```
 3. 실행하기<br>
    ```npm start```
-4. url 검색<br>
+4. 로컬 서버를 위한 설치<br>
+   ```도커, 자바 설치```
+5. 로컬 서버 실행<br>
+```bash
+docker-compose up -d
+```
+```bash
+java -jar api-0.0.1-SNAPSHOT.jar
+```
+6. url 검색<br>
    localhost:8080/
 
 # 💨 Page
