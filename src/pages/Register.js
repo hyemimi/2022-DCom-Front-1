@@ -7,8 +7,6 @@ import UserRegister from '../components/UserRegister';
 import { Link } from 'react-router-dom';
 import { Box } from '../components/Styled/Box';
 import { BasicInput, TextareaInput } from '../components/Styled/Input';
-import { useParams } from 'react-router-dom';
-import { useCookies } from 'react-cookie';
 import { PageDiv } from '../components/Styled/PageDiv';
 
 const SignUp = () => {
