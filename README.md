@@ -100,7 +100,7 @@ java -jar api-0.0.1-SNAPSHOT.jar
 <h5>공부하러가기</h5>
 <img src="https://user-images.githubusercontent.com/103382269/190842596-8c39ba37-b9bb-421f-bc52-5ea982231d8f.PNG" width="500"></img>
 <h5>구현 영상확인</h5>
-<img src=""></img>
+<img src="https://user-images.githubusercontent.com/103382269/193439572-c7b14646-154b-4b97-83b9-a2c7b7d23492.gif"></img>
 </div>
 
 # 💨 Architecture
